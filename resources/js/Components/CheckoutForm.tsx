@@ -62,7 +62,7 @@ export default function CheckoutForm({ submitData, room_id }: Props) {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: `http://unilinkers.test/rooms/${room_id}/checkout/payment`,
+                return_url: `http://localhost/rooms/${room_id}/checkout/payment`,
             },
         });
 

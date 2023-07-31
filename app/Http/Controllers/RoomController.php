@@ -31,7 +31,7 @@ class RoomController extends Controller
                 if ($link['url'] === null) {
                     return $link;
                 }
-                $link['url'] = str_replace('https://api.dev-housemates.io/api', 'http://unilinkers.test', $link['url']);
+                $link['url'] = str_replace('https://api.dev-housemates.io/api', 'http://localhost', $link['url']);
                 return $link;
             })->toArray();
 
@@ -39,7 +39,7 @@ class RoomController extends Controller
                 if ($link === null) {
                     return [$key => $link];
                 }
-                 $link = str_replace('https://api.dev-housemates.io/api', 'http://unilinkers.test', $link);
+                 $link = str_replace('https://api.dev-housemates.io/api', 'http://localhost', $link);
                 return [$key => $link];
             })->toArray();
 
