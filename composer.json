@@ -7,13 +7,13 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
+        "housemates/connect-api": "^0.1.0",
         "inertiajs/inertia-laravel": "^0.6.8",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^3.2",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "tightenco/ziggy": "^1.0",
-        "housemates/connect-api": "dev-development"
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -52,12 +52,6 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "~/Packages/connect-php-sdk"
-        }
-    ],
     "extra": {
         "laravel": {
             "dont-discover": []

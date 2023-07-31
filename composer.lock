@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "644ce59046f85be1adac9629e45e8996",
+    "content-hash": "5a41fd49aa8916e59a88500e5ef8eb13",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1080,11 +1080,17 @@
         },
         {
             "name": "housemates/connect-api",
-            "version": "dev-development",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Housemates-Team/connect-api-php-sdk.git",
+                "reference": "b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda"
+            },
             "dist": {
-                "type": "path",
-                "url": "/Users/ali/Packages/connect-php-sdk",
-                "reference": "c96d356915a5697ab035307da6c1a57e329e4276"
+                "type": "zip",
+                "url": "https://api.github.com/repos/Housemates-Team/connect-api-php-sdk/zipball/b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda",
+                "reference": "b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -1096,27 +1102,15 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Housemates\\ConnectApi\\": "src",
-                    "OpenAPI\\Client\\": "codegen/"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
-            },
-            "autoload-dev": {
+                ],
                 "psr-4": {
-                    "Housemates\\ConnectApi\\Tests\\": "tests"
+                    "OpenAPI\\Client\\": "codegen/",
+                    "Housemates\\ConnectApi\\": "src"
                 }
             },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1133,9 +1127,11 @@
                 "connect-api",
                 "housemates"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/Housemates-Team/connect-api-php-sdk/issues",
+                "source": "https://github.com/Housemates-Team/connect-api-php-sdk/tree/0.1"
+            },
+            "time": "2023-07-30T04:16:43+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",
@@ -9527,9 +9523,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "housemates/connect-api": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
