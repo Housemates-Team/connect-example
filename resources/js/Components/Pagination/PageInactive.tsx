@@ -1,7 +1,7 @@
 import React from 'react';
-import { PageLink as PageLinkProps } from '@/types';
 import classNames from 'classnames';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import { PageLink as PageLinkProps } from '@/types';
 
 const PageInactive = ({ label }: Pick<PageLinkProps, 'label'>) => {
   const className = classNames(

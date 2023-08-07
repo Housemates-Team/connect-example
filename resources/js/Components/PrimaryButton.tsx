@@ -6,10 +6,7 @@ type Props = React.DetailedHTMLProps<
   HTMLButtonElement
 >;
 
-export default function PrimaryButton({
-  children,
-  ...props
-}: PropsWithChildren<Props>) {
+export default function PrimaryButton({ children, ...props }: PropsWithChildren<Props>) {
   return (
     <button
       {...props}

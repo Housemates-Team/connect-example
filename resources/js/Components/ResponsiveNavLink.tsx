@@ -26,9 +26,7 @@ export default function ResponsiveNavLink({
   return (
     <div>
       {'as' in props && props.as === 'button' ? (
-        <button className={classNames('w-full text-left', classes)}>
-          {children}
-        </button>
+        <button className={classNames('w-full text-left', classes)}>{children}</button>
       ) : (
         <Link href={href || ''} className={classes}>
           {children}

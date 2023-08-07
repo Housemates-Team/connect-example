@@ -58,9 +58,7 @@ export default function TwoFactorChallenge() {
               type="text"
               className="mt-1 block w-full"
               value={form.data.recovery_code}
-              onChange={e =>
-                form.setData('recovery_code', e.currentTarget.value)
-              }
+              onChange={(e) => form.setData('recovery_code', e.currentTarget.value)}
               ref={recoveryCodeRef}
               autoComplete="one-time-code"
             />
@@ -75,7 +73,7 @@ export default function TwoFactorChallenge() {
               inputMode="numeric"
               className="mt-1 block w-full"
               value={form.data.code}
-              onChange={e => form.setData('code', e.currentTarget.value)}
+              onChange={(e) => form.setData('code', e.currentTarget.value)}
               autoFocus
               autoComplete="one-time-code"
               ref={codeRef}

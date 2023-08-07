@@ -39,10 +39,8 @@ export default function APITokenManager({
   });
   const deleteApiTokenForm = useForm({});
   const [displayingToken, setDisplayingToken] = useState(false);
-  const [managingPermissionsFor, setManagingPermissionsFor] =
-    useState<ApiToken | null>(null);
-  const [apiTokenBeingDeleted, setApiTokenBeingDeleted] =
-    useState<ApiToken | null>(null);
+  const [managingPermissionsFor, setManagingPermissionsFor] = useState<ApiToken | null>(null);
+  const [apiTokenBeingDeleted, setApiTokenBeingDeleted] = useState<ApiToken | null>(null);
   const page = useTypedPage();
 
   function createApiToken() {
@@ -64,14 +62,11 @@ export default function APITokenManager({
     if (!managingPermissionsFor) {
       return;
     }
-    updateApiTokenForm.put(
-      route('api-tokens.update', [managingPermissionsFor]),
-      {
-        preserveScroll: true,
-        preserveState: true,
-        onSuccess: () => setManagingPermissionsFor(null),
-      },
-    );
+    updateApiTokenForm.put(route('api-tokens.update', [managingPermissionsFor]), {
+      preserveScroll: true,
+      preserveState: true,
+      onSuccess: () => setManagingPermissionsFor(null),
+    });
   }
 
   function confirmApiTokenDeletion(token: ApiToken) {
@@ -82,14 +77,11 @@ export default function APITokenManager({
     if (!apiTokenBeingDeleted) {
       return;
     }
-    deleteApiTokenForm.delete(
-      route('api-tokens.destroy', [apiTokenBeingDeleted]),
-      {
-        preserveScroll: true,
-        preserveState: true,
-        onSuccess: () => setApiTokenBeingDeleted(null),
-      },
-    );
+    deleteApiTokenForm.delete(route('api-tokens.destroy', [apiTokenBeingDeleted]), {
+      preserveScroll: true,
+      preserveState: true,
+      onSuccess: () => setApiTokenBeingDeleted(null),
+    });
   }
 
   return (
@@ -103,10 +95,7 @@ export default function APITokenManager({
         }
         renderActions={() => (
           <>
-            <ActionMessage
-              on={createApiTokenForm.recentlySuccessful}
-              className="mr-3"
-            >
+            <ActionMessage on={createApiTokenForm.recentlySuccessful} className="mr-3">
               Created.
             </ActionMessage>
 
@@ -129,15 +118,10 @@ export default function APITokenManager({
             type="text"
             className="mt-1 block w-full"
             value={createApiTokenForm.data.name}
-            onChange={e =>
-              createApiTokenForm.setData('name', e.currentTarget.value)
-            }
+            onChange={(e) => createApiTokenForm.setData('name', e.currentTarget.value)}
             autoFocus
           />
-          <InputError
-            message={createApiTokenForm.errors.name}
-            className="mt-2"
-          />
+          <InputError message={createApiTokenForm.errors.name} className="mt-2" />
         </div>
 
         {/* <!-- Token Permissions --> */}
@@ -146,24 +130,18 @@ export default function APITokenManager({
             <InputLabel htmlFor="permissions">Permissions</InputLabel>
 
             <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {availablePermissions.map(permission => (
+              {availablePermissions.map((permission) => (
                 <div key={permission}>
                   <label className="flex items-center">
                     <Checkbox
                       value={permission}
-                      checked={createApiTokenForm.data.permissions.includes(
-                        permission,
-                      )}
-                      onChange={e => {
-                        if (
-                          createApiTokenForm.data.permissions.includes(
-                            e.currentTarget.value,
-                          )
-                        ) {
+                      checked={createApiTokenForm.data.permissions.includes(permission)}
+                      onChange={(e) => {
+                        if (createApiTokenForm.data.permissions.includes(e.currentTarget.value)) {
                           createApiTokenForm.setData(
                             'permissions',
                             createApiTokenForm.data.permissions.filter(
-                              p => p !== e.currentTarget.value,
+                              (p) => p !== e.currentTarget.value,
                             ),
                           );
                         } else {
@@ -174,9 +152,7 @@ export default function APITokenManager({
                         }
                       }}
                     />
-                    <span className="ml-2 text-sm text-gray-600">
-                      {permission}
-                    </span>
+                    <span className="ml-2 text-sm text-gray-600">{permission}</span>
                   </label>
                 </div>
               ))}
@@ -199,20 +175,13 @@ export default function APITokenManager({
             >
               {/* <!-- API Token List --> */}
               <div className="space-y-6">
-                {tokens.map(token => (
-                  <div
-                    className="flex items-center justify-between"
-                    key={token.id}
-                  >
-                    <div className="break-all">
-                      {token.name}
-                    </div>
+                {tokens.map((token) => (
+                  <div className="flex items-center justify-between" key={token.id}>
+                    <div className="break-all">{token.name}</div>
 
                     <div className="flex items-center">
                       {token.last_used_ago && (
-                        <div className="text-sm text-gray-400">
-                          Last used {token.last_used_ago}
-                        </div>
+                        <div className="text-sm text-gray-400">Last used {token.last_used_ago}</div>
                       )}
 
                       {availablePermissions.length > 0 ? (
@@ -240,24 +209,16 @@ export default function APITokenManager({
       ) : null}
 
       {/* <!-- Token Value Modal --> */}
-      <DialogModal
-        isOpen={displayingToken}
-        onClose={() => setDisplayingToken(false)}
-      >
+      <DialogModal isOpen={displayingToken} onClose={() => setDisplayingToken(false)}>
         <DialogModal.Content title={'API Token'}>
-          <div>
-            Please copy your new API token. For your security, it won't be shown
-            again.
-          </div>
+          <div>Please copy your new API token. For your security, it won't be shown again.</div>
 
           <div className="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500">
             {page.props?.jetstream?.flash?.token}
           </div>
         </DialogModal.Content>
         <DialogModal.Footer>
-          <SecondaryButton onClick={() => setDisplayingToken(false)}>
-            Close
-          </SecondaryButton>
+          <SecondaryButton onClick={() => setDisplayingToken(false)}>Close</SecondaryButton>
         </DialogModal.Footer>
       </DialogModal>
 
@@ -268,24 +229,18 @@ export default function APITokenManager({
       >
         <DialogModal.Content title={'API Token Permissions'}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {availablePermissions.map(permission => (
+            {availablePermissions.map((permission) => (
               <div key={permission}>
                 <label className="flex items-center">
                   <Checkbox
                     value={permission}
-                    checked={updateApiTokenForm.data.permissions.includes(
-                      permission,
-                    )}
-                    onChange={e => {
-                      if (
-                        updateApiTokenForm.data.permissions.includes(
-                          e.currentTarget.value,
-                        )
-                      ) {
+                    checked={updateApiTokenForm.data.permissions.includes(permission)}
+                    onChange={(e) => {
+                      if (updateApiTokenForm.data.permissions.includes(e.currentTarget.value)) {
                         updateApiTokenForm.setData(
                           'permissions',
                           updateApiTokenForm.data.permissions.filter(
-                            p => p !== e.currentTarget.value,
+                            (p) => p !== e.currentTarget.value,
                           ),
                         );
                       } else {
@@ -296,18 +251,14 @@ export default function APITokenManager({
                       }
                     }}
                   />
-                  <span className="ml-2 text-sm text-gray-600">
-                    {permission}
-                  </span>
+                  <span className="ml-2 text-sm text-gray-600">{permission}</span>
                 </label>
               </div>
             ))}
           </div>
         </DialogModal.Content>
         <DialogModal.Footer>
-          <SecondaryButton onClick={() => setManagingPermissionsFor(null)}>
-            Cancel
-          </SecondaryButton>
+          <SecondaryButton onClick={() => setManagingPermissionsFor(null)}>Cancel</SecondaryButton>
 
           <PrimaryButton
             onClick={updateApiToken}
@@ -330,9 +281,7 @@ export default function APITokenManager({
           Are you sure you would like to delete this API token?
         </ConfirmationModal.Content>
         <ConfirmationModal.Footer>
-          <SecondaryButton onClick={() => setApiTokenBeingDeleted(null)}>
-            Cancel
-          </SecondaryButton>
+          <SecondaryButton onClick={() => setApiTokenBeingDeleted(null)}>Cancel</SecondaryButton>
 
           <DangerButton
             onClick={deleteApiToken}

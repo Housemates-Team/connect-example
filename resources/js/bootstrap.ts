@@ -11,8 +11,7 @@ window._ = _;
 
 (window as any).axios = axios;
 
-(window as any).axios.defaults.headers.common['X-Requested-With'] =
-  'XMLHttpRequest';
+(window as any).axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

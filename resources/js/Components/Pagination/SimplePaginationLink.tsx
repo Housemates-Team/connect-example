@@ -1,7 +1,7 @@
 import React from 'react';
-import { Nullable } from '@/types';
 import classNames from 'classnames';
 import { Link } from '@inertiajs/react';
+import { Nullable } from '@/types';
 
 interface Props {
   label: string;

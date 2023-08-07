@@ -24,15 +24,14 @@ export default function VerifyEmail({ status }: Props) {
       <Head title="Email Verification" />
 
       <div className="mb-4 text-sm text-gray-600">
-        Before continuing, could you verify your email address by clicking on
-        the link we just emailed to you? If you didn't receive the email, we
-        will gladly send you another.
+        Before continuing, could you verify your email address by clicking on the link we just
+        emailed to you? If you didn't receive the email, we will gladly send you another.
       </div>
 
       {verificationLinkSent && (
         <div className="mb-4 font-medium text-sm text-green-600">
-          A new verification link has been sent to the email address you
-          provided during registration.
+          A new verification link has been sent to the email address you provided during
+          registration.
         </div>
       )}
 

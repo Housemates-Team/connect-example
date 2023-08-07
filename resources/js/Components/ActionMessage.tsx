@@ -6,11 +6,7 @@ interface Props {
   className?: string;
 }
 
-export default function ActionMessage({
-  on,
-  className,
-  children,
-}: PropsWithChildren<Props>) {
+export default function ActionMessage({ on, className, children }: PropsWithChildren<Props>) {
   return (
     <div className={className}>
       <Transition
@@ -19,9 +15,7 @@ export default function ActionMessage({
         leave-from-class="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="text-sm text-gray-600">
-          {children}
-        </div>
+        <div className="text-sm text-gray-600">{children}</div>
       </Transition>
     </div>
   );

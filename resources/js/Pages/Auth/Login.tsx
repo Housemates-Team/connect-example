@@ -33,11 +33,7 @@ export default function Login({ canResetPassword, status }: Props) {
     <AuthenticationCard>
       <Head title="login" />
 
-      {status && (
-        <div className="mb-4 font-medium text-sm text-green-600">
-          {status}
-        </div>
-      )}
+      {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
       <form onSubmit={onSubmit}>
         <div>
@@ -47,7 +43,7 @@ export default function Login({ canResetPassword, status }: Props) {
             type="email"
             className="mt-1 block w-full"
             value={form.data.email}
-            onChange={e => form.setData('email', e.currentTarget.value)}
+            onChange={(e) => form.setData('email', e.currentTarget.value)}
             required
             autoFocus
           />
@@ -61,7 +57,7 @@ export default function Login({ canResetPassword, status }: Props) {
             type="password"
             className="mt-1 block w-full"
             value={form.data.password}
-            onChange={e => form.setData('password', e.currentTarget.value)}
+            onChange={(e) => form.setData('password', e.currentTarget.value)}
             required
             autoComplete="current-password"
           />
@@ -73,13 +69,9 @@ export default function Login({ canResetPassword, status }: Props) {
             <Checkbox
               name="remember"
               checked={form.data.remember === 'on'}
-              onChange={e =>
-                form.setData('remember', e.currentTarget.checked ? 'on' : '')
-              }
+              onChange={(e) => form.setData('remember', e.currentTarget.checked ? 'on' : '')}
             />
-            <span className="ml-2 text-sm text-gray-600">
-              Remember me
-            </span>
+            <span className="ml-2 text-sm text-gray-600">Remember me</span>
           </label>
         </div>
 

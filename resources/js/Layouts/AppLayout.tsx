@@ -17,15 +17,10 @@ interface Props {
   renderHeader?(): JSX.Element;
 }
 
-export default function AppLayout({
-  title,
-  renderHeader,
-  children,
-}: PropsWithChildren<Props>) {
+export default function AppLayout({ title, renderHeader, children }: PropsWithChildren<Props>) {
   const page = useTypedPage();
   const route = useRoute();
-  const [showingNavigationDropdown, setShowingNavigationDropdown] =
-    useState(false);
+  const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
   function switchToTeam(e: React.FormEvent, team: Team) {
     e.preventDefault();
@@ -66,10 +61,7 @@ export default function AppLayout({
 
                 {/* <!-- Navigation Links --> */}
                 <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                  <NavLink
-                    href={route('dashboard')}
-                    active={route().current('dashboard')}
-                  >
+                  <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                     Dashboard
                   </NavLink>
                 </div>
@@ -110,15 +102,11 @@ export default function AppLayout({
                         {/* <!-- Team Management --> */}
                         {page.props.jetstream.hasTeamFeatures ? (
                           <>
-                            <div className="block px-4 py-2 text-xs text-gray-400">
-                              Manage Team
-                            </div>
+                            <div className="block px-4 py-2 text-xs text-gray-400">Manage Team</div>
 
                             {/* <!-- Team Settings --> */}
                             <DropdownLink
-                              href={route('teams.show', [
-                                page.props.auth.user?.current_team!,
-                              ])}
+                              href={route('teams.show', [page.props.auth.user?.current_team!])}
                             >
                               Team Settings
                             </DropdownLink>
@@ -136,15 +124,11 @@ export default function AppLayout({
                               Switch Teams
                             </div>
 
-                            {page.props.auth.user?.all_teams?.map(team => (
-                              <form
-                                onSubmit={e => switchToTeam(e, team)}
-                                key={team.id}
-                              >
+                            {page.props.auth.user?.all_teams?.map((team) => (
+                              <form onSubmit={(e) => switchToTeam(e, team)} key={team.id}>
                                 <DropdownLink as="button">
                                   <div className="flex items-center">
-                                    {team.id ==
-                                      page.props.auth.user?.current_team_id && (
+                                    {team.id == page.props.auth.user?.current_team_id && (
                                       <svg
                                         className="mr-2 h-5 w-5 text-green-400"
                                         fill="none"
@@ -209,18 +193,12 @@ export default function AppLayout({
                     }
                   >
                     {/* <!-- Account Management --> */}
-                    <div className="block px-4 py-2 text-xs text-gray-400">
-                      Manage Account
-                    </div>
+                    <div className="block px-4 py-2 text-xs text-gray-400">Manage Account</div>
 
-                    <DropdownLink href={route('profile.show')}>
-                      Profile
-                    </DropdownLink>
+                    <DropdownLink href={route('profile.show')}>Profile</DropdownLink>
 
                     {page.props.jetstream.hasApiFeatures ? (
-                      <DropdownLink href={route('api-tokens.index')}>
-                        API Tokens
-                      </DropdownLink>
+                      <DropdownLink href={route('api-tokens.index')}>API Tokens</DropdownLink>
                     ) : null}
 
                     <div className="border-t border-gray-200"></div>
@@ -236,17 +214,10 @@ export default function AppLayout({
               {/* <!-- Hamburger --> */}
               <div className="-mr-2 flex items-center sm:hidden">
                 <button
-                  onClick={() =>
-                    setShowingNavigationDropdown(!showingNavigationDropdown)
-                  }
+                  onClick={() => setShowingNavigationDropdown(!showingNavigationDropdown)}
                   className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
                 >
-                  <svg
-                    className="h-6 w-6"
-                    stroke="currentColor"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path
                       className={classNames({
                         hidden: showingNavigationDropdown,
@@ -281,10 +252,7 @@ export default function AppLayout({
             })}
           >
             <div className="pt-2 pb-3 space-y-1">
-              <ResponsiveNavLink
-                href={route('dashboard')}
-                active={route().current('dashboard')}
-              >
+              <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                 Dashboard
               </ResponsiveNavLink>
             </div>
@@ -339,15 +307,11 @@ export default function AppLayout({
                   <>
                     <div className="border-t border-gray-200"></div>
 
-                    <div className="block px-4 py-2 text-xs text-gray-400">
-                      Manage Team
-                    </div>
+                    <div className="block px-4 py-2 text-xs text-gray-400">Manage Team</div>
 
                     {/* <!-- Team Settings --> */}
                     <ResponsiveNavLink
-                      href={route('teams.show', [
-                        page.props.auth.user?.current_team!,
-                      ])}
+                      href={route('teams.show', [page.props.auth.user?.current_team!])}
                       active={route().current('teams.show')}
                     >
                       Team Settings
@@ -365,15 +329,12 @@ export default function AppLayout({
                     <div className="border-t border-gray-200"></div>
 
                     {/* <!-- Team Switcher --> */}
-                    <div className="block px-4 py-2 text-xs text-gray-400">
-                      Switch Teams
-                    </div>
-                    {page.props.auth.user?.all_teams?.map(team => (
-                      <form onSubmit={e => switchToTeam(e, team)} key={team.id}>
+                    <div className="block px-4 py-2 text-xs text-gray-400">Switch Teams</div>
+                    {page.props.auth.user?.all_teams?.map((team) => (
+                      <form onSubmit={(e) => switchToTeam(e, team)} key={team.id}>
                         <ResponsiveNavLink as="button">
                           <div className="flex items-center">
-                            {team.id ==
-                              page.props.auth.user?.current_team_id && (
+                            {team.id == page.props.auth.user?.current_team_id && (
                               <svg
                                 className="mr-2 h-5 w-5 text-green-400"
                                 fill="none"
@@ -401,9 +362,7 @@ export default function AppLayout({
         {/* <!-- Page Heading --> */}
         {renderHeader ? (
           <header className="bg-white shadow">
-            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-              {renderHeader()}
-            </div>
+            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{renderHeader()}</div>
           </header>
         ) : null}
 

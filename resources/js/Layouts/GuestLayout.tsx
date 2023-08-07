@@ -17,11 +17,7 @@ interface Props {
   renderHeader?(): React.JSX.Element;
 }
 
-export default function GuestLayout({
-  title,
-  renderHeader,
-  children,
-}: PropsWithChildren<Props>) {
+export default function GuestLayout({ title, renderHeader, children }: PropsWithChildren<Props>) {
   const page = useTypedPage();
   const route = useRoute();
 
@@ -32,13 +28,10 @@ export default function GuestLayout({
       <Banner />
 
       <div className="min-h-screen bg-gray-100">
-
         {/* <!-- Page Heading --> */}
         {renderHeader ? (
           <header className="bg-white shadow">
-            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-              {renderHeader()}
-            </div>
+            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">{renderHeader()}</div>
           </header>
         ) : null}
 

@@ -32,7 +32,7 @@ export default function ConfirmsPassword({
   const passwordRef = useRef<HTMLInputElement>(null);
 
   function startConfirmingPassword() {
-    axios.get(route('password.confirmation')).then(response => {
+    axios.get(route('password.confirmation')).then((response) => {
       if (response.data.confirmed) {
         onConfirm();
       } else {
@@ -54,7 +54,7 @@ export default function ConfirmsPassword({
         closeModal();
         setTimeout(() => onConfirm(), 250);
       })
-      .catch(error => {
+      .catch((error) => {
         setForm({
           ...form,
           processing: false,
@@ -84,9 +84,7 @@ export default function ConfirmsPassword({
               className="mt-1 block w-3/4"
               placeholder="Password"
               value={form.password}
-              onChange={e =>
-                setForm({ ...form, password: e.currentTarget.value })
-              }
+              onChange={(e) => setForm({ ...form, password: e.currentTarget.value })}
             />
 
             <InputError message={form.error} className="mt-2" />

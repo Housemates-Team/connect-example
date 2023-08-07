@@ -14,19 +14,14 @@ interface Props {
   confirmsTwoFactorAuthentication: boolean;
 }
 
-export default function Show({
-  sessions,
-  confirmsTwoFactorAuthentication,
-}: Props) {
+export default function Show({ sessions, confirmsTwoFactorAuthentication }: Props) {
   const page = useTypedPage();
 
   return (
     <AppLayout
       title={'Profile'}
       renderHeader={() => (
-        <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-          Profile
-        </h2>
+        <h2 className="font-semibold text-xl text-gray-800 leading-tight">Profile</h2>
       )}
     >
       <div>
@@ -49,9 +44,7 @@ export default function Show({
 
           {page.props.jetstream.canManageTwoFactorAuthentication ? (
             <div className="mt-10 sm:mt-0">
-              <TwoFactorAuthenticationForm
-                requiresConfirmation={confirmsTwoFactorAuthentication}
-              />
+              <TwoFactorAuthenticationForm requiresConfirmation={confirmsTwoFactorAuthentication} />
 
               <SectionBorder />
             </div>

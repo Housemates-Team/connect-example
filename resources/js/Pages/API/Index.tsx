@@ -9,18 +9,12 @@ interface Props {
   defaultPermissions: string[];
 }
 
-export default function ApiTokenIndex({
-  tokens,
-  availablePermissions,
-  defaultPermissions,
-}: Props) {
+export default function ApiTokenIndex({ tokens, availablePermissions, defaultPermissions }: Props) {
   return (
     <AppLayout
       title={'API Tokens'}
       renderHeader={() => (
-        <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-          API Tokens
-        </h2>
+        <h2 className="font-semibold text-xl text-gray-800 leading-tight">API Tokens</h2>
       )}
     >
       <div>

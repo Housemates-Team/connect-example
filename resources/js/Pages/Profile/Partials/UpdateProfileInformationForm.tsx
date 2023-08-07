@@ -53,7 +53,7 @@ export default function UpdateProfileInformationForm({ user }: Props) {
 
     const reader = new FileReader();
 
-    reader.onload = e => {
+    reader.onload = (e) => {
       setPhotoPreview(e.target?.result as string);
     };
 
@@ -101,12 +101,7 @@ export default function UpdateProfileInformationForm({ user }: Props) {
       {page.props.jetstream.managesProfilePhotos ? (
         <div className="col-span-6 sm:col-span-4">
           {/* <!-- Profile Photo File Input --> */}
-          <input
-            type="file"
-            className="hidden"
-            ref={photoRef}
-            onChange={updatePhotoPreview}
-          />
+          <input type="file" className="hidden" ref={photoRef} onChange={updatePhotoPreview} />
 
           <InputLabel htmlFor="photo" value="Photo" />
 
@@ -134,20 +129,12 @@ export default function UpdateProfileInformationForm({ user }: Props) {
             </div>
           )}
 
-          <SecondaryButton
-            className="mt-2 mr-2"
-            type="button"
-            onClick={selectNewPhoto}
-          >
+          <SecondaryButton className="mt-2 mr-2" type="button" onClick={selectNewPhoto}>
             Select A New Photo
           </SecondaryButton>
 
           {user.profile_photo_path ? (
-            <SecondaryButton
-              type="button"
-              className="mt-2"
-              onClick={deletePhoto}
-            >
+            <SecondaryButton type="button" className="mt-2" onClick={deletePhoto}>
               Remove Photo
             </SecondaryButton>
           ) : null}
@@ -164,7 +151,7 @@ export default function UpdateProfileInformationForm({ user }: Props) {
           type="text"
           className="mt-1 block w-full"
           value={form.data.name}
-          onChange={e => form.setData('name', e.currentTarget.value)}
+          onChange={(e) => form.setData('name', e.currentTarget.value)}
           autoComplete="name"
         />
         <InputError message={form.errors.name} className="mt-2" />
@@ -178,12 +165,11 @@ export default function UpdateProfileInformationForm({ user }: Props) {
           type="email"
           className="mt-1 block w-full"
           value={form.data.email}
-          onChange={e => form.setData('email', e.currentTarget.value)}
+          onChange={(e) => form.setData('email', e.currentTarget.value)}
         />
         <InputError message={form.errors.email} className="mt-2" />
 
-        {page.props.jetstream.hasEmailVerification &&
-        user.email_verified_at === null ? (
+        {page.props.jetstream.hasEmailVerification && user.email_verified_at === null ? (
           <div>
             <p className="text-sm mt-2">
               Your email address is unverified.
@@ -192,7 +178,7 @@ export default function UpdateProfileInformationForm({ user }: Props) {
                 method="post"
                 as="button"
                 className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setVerificationLinkSent(true);
                 }}

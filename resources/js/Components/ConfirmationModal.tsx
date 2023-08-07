@@ -25,13 +25,9 @@ ConfirmationModal.Content = function ConfirmationModalContent({
         </div>
 
         <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-          <h3 className="text-lg font-medium text-gray-900">
-            {title}
-          </h3>
+          <h3 className="text-lg font-medium text-gray-900">{title}</h3>
 
-          <div className="mt-4 text-sm text-gray-600">
-            {children}
-          </div>
+          <div className="mt-4 text-sm text-gray-600">{children}</div>
         </div>
       </div>
     </div>
@@ -41,16 +37,9 @@ ConfirmationModal.Content = function ConfirmationModalContent({
 ConfirmationModal.Footer = function ConfirmationModalFooter({
   children,
 }: PropsWithChildren<Record<string, unknown>>) {
-  return (
-    <div className="px-6 py-4 bg-gray-100 text-right">
-      {children}
-    </div>
-  );
+  return <div className="px-6 py-4 bg-gray-100 text-right">{children}</div>;
 };
 
-export default function ConfirmationModal({
-  children,
-  ...props
-}: PropsWithChildren<ModalProps>) {
+export default function ConfirmationModal({ children, ...props }: PropsWithChildren<ModalProps>) {
   return <Modal {...props}>{children}</Modal>;
 }

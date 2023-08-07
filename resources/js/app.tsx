@@ -4,22 +4,18 @@ import '../css/app.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
-import { RouteContext } from '@/Hooks/useRoute';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { RouteContext } from '@/Hooks/useRoute';
 
-const appName =
-  window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
-  title: title => `${title} - ${appName}`,
+  title: (title) => `${title} - ${appName}`,
   progress: {
     color: '#4B5563',
   },
-  resolve: name =>
-    resolvePageComponent(
-      `./Pages/${name}.tsx`,
-      import.meta.glob('./Pages/**/*.tsx'),
-    ),
+  resolve: (name) =>
+    resolvePageComponent(`./Pages/${name}.tsx`, import.meta.glob('./Pages/**/*.tsx')),
   setup({ el, App, props }) {
     const root = createRoot(el);
     return root.render(

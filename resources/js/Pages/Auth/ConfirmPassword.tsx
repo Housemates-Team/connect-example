@@ -26,8 +26,7 @@ export default function ConfirmPassword() {
       <Head title="Secure Area" />
 
       <div className="mb-4 text-sm text-gray-600">
-        This is a secure area of the application. Please confirm your password
-        before continuing.
+        This is a secure area of the application. Please confirm your password before continuing.
       </div>
 
       <form onSubmit={onSubmit}>
@@ -38,7 +37,7 @@ export default function ConfirmPassword() {
             type="password"
             className="mt-1 block w-full"
             value={form.data.password}
-            onChange={e => form.setData('password', e.currentTarget.value)}
+            onChange={(e) => form.setData('password', e.currentTarget.value)}
             required
             autoComplete="current-password"
             autoFocus

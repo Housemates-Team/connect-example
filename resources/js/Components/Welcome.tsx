@@ -12,12 +12,11 @@ export default function Welcome() {
         </h1>
 
         <p className="mt-6 text-gray-500 leading-relaxed">
-          Laravel Jetstream provides a beautiful, robust starting point for your
-          next Laravel application. Laravel is designed to help you build your
-          application using a development environment that is simple, powerful,
-          and enjoyable. We believe you should love expressing your creativity
-          through programming, so we have spent time carefully crafting the
-          Laravel ecosystem to be a breath of fresh air. We hope you love it.
+          Laravel Jetstream provides a beautiful, robust starting point for your next Laravel
+          application. Laravel is designed to help you build your application using a development
+          environment that is simple, powerful, and enjoyable. We believe you should love expressing
+          your creativity through programming, so we have spent time carefully crafting the Laravel
+          ecosystem to be a breath of fresh air. We hope you love it.
         </p>
       </div>
 
@@ -43,10 +42,9 @@ export default function Welcome() {
           </div>
 
           <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laravel has wonderful documentation covering every aspect of the
-            framework. Whether you're new to the framework or have previous
-            experience, we recommend reading all of the documentation from
-            beginning to end.
+            Laravel has wonderful documentation covering every aspect of the framework. Whether
+            you're new to the framework or have previous experience, we recommend reading all of the
+            documentation from beginning to end.
           </p>
 
           <p className="mt-4 text-sm">
@@ -90,9 +88,9 @@ export default function Welcome() {
           </div>
 
           <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laracasts offers thousands of video tutorials on Laravel, PHP, and
-            JavaScript development. Check them out, see for yourself, and
-            massively level up your development skills in the process.
+            Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
+            development. Check them out, see for yourself, and massively level up your development
+            skills in the process.
           </p>
 
           <p className="mt-4 text-sm">
@@ -137,10 +135,9 @@ export default function Welcome() {
           </div>
 
           <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laravel Jetstream is built with Tailwind, an amazing utility first
-            CSS framework that doesn't get in your way. You'll be amazed how
-            easily you can build and maintain fresh, modern designs with this
-            wonderful framework at your fingertips.
+            Laravel Jetstream is built with Tailwind, an amazing utility first CSS framework that
+            doesn't get in your way. You'll be amazed how easily you can build and maintain fresh,
+            modern designs with this wonderful framework at your fingertips.
           </p>
         </div>
 
@@ -159,16 +156,13 @@ export default function Welcome() {
                 d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
               />
             </svg>
-            <h2 className="ml-3 text-xl font-semibold text-gray-900">
-              Authentication
-            </h2>
+            <h2 className="ml-3 text-xl font-semibold text-gray-900">Authentication</h2>
           </div>
 
           <p className="mt-4 text-gray-500 text-sm leading-relaxed">
-            Authentication and registration views are included with Laravel
-            Jetstream, as well as support for user email verification and
-            resetting forgotten passwords. So, you're free to get started with
-            what matters most: building your application.
+            Authentication and registration views are included with Laravel Jetstream, as well as
+            support for user email verification and resetting forgotten passwords. So, you're free
+            to get started with what matters most: building your application.
           </p>
         </div>
       </div>

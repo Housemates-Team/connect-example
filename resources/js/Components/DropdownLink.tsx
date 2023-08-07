@@ -6,11 +6,7 @@ interface Props {
   href?: string;
 }
 
-export default function DropdownLink({
-  as,
-  href,
-  children,
-}: PropsWithChildren<Props>) {
+export default function DropdownLink({ as, href, children }: PropsWithChildren<Props>) {
   return (
     <div>
       {(() => {

@@ -24,7 +24,7 @@ export default function FormSection({
 
       <div className="mt-5 md:mt-0 md:col-span-2">
         <form
-          onSubmit={e => {
+          onSubmit={(e) => {
             e.preventDefault();
             onSubmit();
           }}
@@ -32,9 +32,7 @@ export default function FormSection({
           <div
             className={classNames(
               'px-4 py-5 bg-white sm:p-6 shadow',
-              hasActions
-                ? 'sm:rounded-tl-md sm:rounded-tr-md'
-                : 'sm:rounded-md',
+              hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md',
             )}
           >
             <div className="grid grid-cols-6 gap-6">{children}</div>

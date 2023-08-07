@@ -17,9 +17,7 @@ interface Props {
   requiresConfirmation: boolean;
 }
 
-export default function TwoFactorAuthenticationForm({
-  requiresConfirmation,
-}: Props) {
+export default function TwoFactorAuthenticationForm({ requiresConfirmation }: Props) {
   const page = useTypedPage();
   const [enabling, setEnabling] = useState(false);
   const [disabling, setDisabling] = useState(false);
@@ -30,8 +28,7 @@ export default function TwoFactorAuthenticationForm({
   const confirmationForm = useForm({
     code: '',
   });
-  const twoFactorEnabled =
-    !enabling && page.props?.auth?.user?.two_factor_enabled;
+  const twoFactorEnabled = !enabling && page.props?.auth?.user?.two_factor_enabled;
 
   function enableTwoFactorAuthentication() {
     setEnabling(true);
@@ -42,11 +39,7 @@ export default function TwoFactorAuthenticationForm({
       {
         preserveScroll: true,
         onSuccess() {
-          return Promise.all([
-            showQrCode(),
-            showSetupKey(),
-            showRecoveryCodes(),
-          ]);
+          return Promise.all([showQrCode(), showSetupKey(), showRecoveryCodes()]);
         },
         onFinish() {
           setEnabling(false);
@@ -57,7 +50,7 @@ export default function TwoFactorAuthenticationForm({
   }
 
   function showSetupKey() {
-    return axios.get('/user/two-factor-secret-key').then(response => {
+    return axios.get('/user/two-factor-secret-key').then((response) => {
       setSetupKey(response.data.secretKey);
     });
   }
@@ -76,13 +69,13 @@ export default function TwoFactorAuthenticationForm({
   }
 
   function showQrCode() {
-    return axios.get('/user/two-factor-qr-code').then(response => {
+    return axios.get('/user/two-factor-qr-code').then((response) => {
       setQrCode(response.data.svg);
     });
   }
 
   function showRecoveryCodes() {
-    return axios.get('/user/two-factor-recovery-codes').then(response => {
+    return axios.get('/user/two-factor-recovery-codes').then((response) => {
       setRecoveryCodes(response.data);
     });
   }
@@ -108,9 +101,7 @@ export default function TwoFactorAuthenticationForm({
   return (
     <ActionSection
       title={'Two Factor Authentication'}
-      description={
-        'Add additional security to your account using two factor authentication.'
-      }
+      description={'Add additional security to your account using two factor authentication.'}
     >
       {(() => {
         if (twoFactorEnabled && !confirming) {
@@ -136,9 +127,9 @@ export default function TwoFactorAuthenticationForm({
 
       <div className="mt-3 max-w-xl text-sm text-gray-600">
         <p>
-          When two factor authentication is enabled, you will be prompted for a
-          secure, random token during authentication. You may retrieve this
-          token from your phone's Google Authenticator application.
+          When two factor authentication is enabled, you will be prompted for a secure, random token
+          during authentication. You may retrieve this token from your phone's Google Authenticator
+          application.
         </p>
       </div>
 
@@ -149,32 +140,24 @@ export default function TwoFactorAuthenticationForm({
               <div className="mt-4 max-w-xl text-sm text-gray-600">
                 {confirming ? (
                   <p className="font-semibold">
-                    To finish enabling two factor authentication, scan the
-                    following QR code using your phone's authenticator
-                    application or enter the setup key and provide the generated
-                    OTP code.
+                    To finish enabling two factor authentication, scan the following QR code using
+                    your phone's authenticator application or enter the setup key and provide the
+                    generated OTP code.
                   </p>
                 ) : (
                   <p>
-                    Two factor authentication is now enabled. Scan the following
-                    QR code using your phone's authenticator application or
-                    enter the setup key.
+                    Two factor authentication is now enabled. Scan the following QR code using your
+                    phone's authenticator application or enter the setup key.
                   </p>
                 )}
               </div>
 
-              <div
-                className="mt-4"
-                dangerouslySetInnerHTML={{ __html: qrCode || '' }}
-              />
+              <div className="mt-4" dangerouslySetInnerHTML={{ __html: qrCode || '' }} />
 
               {setupKey && (
                 <div className="mt-4 max-w-xl text-sm text-gray-600">
                   <p className="font-semibold">
-                    Setup Key:{' '}
-                    <span
-                      dangerouslySetInnerHTML={{ __html: setupKey || '' }}
-                    />
+                    Setup Key: <span dangerouslySetInnerHTML={{ __html: setupKey || '' }} />
                   </p>
                 </div>
               )}
@@ -192,15 +175,10 @@ export default function TwoFactorAuthenticationForm({
                     autoFocus={true}
                     autoComplete="one-time-code"
                     value={confirmationForm.data.code}
-                    onChange={e =>
-                      confirmationForm.setData('code', e.currentTarget.value)
-                    }
+                    onChange={(e) => confirmationForm.setData('code', e.currentTarget.value)}
                   />
 
-                  <InputError
-                    message={confirmationForm.errors.code}
-                    className="mt-2"
-                  />
+                  <InputError message={confirmationForm.errors.code} className="mt-2" />
                 </div>
               )}
             </div>
@@ -210,14 +188,13 @@ export default function TwoFactorAuthenticationForm({
             <div>
               <div className="mt-4 max-w-xl text-sm text-gray-600">
                 <p className="font-semibold">
-                  Store these recovery codes in a secure password manager. They
-                  can be used to recover access to your account if your two
-                  factor authentication device is lost.
+                  Store these recovery codes in a secure password manager. They can be used to
+                  recover access to your account if your two factor authentication device is lost.
                 </p>
               </div>
 
               <div className="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
-                {recoveryCodes.map(code => (
+                {recoveryCodes.map((code) => (
                   <div key={code}>{code}</div>
                 ))}
               </div>
@@ -241,16 +218,12 @@ export default function TwoFactorAuthenticationForm({
             ) : null}
             {recoveryCodes.length > 0 && !confirming ? (
               <ConfirmsPassword onConfirm={regenerateRecoveryCodes}>
-                <SecondaryButton className="mr-3">
-                  Regenerate Recovery Codes
-                </SecondaryButton>
+                <SecondaryButton className="mr-3">Regenerate Recovery Codes</SecondaryButton>
               </ConfirmsPassword>
             ) : null}
             {recoveryCodes.length === 0 && !confirming ? (
               <ConfirmsPassword onConfirm={showRecoveryCodes}>
-                <SecondaryButton className="mr-3">
-                  Show Recovery Codes
-                </SecondaryButton>
+                <SecondaryButton className="mr-3">Show Recovery Codes</SecondaryButton>
               </ConfirmsPassword>
             ) : null}
 

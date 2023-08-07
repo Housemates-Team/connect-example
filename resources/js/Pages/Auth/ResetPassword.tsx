@@ -41,7 +41,7 @@ export default function ResetPassword({ token, email }: Props) {
             type="email"
             className="mt-1 block w-full"
             value={form.data.email}
-            onChange={e => form.setData('email', e.currentTarget.value)}
+            onChange={(e) => form.setData('email', e.currentTarget.value)}
             required
             autoFocus
           />
@@ -55,7 +55,7 @@ export default function ResetPassword({ token, email }: Props) {
             type="password"
             className="mt-1 block w-full"
             value={form.data.password}
-            onChange={e => form.setData('password', e.currentTarget.value)}
+            onChange={(e) => form.setData('password', e.currentTarget.value)}
             required
             autoComplete="new-password"
           />
@@ -63,24 +63,17 @@ export default function ResetPassword({ token, email }: Props) {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password_confirmation">
-            Confirm Password
-          </InputLabel>
+          <InputLabel htmlFor="password_confirmation">Confirm Password</InputLabel>
           <TextInput
             id="password_confirmation"
             type="password"
             className="mt-1 block w-full"
             value={form.data.password_confirmation}
-            onChange={e =>
-              form.setData('password_confirmation', e.currentTarget.value)
-            }
+            onChange={(e) => form.setData('password_confirmation', e.currentTarget.value)}
             required
             autoComplete="new-password"
           />
-          <InputError
-            className="mt-2"
-            message={form.errors.password_confirmation}
-          />
+          <InputError className="mt-2" message={form.errors.password_confirmation} />
         </div>
 
         <div className="flex items-center justify-end mt-4">

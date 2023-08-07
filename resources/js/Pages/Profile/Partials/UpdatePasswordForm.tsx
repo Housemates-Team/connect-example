@@ -42,9 +42,7 @@ export default function UpdatePasswordForm() {
     <FormSection
       onSubmit={updatePassword}
       title={'Update Password'}
-      description={
-        'Ensure your account is using a long, random password to stay secure.'
-      }
+      description={'Ensure your account is using a long, random password to stay secure.'}
       renderActions={() => (
         <>
           <ActionMessage on={form.recentlySuccessful} className="mr-3">
@@ -68,9 +66,7 @@ export default function UpdatePasswordForm() {
           className="mt-1 block w-full"
           ref={currentPasswordRef}
           value={form.data.current_password}
-          onChange={e =>
-            form.setData('current_password', e.currentTarget.value)
-          }
+          onChange={(e) => form.setData('current_password', e.currentTarget.value)}
           autoComplete="current-password"
         />
         <InputError message={form.errors.current_password} className="mt-2" />
@@ -83,7 +79,7 @@ export default function UpdatePasswordForm() {
           type="password"
           className="mt-1 block w-full"
           value={form.data.password}
-          onChange={e => form.setData('password', e.currentTarget.value)}
+          onChange={(e) => form.setData('password', e.currentTarget.value)}
           autoComplete="new-password"
           ref={passwordRef}
         />
@@ -91,23 +87,16 @@ export default function UpdatePasswordForm() {
       </div>
 
       <div className="col-span-6 sm:col-span-4">
-        <InputLabel htmlFor="password_confirmation">
-          Confirm Password
-        </InputLabel>
+        <InputLabel htmlFor="password_confirmation">Confirm Password</InputLabel>
         <TextInput
           id="password_confirmation"
           type="password"
           className="mt-1 block w-full"
           value={form.data.password_confirmation}
-          onChange={e =>
-            form.setData('password_confirmation', e.currentTarget.value)
-          }
+          onChange={(e) => form.setData('password_confirmation', e.currentTarget.value)}
           autoComplete="new-password"
         />
-        <InputError
-          message={form.errors.password_confirmation}
-          className="mt-2"
-        />
+        <InputError message={form.errors.password_confirmation} className="mt-2" />
       </div>
     </FormSection>
   );
