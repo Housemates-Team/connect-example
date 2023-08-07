@@ -3,11 +3,10 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { DynamicImage } from '@/types';
 
 type Props = {
-  room_name: string;
   images: DynamicImage[];
 };
 
-const BannerImages = ({ room_name, images }: Props) => {
+const BannerImages = ({ images }: Props) => {
   return (
     <div className="relative items-center flex">
       <div className="w-1/2 h-[25rem] cursor-pointer relative">

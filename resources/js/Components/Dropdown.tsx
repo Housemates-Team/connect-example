@@ -34,10 +34,13 @@ export default function Dropdown({
 
   return (
     <div className="relative">
-      <div onClick={() => setOpen(!open)}>{renderTrigger()}</div>
+      <button type="button" onClick={() => setOpen(!open)}>
+        {renderTrigger()}
+      </button>
 
       {/* <!-- Full Screen Dropdown Overlay --> */}
-      <div
+      <button
+        type="button"
         className="fixed inset-0 z-40"
         style={{ display: open ? 'block' : 'none' }}
         onClick={() => setOpen(false)}
@@ -53,7 +56,8 @@ export default function Dropdown({
         leaveTo="transform opacity-0 scale-95"
         className={'relative z-50'}
       >
-        <div
+        <button
+          type="button"
           className={classNames('absolute mt-2 rounded-md shadow-lg', widthClass, alignmentClasses)}
           onClick={() => setOpen(false)}
         >
@@ -62,7 +66,7 @@ export default function Dropdown({
           >
             {children}
           </div>
-        </div>
+        </button>
       </Transition>
     </div>
   );

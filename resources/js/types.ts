@@ -32,12 +32,13 @@ export interface Auth {
   >;
 }
 
-export type InertiaSharedProps<T = {}> = T & {
+export type InertiaSharedProps<T = Record<string, unknown>> = T & {
   jetstream: {
     canCreateTeams: boolean;
     canManageTwoFactorAuthentication: boolean;
     canUpdatePassword: boolean;
     canUpdateProfileInformation: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     flash: any;
     hasAccountDeletionFeatures: boolean;
     hasApiFeatures: boolean;
@@ -50,7 +51,9 @@ export type InertiaSharedProps<T = {}> = T & {
   rooms: RoomApiResponse;
   room: ShowRoomApiResponse;
   checkout: CheckoutApiResponse;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errorBags: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors: any;
 };
 
@@ -130,11 +133,6 @@ interface DataWithItems<T> {
 
 interface DataWithItem<T> {
   item: T;
-}
-
-interface ApiResponseCommon {
-  meta: Meta;
-  links: Links;
 }
 
 type DataResponse<T> = DataWithItems<T> | DataWithItem<T>;

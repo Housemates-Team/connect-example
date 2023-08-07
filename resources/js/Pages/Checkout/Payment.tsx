@@ -1,21 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { useForm } from '@inertiajs/react';
 import useTypedPage from '@/Hooks/useTypedPage';
 import GuestLayout from '@/Layouts/GuestLayout';
 import Stripe from '@/Components/Stripe';
-import useRoute from '@/Hooks/useRoute';
 
 const Payment = () => {
   const page = useTypedPage();
-  const route = useRoute();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkoutData: any = useReadLocalStorage('checkoutData');
-  const { room_id } = page.props;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { room_id } = page.props as any;
   const { formData, data } = checkoutData;
-  const { data: studentData, setData: setStudentData, post } = useForm({ ...formData, room_id });
+  const { post } = useForm({ ...formData, room_id });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (data: any) => {
-    post(`/rooms/${room_id}/checkout/confirm`, { ...setStudentData });
+    post(`/rooms/${room_id}/checkout/confirm`, { ...data });
   };
 
   return (

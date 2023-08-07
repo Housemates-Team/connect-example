@@ -72,7 +72,6 @@ export default function ConfirmsPassword({
   return (
     <span>
       <span onClick={startConfirmingPassword}>{children}</span>
-
       <DialogModal isOpen={confirmingPassword} onClose={closeModal}>
         <DialogModal.Content title={title}>
           {content}

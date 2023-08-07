@@ -40,6 +40,7 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/prop-types': 2, // force typing of components props.
+    'jsx-a11y/no-autofocus': 0,
     'import/order': [
       'error',
       {

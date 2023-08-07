@@ -1,21 +1,19 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { useForm } from '@inertiajs/react';
 import useTypedPage from '@/Hooks/useTypedPage';
 import GuestLayout from '@/Layouts/GuestLayout';
 import BannerImages from '@/Components/Room/BannerImages';
 import Amenity from '@/Components/Room/Amenity';
 import BookingPeriod from '@/Components/Room/BookingPeriod';
-import useRoute from '@/Hooks/useRoute';
 
+// eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
+
 const Show = () => {
   const page = useTypedPage();
-  const { user } = page.props.auth;
   const { room } = page.props;
   const { data } = room;
-  const route = useRoute();
   const amenities = data.item.amenities.general;
 
   return (
@@ -29,7 +27,7 @@ const Show = () => {
       )}
     >
       <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-        <BannerImages room_name={data.item.name} images={data.item.images} />
+        <BannerImages images={data.item.images} />
         <div className="flex justify-between mt-10">
           <div className="w-4/6">
             <div>

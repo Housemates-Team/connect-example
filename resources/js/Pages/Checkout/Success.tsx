@@ -2,12 +2,9 @@ import React from 'react';
 import { useWindowSize } from 'usehooks-ts';
 import Confetti from 'react-confetti';
 import GuestLayout from '@/Layouts/GuestLayout';
-import useTypedPage from '@/Hooks/useTypedPage';
 
 const Success = () => {
   const { width, height } = useWindowSize();
-  const page = useTypedPage();
-  const { room } = page.props;
 
   return (
     <GuestLayout

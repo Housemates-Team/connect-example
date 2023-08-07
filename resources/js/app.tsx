@@ -19,6 +19,7 @@ createInertiaApp({
   setup({ el, App, props }) {
     const root = createRoot(el);
     return root.render(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       <RouteContext.Provider value={(window as any).route}>
         <App {...props} />
       </RouteContext.Provider>,

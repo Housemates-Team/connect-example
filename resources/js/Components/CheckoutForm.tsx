@@ -8,16 +8,16 @@ import {
 import PrimaryButton from '@/Components/PrimaryButton';
 
 interface Props {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;
   room_id: string;
 }
 
+// TODO: what to to with message
 export default function CheckoutForm({ submitData, room_id }: Props) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [email, setEmail] = useState('ali@email.com');
-  const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -36,22 +36,23 @@ export default function CheckoutForm({ submitData, room_id }: Props) {
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent?.status as string) {
         case 'succeeded':
-          setMessage('Payment succeeded!');
+          //setMessage('Payment succeeded!');
           submitData(paymentIntent);
           break;
         case 'processing':
-          setMessage('Your payment is processing.');
+          //setMessage('Your payment is processing.');
           break;
         case 'requires_payment_method':
-          setMessage('Your payment was not successful, please try again.');
+          //setMessage('Your payment was not successful, please try again.');
           break;
         default:
-          setMessage('Something went wrong.');
+          //setMessage('Something went wrong.');
           break;
       }
     });
   }, [stripe]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -77,26 +78,26 @@ export default function CheckoutForm({ submitData, room_id }: Props) {
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
     if (error.type === 'card_error' || error.type === 'validation_error') {
-      setMessage(error?.message as string);
+      //setMessage(error?.message as string);
     } else {
-      setMessage('An unexpected error occurred.');
+      //setMessage('An unexpected error occurred.');
     }
 
     setIsLoading(false);
   };
 
   const paymentElementOptions = {
-    layout: 'tabs',
+    layout: 'tabs' as const,
   };
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"
-        onChange={(e) => {
-          if (e?.target) {
-            setEmail(e.target.value);
-          }
+        onChange={() => {
+          //if (e?.target) {
+          //setEmail(e.target.value);
+          //}
         }}
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} className={'mt-5'} />

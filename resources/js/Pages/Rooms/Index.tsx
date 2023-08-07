@@ -7,7 +7,6 @@ import Paginate from '@/Components/Paginate';
 
 const Welcome = () => {
   const page = useTypedPage();
-  const { user } = page.props.auth;
   const { rooms } = page.props;
   const { data } = rooms;
   const { items, meta, links } = data;

@@ -9,8 +9,10 @@ window._ = _;
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 (window as any).axios = axios;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 (window as any).axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**

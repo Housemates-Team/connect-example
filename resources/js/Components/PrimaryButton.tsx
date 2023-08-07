@@ -1,12 +1,16 @@
 import classNames from 'classnames';
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
-type Props = React.DetailedHTMLProps<
+type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >;
 
-export default function PrimaryButton({ children, ...props }: PropsWithChildren<Props>) {
+type PrimaryButtonProps = {
+  className?: string;
+} & ButtonProps;
+
+export default function PrimaryButton({ children, ...props }: PrimaryButtonProps) {
   return (
     <button
       {...props}

@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/20/solid';
+import React from 'react';
 import { router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
 import useTypedPage from '@/Hooks/useTypedPage';
 import GuestLayout from '@/Layouts/GuestLayout';
 import TextInput from '@/Components/TextInput';
-import CheckoutForm from '@/Components/CheckoutForm';
-import Stripe from '@/Components/Stripe';
 import PrimaryButton from '@/Components/PrimaryButton';
-import useRoute from '@/Hooks/useRoute';
 
 const gradeLevelOptions = [
   { label: 'Foundation', value: 'Foundation' },
@@ -35,12 +31,11 @@ const gradeLevelOptions = [
     value: 'Other',
   },
 ];
+
 const Create = () => {
   const page = useTypedPage();
-  const { user } = page.props.auth;
   const { data } = page.props.checkout;
   const { room_id } = page.props;
-  const route = useRoute();
   const { data: formData, setData: setFormData } = useForm({
     session_token: data.session_token,
     paying_in_instalments: true,
@@ -86,7 +81,8 @@ const Create = () => {
     data: data,
   });
 
-  const handleSubmit = (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setCheckoutData({
       ...checkoutData,
@@ -899,20 +895,6 @@ const Create = () => {
                 </div>
               </div>
             </div>
-
-            {/*<div className='grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3'>*/}
-            {/*    <div className='px-4 sm:px-0'>*/}
-            {/*        <h2 className='text-base font-semibold leading-7 text-gray-900'>Payment*/}
-            {/*            Information</h2>*/}
-            {/*        <p className='mt-1 text-sm leading-6 text-gray-600'>Make the required payment to complete reservation.</p>*/}
-            {/*    </div>*/}
-
-            {/*    <div className='bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2'>*/}
-            {/*        <div className='px-4 py-6 sm:p-8'>*/}
-            {/*            <Stripe data={data} />*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
 
             <div className={'flex justify-end pt-10'}>
               <PrimaryButton type="submit" className={'py-3 px-8'}>
