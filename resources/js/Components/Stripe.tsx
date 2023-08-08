@@ -17,7 +17,7 @@ interface Props {
   submitData: (data: any) => void;
   room_id: string;
 }
-export default function Stripe({ data, submitData, room_id }: Props) {
+export function Stripe({ data, submitData, room_id }: Props) {
   useEffect(() => {
     if (null === stripePromise) {
       stripePromise = loadStripe(data.stripe.public_key);

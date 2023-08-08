@@ -1,18 +1,18 @@
 import { useForm, Head } from '@inertiajs/react';
 import classNames from 'classnames';
 import React from 'react';
-import useRoute from '@/Hooks/useRoute';
-import AuthenticationCard from '@/Components/AuthenticationCard';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import InputError from '@/Components/InputError';
+import { useRoute } from '@/Hooks/useRoute';
+import { AuthenticationCard } from '@/Components/AuthenticationCard';
+import { InputLabel } from '@/Components/InputLabel';
+import { PrimaryButton } from '@/Components/PrimaryButton';
+import { TextInput } from '@/Components/TextInput';
+import { InputError } from '@/Components/InputError';
 
-interface Props {
+type ForgotPasswordProps = {
   status: string;
-}
+};
 
-export default function ForgotPassword({ status }: Props) {
+function ForgotPassword({ status }: ForgotPasswordProps) {
   const route = useRoute();
   const form = useForm({
     email: '',
@@ -61,3 +61,5 @@ export default function ForgotPassword({ status }: Props) {
     </AuthenticationCard>
   );
 }
+
+export default ForgotPassword;

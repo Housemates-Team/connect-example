@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWindowSize } from 'usehooks-ts';
 import Confetti from 'react-confetti';
-import GuestLayout from '@/Layouts/GuestLayout';
+import { GuestLayout } from '@/Layouts/GuestLayout';
 
 const Success = () => {
   const { width, height } = useWindowSize();

@@ -5,7 +5,7 @@ interface Props {
   className?: string;
 }
 
-export default function InputError({ message, className, children }: PropsWithChildren<Props>) {
+export function InputError({ message, className, children }: PropsWithChildren<Props>) {
   if (!message && !children) {
     return null;
   }

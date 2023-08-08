@@ -10,7 +10,7 @@ type SecondaryButtonProps = {
   className?: string;
 } & ButtonProps;
 
-export default function SecondaryButton({ children, ...props }: SecondaryButtonProps) {
+export function SecondaryButton({ children, ...props }: SecondaryButtonProps) {
   return (
     <button
       {...props}

@@ -1,7 +1,7 @@
 import React from 'react';
-import ApplicationLogo from '@/Components/ApplicationLogo';
+import { ApplicationLogo } from '@/Components/ApplicationLogo';
 
-export default function Welcome() {
+export function Welcome() {
   return (
     <div>
       <div className="p-6 lg:p-8 bg-white border-b border-gray-200">

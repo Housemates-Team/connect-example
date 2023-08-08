@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
 import React, { PropsWithChildren } from 'react';
-import Banner from '@/Components/Banner';
+import { Banner } from '@/Components/Banner';
 
 interface Props {
   title: string;
@@ -27,4 +27,4 @@ const GuestLayout = ({ title, renderHeader, children }: PropsWithChildren<Props>
   </div>
 );
 
-export default GuestLayout;
+export { GuestLayout };

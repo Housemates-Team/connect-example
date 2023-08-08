@@ -9,7 +9,7 @@ export interface ModalProps {
   maxWidth?: string;
 }
 
-export default function Modal({
+export function Modal({
   isOpen,
   onClose,
   maxWidth = '2xl',

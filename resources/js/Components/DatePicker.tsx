@@ -20,4 +20,4 @@ const MonthYearPicker = () => {
   );
 };
 
-export default MonthYearPicker;
+export { MonthYearPicker };

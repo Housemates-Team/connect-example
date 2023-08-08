@@ -8,4 +8,4 @@ const Amenity = ({ amenity }: Props) => {
   return <p className="bg-white rounded p-2 text-sm font-bold">{amenity.name}</p>;
 };
 
-export default Amenity;
+export { Amenity };

@@ -6,7 +6,7 @@ interface Props {
   className?: string;
 }
 
-export default function ActionMessage({ on, className, children }: PropsWithChildren<Props>) {
+export function ActionMessage({ on, className, children }: PropsWithChildren<Props>) {
   return (
     <div className={className}>
       <Transition

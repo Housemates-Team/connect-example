@@ -1,12 +1,12 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo';
+import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
 interface Props {
   policy: string;
 }
 
-export default function PrivacyPolicy({ policy }: Props) {
+function PrivacyPolicy({ policy }: Props) {
   return (
     <div>
       <Head title="Privacy Policy" />
@@ -28,3 +28,5 @@ export default function PrivacyPolicy({ policy }: Props) {
     </div>
   );
 }
+
+export default PrivacyPolicy;

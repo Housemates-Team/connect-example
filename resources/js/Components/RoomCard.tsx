@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import route from 'ziggy-js';
 import { Room } from '@/types';
-import PrimaryButton from '@/Components/PrimaryButton';
+import { PrimaryButton } from '@/Components/PrimaryButton';
 
 type Props = {
   room: Room;
@@ -57,4 +57,4 @@ const RoomCard = ({ room }: Props) => {
   );
 };
 
-export default RoomCard;
+export { RoomCard };

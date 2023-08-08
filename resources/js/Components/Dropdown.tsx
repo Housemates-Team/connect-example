@@ -9,7 +9,7 @@ interface Props {
   renderTrigger(): JSX.Element;
 }
 
-export default function Dropdown({
+export function Dropdown({
   align = 'right',
   width = '48',
   contentClasses = 'py-1 bg-white',

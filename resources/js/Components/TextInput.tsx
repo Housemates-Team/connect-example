@@ -10,7 +10,7 @@ type TextInputProps = {
   className?: string;
 } & InputProps;
 
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ className, ...props }: TextInputProps, ref) => (
     <input
       {...props}
@@ -24,5 +24,3 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
 );
 
 TextInput.displayName = 'TextInput';
-
-export default TextInput;

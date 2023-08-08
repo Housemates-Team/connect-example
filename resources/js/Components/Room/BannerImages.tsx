@@ -75,4 +75,4 @@ const BannerImages = ({ images }: Props) => {
   );
 };
 
-export default BannerImages;
+export { BannerImages };

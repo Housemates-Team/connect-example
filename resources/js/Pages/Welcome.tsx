@@ -1,9 +1,9 @@
 import React from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import { GuestLayout } from '@/Layouts/GuestLayout';
 
 const Welcome = () => (
   <GuestLayout
-    title={'Rooms'}
+    title="Rooms"
     renderHeader={() => (
       <div className="flex justify-between">
         <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>

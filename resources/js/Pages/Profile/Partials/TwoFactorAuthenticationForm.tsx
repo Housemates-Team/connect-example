@@ -3,21 +3,21 @@ import { useForm } from '@inertiajs/react';
 import axios from 'axios';
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import ActionSection from '@/Components/ActionSection';
-import ConfirmsPassword from '@/Components/ConfirmsPassword';
-import DangerButton from '@/Components/DangerButton';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import SecondaryButton from '@/Components/SecondaryButton';
-import TextInput from '@/Components/TextInput';
-import useTypedPage from '@/Hooks/useTypedPage';
+import { ActionSection } from '@/Components/ActionSection';
+import { ConfirmsPassword } from '@/Components/ConfirmsPassword';
+import { DangerButton } from '@/Components/DangerButton';
+import { InputError } from '@/Components/InputError';
+import { InputLabel } from '@/Components/InputLabel';
+import { PrimaryButton } from '@/Components/PrimaryButton';
+import { SecondaryButton } from '@/Components/SecondaryButton';
+import { TextInput } from '@/Components/TextInput';
+import { useTypedPage } from '@/Hooks/useTypedPage';
 
 interface Props {
   requiresConfirmation: boolean;
 }
 
-export default function TwoFactorAuthenticationForm({ requiresConfirmation }: Props) {
+export function TwoFactorAuthenticationForm({ requiresConfirmation }: Props) {
   const page = useTypedPage();
   const [enabling, setEnabling] = useState(false);
   const [disabling, setDisabling] = useState(false);

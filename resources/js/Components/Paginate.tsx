@@ -1,8 +1,8 @@
 import React from 'react';
 import { Links, Meta } from '@/types';
-import SimplePaginationLink from '@/Components/Pagination/SimplePaginationLink';
-import PaginationLink from '@/Components/Pagination/PaginationLink';
-import PageInactive from '@/Components/Pagination/PageInactive';
+import { SimplePaginationLink } from '@/Components/Pagination/SimplePaginationLink';
+import { PaginationLink } from '@/Components/Pagination/PaginationLink';
+import { PageInactive } from '@/Components/Pagination/PageInactive';
 
 interface Props {
   meta: Meta;
@@ -46,4 +46,4 @@ const Paginate = ({ meta, links }: Props) => {
   );
 };
 
-export default Paginate;
+export { Paginate };

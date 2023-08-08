@@ -1,21 +1,21 @@
 import { useForm } from '@inertiajs/react';
 import classNames from 'classnames';
 import React, { useRef, useState } from 'react';
-import useRoute from '@/Hooks/useRoute';
-import ActionMessage from '@/Components/ActionMessage';
-import ActionSection from '@/Components/ActionSection';
-import DialogModal from '@/Components/DialogModal';
-import InputError from '@/Components/InputError';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import SecondaryButton from '@/Components/SecondaryButton';
+import { useRoute } from '@/Hooks/useRoute';
+import { ActionMessage } from '@/Components/ActionMessage';
+import { ActionSection } from '@/Components/ActionSection';
+import { DialogModal } from '@/Components/DialogModal';
+import { InputError } from '@/Components/InputError';
+import { PrimaryButton } from '@/Components/PrimaryButton';
+import { TextInput } from '@/Components/TextInput';
+import { SecondaryButton } from '@/Components/SecondaryButton';
 import { Session } from '@/types';
 
 interface Props {
   sessions: Session[];
 }
 
-export default function LogoutOtherBrowserSessions({ sessions }: Props) {
+export function LogoutOtherBrowserSessions({ sessions }: Props) {
   const [confirmingLogout, setConfirmingLogout] = useState(false);
   const route = useRoute();
   const passwordRef = useRef<HTMLInputElement>(null);

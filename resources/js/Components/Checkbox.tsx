@@ -21,4 +21,4 @@ const Checkbox = (props: CheckboxProps) => (
   />
 );
 
-export default Checkbox;
+export { Checkbox };

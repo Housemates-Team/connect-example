@@ -1,10 +1,10 @@
 import React from 'react';
 import { router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
-import useTypedPage from '@/Hooks/useTypedPage';
-import GuestLayout from '@/Layouts/GuestLayout';
-import TextInput from '@/Components/TextInput';
-import PrimaryButton from '@/Components/PrimaryButton';
+import { useTypedPage } from '@/Hooks/useTypedPage';
+import { GuestLayout } from '@/Layouts/GuestLayout';
+import { TextInput } from '@/Components/TextInput';
+import { PrimaryButton } from '@/Components/PrimaryButton';
 
 const gradeLevelOptions = [
   { label: 'Foundation', value: 'Foundation' },

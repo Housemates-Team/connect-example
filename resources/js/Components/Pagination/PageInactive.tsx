@@ -18,4 +18,4 @@ const PageInactive = ({ label }: Pick<PageLinkProps, 'label'>) => {
   return <button className={className}>{linkIcon}</button>;
 };
 
-export default PageInactive;
+export { PageInactive };

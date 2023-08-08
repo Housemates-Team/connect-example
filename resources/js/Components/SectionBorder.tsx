@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SectionBorder() {
+export function SectionBorder() {
   return (
     <div className="hidden sm:block">
       <div className="py-8">

@@ -30,4 +30,4 @@ const PaginationLink = ({ active, label, url }: PageLink) => {
   );
 };
 
-export default PaginationLink;
+export { PaginationLink };

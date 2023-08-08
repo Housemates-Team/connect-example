@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { PropsWithChildren } from 'react';
-import SectionTitle from '@/Components/SectionTitle';
+import { SectionTitle } from '@/Components/SectionTitle';
 
 interface Props {
   title: string;
@@ -9,7 +9,7 @@ interface Props {
   onSubmit(): void;
 }
 
-export default function FormSection({
+export function FormSection({
   onSubmit,
   renderActions,
   title,

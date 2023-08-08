@@ -3,8 +3,8 @@ import { useForm } from '@inertiajs/react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { router } from '@inertiajs/core';
-import useRoute from '@/Hooks/useRoute';
-import PrimaryButton from '@/Components/PrimaryButton';
+import { useRoute } from '@/Hooks/useRoute';
+import { PrimaryButton } from '@/Components/PrimaryButton';
 import { BookingPeriod as BookingPeriodType } from '@/types';
 
 dayjs.extend(customParseFormat);
@@ -66,4 +66,4 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
   );
 };
 
-export default BookingPeriod;
+export { BookingPeriod };

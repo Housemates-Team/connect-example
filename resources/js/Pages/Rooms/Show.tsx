@@ -1,11 +1,11 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import useTypedPage from '@/Hooks/useTypedPage';
-import GuestLayout from '@/Layouts/GuestLayout';
-import BannerImages from '@/Components/Room/BannerImages';
-import Amenity from '@/Components/Room/Amenity';
-import BookingPeriod from '@/Components/Room/BookingPeriod';
+import { useTypedPage } from '@/Hooks/useTypedPage';
+import { GuestLayout } from '@/Layouts/GuestLayout';
+import { BannerImages } from '@/Components/Room/BannerImages';
+import { Amenity } from '@/Components/Room/Amenity';
+import { BookingPeriod } from '@/Components/Room/BookingPeriod';
 
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
@@ -18,7 +18,7 @@ const Show = () => {
 
   return (
     <GuestLayout
-      title={'Invitations'}
+      title="Invitations"
       renderHeader={() => (
         <div className="flex justify-between">
           <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>

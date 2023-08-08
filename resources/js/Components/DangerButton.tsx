@@ -6,7 +6,7 @@ type Props = React.DetailedHTMLProps<
   HTMLButtonElement
 >;
 
-export default function DangerButton({ children, ...props }: PropsWithChildren<Props>) {
+export function DangerButton({ children, ...props }: PropsWithChildren<Props>) {
   return (
     <button
       {...props}

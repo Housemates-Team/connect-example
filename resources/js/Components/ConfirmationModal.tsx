@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import Modal, { ModalProps } from '@/Components/Modal';
+import { Modal, ModalProps } from '@/Components/Modal';
 
 ConfirmationModal.Content = function ConfirmationModalContent({
   title,
@@ -40,6 +40,6 @@ ConfirmationModal.Footer = function ConfirmationModalFooter({
   return <div className="px-6 py-4 bg-gray-100 text-right">{children}</div>;
 };
 
-export default function ConfirmationModal({ children, ...props }: PropsWithChildren<ModalProps>) {
+export function ConfirmationModal({ children, ...props }: PropsWithChildren<ModalProps>) {
   return <Modal {...props}>{children}</Modal>;
 }

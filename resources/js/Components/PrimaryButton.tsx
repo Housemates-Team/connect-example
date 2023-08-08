@@ -10,7 +10,7 @@ type PrimaryButtonProps = {
   className?: string;
 } & ButtonProps;
 
-export default function PrimaryButton({ children, ...props }: PrimaryButtonProps) {
+export function PrimaryButton({ children, ...props }: PrimaryButtonProps) {
   return (
     <button
       {...props}

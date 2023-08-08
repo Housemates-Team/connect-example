@@ -29,4 +29,4 @@ const SimplePaginationLink = ({ label, url }: Props) => {
   );
 };
 
-export default SimplePaginationLink;
+export { SimplePaginationLink };

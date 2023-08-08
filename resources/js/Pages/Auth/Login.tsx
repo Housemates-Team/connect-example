@@ -1,20 +1,20 @@
 import { Link, useForm, Head } from '@inertiajs/react';
 import classNames from 'classnames';
 import React from 'react';
-import useRoute from '@/Hooks/useRoute';
-import AuthenticationCard from '@/Components/AuthenticationCard';
-import Checkbox from '@/Components/Checkbox';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import InputError from '@/Components/InputError';
+import { useRoute } from '@/Hooks/useRoute';
+import { AuthenticationCard } from '@/Components/AuthenticationCard';
+import { Checkbox } from '@/Components/Checkbox';
+import { InputLabel } from '@/Components/InputLabel';
+import { PrimaryButton } from '@/Components/PrimaryButton';
+import { TextInput } from '@/Components/TextInput';
+import { InputError } from '@/Components/InputError';
 
 interface Props {
   canResetPassword: boolean;
   status: string;
 }
 
-export default function Login({ canResetPassword, status }: Props) {
+function Login({ canResetPassword, status }: Props) {
   const route = useRoute();
   const form = useForm({
     email: '',
@@ -107,3 +107,5 @@ export default function Login({ canResetPassword, status }: Props) {
     </AuthenticationCard>
   );
 }
+
+export default Login;

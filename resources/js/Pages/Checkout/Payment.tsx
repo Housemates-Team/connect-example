@@ -1,9 +1,9 @@
 import React from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
 import { useForm } from '@inertiajs/react';
-import useTypedPage from '@/Hooks/useTypedPage';
-import GuestLayout from '@/Layouts/GuestLayout';
-import Stripe from '@/Components/Stripe';
+import { useTypedPage } from '@/Hooks/useTypedPage';
+import { GuestLayout } from '@/Layouts/GuestLayout';
+import { Stripe } from '@/Components/Stripe';
 
 const Payment = () => {
   const page = useTypedPage();

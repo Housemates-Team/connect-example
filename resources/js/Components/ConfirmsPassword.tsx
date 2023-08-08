@@ -1,12 +1,12 @@
 import axios from 'axios';
 import classNames from 'classnames';
 import React, { PropsWithChildren, useRef, useState } from 'react';
-import useRoute from '@/Hooks/useRoute';
-import DialogModal from '@/Components/DialogModal';
-import InputError from '@/Components/InputError';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import SecondaryButton from '@/Components/SecondaryButton';
+import { useRoute } from '@/Hooks/useRoute';
+import { DialogModal } from '@/Components/DialogModal';
+import { InputError } from '@/Components/InputError';
+import { PrimaryButton } from '@/Components/PrimaryButton';
+import { TextInput } from '@/Components/TextInput';
+import { SecondaryButton } from '@/Components/SecondaryButton';
 
 interface Props {
   title?: string;
@@ -15,7 +15,7 @@ interface Props {
   onConfirm(): void;
 }
 
-export default function ConfirmsPassword({
+export function ConfirmsPassword({
   title = 'Confirm Password',
   content = 'For your security, please confirm your password to continue.',
   button = 'Confirm',

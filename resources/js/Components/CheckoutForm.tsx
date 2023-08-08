@@ -5,7 +5,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import PrimaryButton from '@/Components/PrimaryButton';
+import { PrimaryButton } from '@/Components/PrimaryButton';
 
 interface Props {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,7 +14,7 @@ interface Props {
 }
 
 // TODO: what to to with message
-export default function CheckoutForm({ submitData, room_id }: Props) {
+export function CheckoutForm({ submitData, room_id }: Props) {
   const stripe = useStripe();
   const elements = useElements();
 

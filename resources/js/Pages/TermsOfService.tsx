@@ -1,12 +1,12 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo';
+import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
 interface Props {
   terms: string;
 }
 
-export default function TermsOfService({ terms }: Props) {
+export function TermsOfService({ terms }: Props) {
   return (
     <div className="font-sans text-gray-900 antialiased">
       <Head title="Terms of Service" />
@@ -26,3 +26,5 @@ export default function TermsOfService({ terms }: Props) {
     </div>
   );
 }
+
+export default TermsOfService;

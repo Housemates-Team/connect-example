@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import useTypedPage from '@/Hooks/useTypedPage';
+import { useTypedPage } from '@/Hooks/useTypedPage';
 
-export default function Banner() {
+export function Banner() {
   const [show, setShow] = useState(true);
   const { props } = useTypedPage();
   const style = props.jetstream.flash?.bannerStyle || 'success';

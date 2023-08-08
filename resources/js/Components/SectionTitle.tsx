@@ -5,7 +5,7 @@ interface Props {
   description: string;
 }
 
-export default function SectionTitle({ title, description }: Props) {
+export function SectionTitle({ title, description }: Props) {
   return (
     <div className="md:col-span-1">
       <div className="px-4 sm:px-0">

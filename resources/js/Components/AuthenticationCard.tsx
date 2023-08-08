@@ -1,9 +1,7 @@
 import React, { PropsWithChildren } from 'react';
-import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo';
+import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
-export default function AuthenticationCard({
-  children,
-}: PropsWithChildren<Record<string, unknown>>) {
+export function AuthenticationCard({ children }: PropsWithChildren<Record<string, unknown>>) {
   return (
     <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
       <div>

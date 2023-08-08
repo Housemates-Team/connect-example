@@ -1,11 +1,11 @@
 import React from 'react';
-import useTypedPage from '@/Hooks/useTypedPage';
-import GuestLayout from '@/Layouts/GuestLayout';
-import RoomCard from '@/Components/RoomCard';
-import MonthYearPicker from '@/Components/DatePicker';
-import Paginate from '@/Components/Paginate';
+import { useTypedPage } from '@/Hooks/useTypedPage';
+import { GuestLayout } from '@/Layouts/GuestLayout';
+import { RoomCard } from '@/Components/RoomCard';
+import { MonthYearPicker } from '@/Components/DatePicker';
+import { Paginate } from '@/Components/Paginate';
 
-const Welcome = () => {
+const Rooms = () => {
   const page = useTypedPage();
   const { rooms } = page.props;
   const { data } = rooms;
@@ -38,4 +38,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Rooms;
