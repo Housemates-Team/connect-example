@@ -1,10 +1,11 @@
 import React from 'react';
-import { router, useForm } from '@inertiajs/react';
+import { Head, router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { GuestLayout } from '@/Layouts/GuestLayout';
 import { TextInput } from '@/Components/TextInput';
 import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Banner } from '@/Components/Banner';
+import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 
 const gradeLevelOptions = [
   { label: 'Foundation', value: 'Foundation' },
@@ -94,15 +95,10 @@ const Create = () => {
   };
 
   return (
-    <GuestLayout
-      title={'Rooms'}
-      renderHeader={() => (
-        <div className="flex justify-between">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>
-          <p>Experts in student accommodation</p>
-        </div>
-      )}
-    >
+    <>
+      <Head title="Confirm payment" />
+      <Banner />
+      <HeaderNavigation />
       <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <div className="space-y-5 mt-10">
           <form className="space-y-10 divide-y divide-gray-900/10" onSubmit={handleSubmit}>
@@ -904,7 +900,7 @@ const Create = () => {
           </form>
         </div>
       </div>
-    </GuestLayout>
+    </>
   );
 };
 

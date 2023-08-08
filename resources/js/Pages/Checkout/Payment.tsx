@@ -1,9 +1,10 @@
 import React from 'react';
 import { useReadLocalStorage } from 'usehooks-ts';
-import { useForm } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { GuestLayout } from '@/Layouts/GuestLayout';
 import { Stripe } from '@/Components/Stripe';
+import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
+import { Banner } from '@/Components/Banner';
 
 const Payment = () => {
   const page = useTypedPage();
@@ -20,15 +21,10 @@ const Payment = () => {
   };
 
   return (
-    <GuestLayout
-      title={'Confirm payment'}
-      renderHeader={() => (
-        <div className="flex justify-between">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>
-          <p>Experts in student accommodation</p>
-        </div>
-      )}
-    >
+    <>
+      <Head title="Confirm payment" />
+      <Banner />
+      <HeaderNavigation />
       <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <div className="space-y-5 mt-10">
           <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
@@ -49,7 +45,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-    </GuestLayout>
+    </>
   );
 };
 

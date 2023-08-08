@@ -1,9 +1,11 @@
 import React from 'react';
+import { Head } from '@inertiajs/react';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { GuestLayout } from '@/Layouts/GuestLayout';
 import { RoomCard } from '@/Components/RoomCard';
 import { MonthYearPicker } from '@/Components/DatePicker';
 import { Paginate } from '@/Components/Paginate';
+import { Banner } from '@/Components/Banner';
+import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 
 const Rooms = () => {
   const page = useTypedPage();
@@ -13,15 +15,10 @@ const Rooms = () => {
   console.log(meta);
 
   return (
-    <GuestLayout
-      title={'Rooms'}
-      renderHeader={() => (
-        <div className="flex justify-between">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>
-          <p>Experts in student accommodation</p>
-        </div>
-      )}
-    >
+    <>
+      <Head title="Rooms" />
+      <Banner />
+      <HeaderNavigation />
       <div className="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
         <div>
           <MonthYearPicker />
@@ -34,7 +31,7 @@ const Rooms = () => {
 
         <Paginate meta={meta} links={links} />
       </div>
-    </GuestLayout>
+    </>
   );
 };
 

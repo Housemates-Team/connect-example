@@ -1,11 +1,13 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { Head } from '@inertiajs/react';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { GuestLayout } from '@/Layouts/GuestLayout';
 import { BannerImages } from '@/Components/Room/BannerImages';
 import { Amenity } from '@/Components/Room/Amenity';
 import { BookingPeriod } from '@/Components/Room/BookingPeriod';
+import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
+import { Banner } from '@/Components/Banner';
 
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
@@ -17,15 +19,10 @@ const Show = () => {
   const amenities = data.item.amenities.general;
 
   return (
-    <GuestLayout
-      title="Invitations"
-      renderHeader={() => (
-        <div className="flex justify-between">
-          <h2 className="font-semibold text-xl text-gray-800 leading-tight">Unlinkers</h2>
-          <p>Experts in student accommodation</p>
-        </div>
-      )}
-    >
+    <>
+      <Head title="Invitations" />
+      <Banner />
+      <HeaderNavigation />
       <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <BannerImages images={data.item.images} />
         <div className="flex justify-between mt-10">
@@ -75,7 +72,7 @@ const Show = () => {
           </div>
         </div>
       </div>
-    </GuestLayout>
+    </>
   );
 };
 
