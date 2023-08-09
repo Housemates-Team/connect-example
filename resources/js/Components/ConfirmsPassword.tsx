@@ -8,7 +8,7 @@ import { PrimaryButton } from '@/Components/PrimaryButton';
 import { TextInput } from '@/Components/TextInput';
 import { SecondaryButton } from '@/Components/SecondaryButton';
 
-interface Props {
+type Props = {
   title?: string;
   content?: string;
   button?: string;

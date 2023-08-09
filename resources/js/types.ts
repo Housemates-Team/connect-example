@@ -2,15 +2,15 @@ type DateTime = string;
 
 export type Nullable<T> = T | null;
 
-export interface Team {
+export type Team = {
   id: number;
   name: string;
   personal_team: boolean;
   created_at: DateTime;
   updated_at: DateTime;
-}
+};
 
-export interface User {
+export type User = {
   id: number;
   name: string;
   email: string;
@@ -21,16 +21,16 @@ export interface User {
   email_verified_at: Nullable<DateTime>;
   created_at: DateTime;
   updated_at: DateTime;
-}
+};
 
-export interface Auth {
+export type Auth = {
   user: Nullable<
     User & {
       all_teams?: Team[];
       current_team?: Team;
     }
   >;
-}
+};
 
 export type InertiaSharedProps<T = Record<string, unknown>> = T & {
   jetstream: {
@@ -57,7 +57,7 @@ export type InertiaSharedProps<T = Record<string, unknown>> = T & {
   errors: any;
 };
 
-export interface Session {
+export type Session = {
   id: number;
   ip_address: string;
   is_current_device: boolean;
@@ -67,54 +67,54 @@ export interface Session {
     browser: string;
   };
   last_active: DateTime;
-}
+};
 
-export interface ApiToken {
+export type ApiToken = {
   id: number;
   name: string;
   abilities: string[];
   last_used_ago: Nullable<DateTime>;
   created_at: DateTime;
   updated_at: DateTime;
-}
+};
 
-export interface JetstreamTeamPermissions {
+export type JetstreamTeamPermissions = {
   canAddTeamMembers: boolean;
   canDeleteTeam: boolean;
   canRemoveTeamMembers: boolean;
   canUpdateTeam: boolean;
-}
+};
 
-export interface Role {
+export type Role = {
   key: string;
   name: string;
   permissions: string[];
   description: string;
-}
+};
 
-export interface TeamInvitation {
+export type TeamInvitation = {
   id: number;
   team_id: number;
   email: string;
   role: Nullable<string>;
   created_at: DateTime;
   updated_at: DateTime;
-}
+};
 
-export interface Links {
+export type Links = {
   first: string;
   last: string;
   prev: string | null;
   next: string | null;
-}
+};
 
-export interface PageLink {
+export type PageLink = {
   url: string | null;
   label: string;
   active: boolean;
-}
+};
 
-export interface Meta {
+export type Meta = {
   current_page: number;
   from: number;
   last_page: number;
@@ -123,37 +123,37 @@ export interface Meta {
   per_page: number;
   to: number;
   total: number;
-}
+};
 
-interface DataWithItems<T> {
+type DataWithItems<T> = {
   items: T[];
   meta: Meta;
   links: Links;
-}
+};
 
-interface DataWithItem<T> {
+type DataWithItem<T> = {
   item: T;
-}
+};
 
 type DataResponse<T> = DataWithItems<T> | DataWithItem<T>;
 
-interface ApiResponse<T> {
+type ApiResponse<T> = {
   data: DataResponse<T>;
-}
+};
 
-interface ShowApiResponse<T> {
+type ShowApiResponse<T> = {
   data: DataWithItem<T>;
   code: number;
   locale: string;
   message: string;
   success: boolean;
-}
+};
 
-export interface ShowRoomApiResponse extends ShowApiResponse<Room> {
+export type ShowRoomApiResponse = ShowApiResponse<Room> & {
   data: DataWithItem<Room>;
-}
+};
 
-export interface Room {
+export type Room = {
   id: string;
   operator_id: string;
   name: string;
@@ -190,7 +190,7 @@ export interface Room {
   booking_periods: BookingPeriod[];
   universities: University[];
   _links: HateoasLink[];
-}
+};
 
 export type Amenity = {
   name: string;
@@ -234,20 +234,20 @@ type RoomImage = {
   small_plus: string;
 };
 
-interface HateoasLink {
+type HateoasLink = {
   href: string;
   rel: string;
   type: string;
-}
+};
 
-interface Address {
+type Address = {
   first_line: string;
   second_line: Nullable<string>;
   city: string;
   region: Nullable<string>;
   postcode: string;
   country: string;
-}
+};
 
 export type Checkout = {
   stripe: {
@@ -257,11 +257,11 @@ export type Checkout = {
   session_token: string;
 };
 
-interface RoomApiResponse extends ApiResponse<Room> {
+type RoomApiResponse = ApiResponse<Room> & {
   data: DataWithItems<Room>;
-}
+};
 
-interface CheckoutApiResponse {
+type CheckoutApiResponse = {
   data: {
     stripe: {
       public_key: string;
@@ -274,4 +274,4 @@ interface CheckoutApiResponse {
   locale: string;
   message: string;
   success: boolean;
-}
+};

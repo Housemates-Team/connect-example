@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import React, { PropsWithChildren, useState } from 'react';
 
-interface Props {
+type Props = {
   align?: string;
   width?: string | number;
   contentClasses?: string;

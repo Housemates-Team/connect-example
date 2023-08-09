@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Link } from '@inertiajs/react';
 import { Nullable } from '@/types';
 
-interface Props {
+type Props = {
   label: string;
   url: Nullable<string>;
 }

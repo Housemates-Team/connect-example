@@ -1,7 +1,7 @@
 import { Transition } from '@headlessui/react';
 import React, { PropsWithChildren } from 'react';
 
-interface Props {
+type Props = {
   on: boolean;
   className?: string;
 }

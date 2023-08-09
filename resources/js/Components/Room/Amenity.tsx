@@ -1,7 +1,7 @@
 import React from 'react';
 import { Amenity as AmenityType } from '@/types';
 
-interface Props {
+type Props = {
   amenity: AmenityType;
 }
 const Amenity = ({ amenity }: Props) => {

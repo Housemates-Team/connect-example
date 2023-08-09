@@ -9,7 +9,7 @@ import { BookingPeriod as BookingPeriodType } from '@/types';
 
 dayjs.extend(customParseFormat);
 
-interface Props {
+type Props = {
   room_id: string;
   period: BookingPeriodType;
   operator_id: string;

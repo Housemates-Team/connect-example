@@ -9,7 +9,7 @@ import { PrimaryButton } from '@/Components/PrimaryButton';
 import { TextInput } from '@/Components/TextInput';
 import { InputError } from '@/Components/InputError';
 
-interface Props {
+type Props = {
   canResetPassword: boolean;
   status: string;
 }

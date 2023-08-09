@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { PropsWithChildren } from 'react';
 import { SectionTitle } from '@/Components/SectionTitle';
 
-interface Props {
+type Props = {
   title: string;
   description: string;
   renderActions?(): JSX.Element;

@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import classNames from 'classnames';
 import React, { PropsWithChildren, Fragment } from 'react';
 
-export interface ModalProps {
+export type ModalProps = {
   isOpen: boolean;
   onClose(): void;
   maxWidth?: string;

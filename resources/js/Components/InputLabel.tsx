@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-interface Props {
+type Props = {
   value?: string;
   htmlFor?: string;
 }

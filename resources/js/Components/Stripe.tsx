@@ -11,7 +11,7 @@ import { CheckoutForm } from './CheckoutForm';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let stripePromise: any = null;
 
-interface Props {
+type Props = {
   data: Checkout;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;

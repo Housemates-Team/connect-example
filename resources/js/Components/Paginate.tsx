@@ -4,7 +4,7 @@ import { SimplePaginationLink } from '@/Components/Pagination/SimplePaginationLi
 import { PaginationLink } from '@/Components/Pagination/PaginationLink';
 import { PageInactive } from '@/Components/Pagination/PageInactive';
 
-interface Props {
+type Props = {
   meta: Meta;
   links: Links;
 }

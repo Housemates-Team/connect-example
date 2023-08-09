@@ -2,7 +2,7 @@ import React from 'react';
 import { Head } from '@inertiajs/react';
 import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
-interface Props {
+type Props = {
   policy: string;
 }
 

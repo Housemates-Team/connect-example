@@ -5,7 +5,7 @@ import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { PrimaryButton } from '@/Components/PrimaryButton';
 
-interface Props {
+type Props = {
   status: string;
 }
 

@@ -7,7 +7,7 @@ import {
 } from '@stripe/react-stripe-js';
 import { PrimaryButton } from '@/Components/PrimaryButton';
 
-interface Props {
+type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;
   room_id: string;
