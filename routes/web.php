@@ -1,14 +1,11 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome/index');
-});
-
+Route::get('/', HomeController::class)->name('home.index');
 Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
 Route::get('/rooms/{roomId}', [RoomController::class, 'show'])->name('rooms.show');
 Route::post('/rooms/{room_id}/checkout/init', function (Request $request, $room_id) {

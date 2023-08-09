@@ -4,13 +4,14 @@ import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
 import { Footer } from '@/Layouts/Footer';
 import { useTypedPage } from '@/Hooks/useTypedPage';
+import { SearchLocation } from '@/Components/CitySearchDropdown';
 import { Hero } from './Hero';
 import { CityGrid } from './CityGrid';
 
 const Welcome = () => {
   const page = useTypedPage();
 
-  console.info(page.props);
+  console.info(page.props.locations);
 
   return (
     <>
@@ -18,7 +19,7 @@ const Welcome = () => {
       <Banner />
       <HeaderNavigation />
       <main>
-        <Hero locations={[]} />
+        <Hero locations={page.props.locations as SearchLocation[]} />
         <CityGrid />
       </main>
       <Footer />

@@ -18,7 +18,7 @@ export const Hero = ({ locations }: HeroProps) => (
       <h1 className="text-4xl font-bold max-w-[500px]">
         Helping educate students across the globe
       </h1>
-      <CitySearchDropdown locations={locations} defaultLocations={getDefaultLocations()} />;
+      <CitySearchDropdown locations={locations} defaultLocations={getDefaultLocations()} />
     </div>
     <div className="w-[429px] h-[330px] bg-gray-100" />
   </div>
