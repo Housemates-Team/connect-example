@@ -13,7 +13,7 @@ type Props = {
   room_id: string;
   period: BookingPeriodType;
   operator_id: string;
-}
+};
 
 const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
   const route = useRoute();
@@ -44,11 +44,11 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
   return (
     <button
       type="button"
-      className="mt-5 py-3 px-5 rounded bg-gray-100 hover:bg-gray-50 cursor-pointer relative flex items-center justify-between"
+      className="mt-5 py-3 px-5 rounded gap-4 bg-gray-100 hover:bg-gray-50 cursor-pointer relative flex items-center justify-between"
       onClick={() => handleBookingPeriodClick()}
       key={period.id}
     >
-      <div>
+      <div className="text-left">
         <p className="font-bold text-gray-600">
           {bookingPeriodDuration(period.start_date, period.end_date)} Weeks
         </p>

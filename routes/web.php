@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\RoomController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home.index');
-Route::get('/rooms', [RoomController::class, 'index'])->name('rooms.index');
-Route::get('/rooms/{roomId}', [RoomController::class, 'show'])->name('rooms.show');
+Route::get('/city/{city_slug}', [ResultsController::class, 'city'])->name('results.city');
+Route::get('/university/{university_slug}', [ResultsController::class, 'university'])->name('results.university');
+Route::get('/room/{room_id}', ListingController::class)->name('listing');
 Route::post('/rooms/{room_id}/checkout/init', function (Request $request, $room_id) {
     $request->session()->put('checkout.room_id', $room_id);
     $request->session()->put('checkout.booking_period_id', $request->booking_period_id);

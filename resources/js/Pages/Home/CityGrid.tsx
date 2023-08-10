@@ -16,9 +16,13 @@ export const CityGrid = () => (
             'Dublin',
             'Sydney',
           ].map((cityName) => (
-            <div key={cityName} className="relative h-[140px] bg-gray-700 text-white ">
+            <a
+              key={cityName}
+              href={`/city/${cityName.toLowerCase()}`}
+              className="relative h-[140px] bg-gray-700 text-white "
+            >
               <p className="absolute left-4 bottom-4">{cityName}</p>
-            </div>
+            </a>
           )),
         )}
       </div>

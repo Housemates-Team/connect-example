@@ -8,11 +8,12 @@ import { Amenity } from '@/Components/Room/Amenity';
 import { BookingPeriod } from '@/Components/Room/BookingPeriod';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
+import { Footer } from '@/Layouts/Footer';
 
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
 
-const Show = () => {
+const Listing = () => {
   const page = useTypedPage();
   const { room } = page.props;
   const { data } = room;
@@ -72,8 +73,9 @@ const Show = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
 
-export default Show;
+export default Listing;

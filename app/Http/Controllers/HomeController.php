@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Exception;
 use Housemates\ConnectApi\ApiClient;
 use Housemates\ConnectApi\Filters\LocationFilter;
-use Illuminate\Http\Request;
 use OpenAPI\Client\ApiException;
 
 class HomeController extends Controller
@@ -16,7 +15,8 @@ class HomeController extends Controller
         /** @var ApiClient $apiClient */
         $apiClient = app('apiClient');
         $locations = [];
-        $filter = (new LocationFilter())->setPerPageFilter(10000);
+        $filter = new LocationFilter();
+        $filter->setPerPageFilter(10000);
 
         try {
             // Fetch all university locations

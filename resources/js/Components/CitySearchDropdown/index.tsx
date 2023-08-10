@@ -16,9 +16,15 @@ type CitySearchDropdownProps = {
   locations: SearchLocation[];
   // The dropdown is open by default with the given locations
   defaultLocations: SearchLocation[];
+
+  onSelect: (location: SearchLocation) => void;
 };
 
-export const CitySearchDropdown = ({ locations, defaultLocations }: CitySearchDropdownProps) => {
+export const CitySearchDropdown = ({
+  locations,
+  defaultLocations,
+  onSelect,
+}: CitySearchDropdownProps) => {
   const [hasText, setHasText] = useState(false);
 
   const shownLocations = hasText ? locations : defaultLocations;
@@ -30,6 +36,8 @@ export const CitySearchDropdown = ({ locations, defaultLocations }: CitySearchDr
     ],
     [shownLocations],
   );
+
+  const select = (location: SearchLocation) => () => onSelect(location);
 
   return (
     <div className="mt-4 h-[170px] w-full relative">
@@ -44,7 +52,11 @@ export const CitySearchDropdown = ({ locations, defaultLocations }: CitySearchDr
             {cities.length !== 0 && (
               <CommandGroup heading="Cities">
                 {cities?.map(({ name, slug }) => (
-                  <CommandItem value={slug} key={slug}>
+                  <CommandItem
+                    onSelect={select({ name, slug, type: 'city' })}
+                    value={slug}
+                    key={slug}
+                  >
                     <span>{name}</span>
                   </CommandItem>
                 ))}
@@ -55,7 +67,11 @@ export const CitySearchDropdown = ({ locations, defaultLocations }: CitySearchDr
                 <CommandSeparator />
                 <CommandGroup heading="Universities">
                   {universities.map(({ name, slug }) => (
-                    <CommandItem value={slug} key={slug}>
+                    <CommandItem
+                      onSelect={select({ name, slug, type: 'university' })}
+                      value={slug}
+                      key={slug}
+                    >
                       <span>{name}</span>
                     </CommandItem>
                   ))}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a41fd49aa8916e59a88500e5ef8eb13",
+    "content-hash": "dc3aeffd7bed624e836a9f20e636da8b",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1080,16 +1080,16 @@
         },
         {
             "name": "housemates/connect-api",
-            "version": "0.1",
+            "version": "0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Housemates-Team/connect-api-php-sdk.git",
-                "reference": "b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda"
+                "reference": "dd068699797880e77ce71d5552fd06d2bd0e313e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Housemates-Team/connect-api-php-sdk/zipball/b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda",
-                "reference": "b4f713ea7685a9b9fbc7de5d0b7ef223e23aadda",
+                "url": "https://api.github.com/repos/Housemates-Team/connect-api-php-sdk/zipball/dd068699797880e77ce71d5552fd06d2bd0e313e",
+                "reference": "dd068699797880e77ce71d5552fd06d2bd0e313e",
                 "shasum": ""
             },
             "require": {
@@ -1129,9 +1129,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Housemates-Team/connect-api-php-sdk/issues",
-                "source": "https://github.com/Housemates-Team/connect-api-php-sdk/tree/0.1"
+                "source": "https://github.com/Housemates-Team/connect-api-php-sdk/tree/0.2"
             },
-            "time": "2023-07-30T04:16:43+00:00"
+            "time": "2023-08-10T10:01:58+00:00"
         },
         {
             "name": "inertiajs/inertia-laravel",

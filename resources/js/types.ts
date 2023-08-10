@@ -115,14 +115,11 @@ export type PageLink = {
 };
 
 export type Meta = {
+  count: number;
   current_page: number;
-  from: number;
-  last_page: number;
-  links: PageLink[];
-  path: string;
   per_page: number;
-  to: number;
   total: number;
+  total_pages: number;
 };
 
 type DataWithItems<T> = {
