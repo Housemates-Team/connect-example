@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { createPortal } from 'react-dom';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, Fragment } from 'react';
 
 export type ModalProps = {
@@ -63,7 +63,7 @@ export function Modal({
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <div
-              className={classNames(
+              className={cn(
                 'inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-full',
                 maxWidthClass,
               )}

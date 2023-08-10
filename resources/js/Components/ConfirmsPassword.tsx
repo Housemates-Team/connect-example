@@ -1,5 +1,5 @@
 import axios from 'axios';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, useRef, useState } from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { DialogModal } from '@/Components/DialogModal';
@@ -94,7 +94,7 @@ export function ConfirmsPassword({
           <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
 
           <PrimaryButton
-            className={classNames('ml-2', { 'opacity-25': form.processing })}
+            className={cn('ml-2', { 'opacity-25': form.processing })}
             onClick={confirmPassword}
             disabled={form.processing}
           >

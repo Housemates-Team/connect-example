@@ -1,10 +1,10 @@
 import React from 'react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { PageLink as PageLinkProps } from '@/types';
 
 const PageInactive = ({ label }: Pick<PageLinkProps, 'label'>) => {
-  const className = classNames(
+  const className = cn(
     label === '&laquo; Previous' ? 'rounded-l-md' : 'rounded-r-md',
     'relative inline-flex items-center px-4 py-2 text-gray-500 bg-gray-200 cursor-not-allowed',
   );

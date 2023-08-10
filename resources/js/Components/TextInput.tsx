@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { forwardRef } from 'react';
 
 type InputProps = React.DetailedHTMLProps<
@@ -15,7 +15,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     <input
       {...props}
       ref={ref}
-      className={classNames(
+      className={cn(
         'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm',
         className,
       )}

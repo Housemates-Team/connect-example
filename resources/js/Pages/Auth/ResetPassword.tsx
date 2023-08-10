@@ -1,5 +1,5 @@
 import { useForm, Head } from '@inertiajs/react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
@@ -78,7 +78,7 @@ function ResetPassword({ token, email }: Props) {
 
         <div className="flex items-center justify-end mt-4">
           <PrimaryButton
-            className={classNames({ 'opacity-25': form.processing })}
+            className={cn({ 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Reset Password

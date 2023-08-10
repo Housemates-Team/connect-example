@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, useState } from 'react';
 
 type Props = {
@@ -58,11 +58,11 @@ export function Dropdown({
       >
         <button
           type="button"
-          className={classNames('absolute mt-2 rounded-md shadow-lg', widthClass, alignmentClasses)}
+          className={cn('absolute mt-2 rounded-md shadow-lg', widthClass, alignmentClasses)}
           onClick={() => setOpen(false)}
         >
           <div
-            className={classNames('rounded-md ring-1 ring-black ring-opacity-5', contentClasses)}
+            className={cn('rounded-md ring-1 ring-black ring-opacity-5', contentClasses)}
           >
             {children}
           </div>

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React from 'react';
 
 type InputProps = React.DetailedHTMLProps<
@@ -14,7 +14,7 @@ const Checkbox = (props: CheckboxProps) => (
   <input
     type="checkbox"
     {...props}
-    className={classNames(
+    className={cn(
       'rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500',
       props.className,
     )}

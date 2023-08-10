@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { PropsWithChildren } from 'react';
 
 type Props =
@@ -21,7 +21,7 @@ export function ResponsiveNavLink({ active, href, children, ...props }: PropsWit
   return (
     <div>
       {'as' in props && props.as === 'button' ? (
-        <button className={classNames('w-full text-left', classes)}>{children}</button>
+        <button className={cn('w-full text-left', classes)}>{children}</button>
       ) : (
         <Link href={href || ''} className={classes}>
           {children}

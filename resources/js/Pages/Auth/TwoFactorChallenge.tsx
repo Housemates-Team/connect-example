@@ -1,5 +1,5 @@
 import { useForm, Head } from '@inertiajs/react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { useRef, useState } from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
@@ -92,7 +92,7 @@ function TwoFactorChallenge() {
           </button>
 
           <PrimaryButton
-            className={classNames('ml-4', { 'opacity-25': form.processing })}
+            className={cn('ml-4', { 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Log in

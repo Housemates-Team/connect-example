@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React, { PropsWithChildren } from 'react';
 import { SectionTitle } from '@/Components/SectionTitle';
 
@@ -30,7 +30,7 @@ export function FormSection({
           }}
         >
           <div
-            className={classNames(
+            className={cn(
               'px-4 py-5 bg-white sm:p-6 shadow',
               hasActions ? 'sm:rounded-tl-md sm:rounded-tr-md' : 'sm:rounded-md',
             )}

@@ -1,5 +1,5 @@
 import { Link, useForm, Head } from '@inertiajs/react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import React from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
@@ -38,7 +38,7 @@ function VerifyEmail({ status }: Props) {
       <form onSubmit={onSubmit}>
         <div className="mt-4 flex items-center justify-between">
           <PrimaryButton
-            className={classNames({ 'opacity-25': form.processing })}
+            className={cn({ 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Resend Verification Email

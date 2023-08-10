@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import classNames from 'classnames';
+import { cn } from '@/lib/utils';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 
 export function Banner() {
@@ -13,7 +13,7 @@ export function Banner() {
     <div>
       {show && message ? (
         <div
-          className={classNames({
+          className={cn({
             'bg-indigo-500': style == 'success',
             'bg-red-700': style == 'danger',
           })}
@@ -22,7 +22,7 @@ export function Banner() {
             <div className="flex items-center justify-between flex-wrap">
               <div className="w-0 flex-1 flex items-center min-w-0">
                 <span
-                  className={classNames('flex p-2 rounded-lg', {
+                  className={cn('flex p-2 rounded-lg', {
                     'bg-indigo-600': style == 'success',
                     'bg-red-600': style == 'danger',
                   })}
@@ -75,7 +75,7 @@ export function Banner() {
               <div className="flex-shrink-0 sm:ml-3">
                 <button
                   type="button"
-                  className={classNames(
+                  className={cn(
                     '-mr-1 flex p-2 rounded-md focus:outline-none sm:-mr-2 transition',
                     {
                       'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success',
