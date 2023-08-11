@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 type PriceInputProps = {
   name: string;
-  label: string;
+  Label: string;
   value: number;
   classes?: {
     root?: string;
@@ -20,7 +20,7 @@ const UPPER_BOUNDARY = 1000;
 
 export const PriceInput = ({
   onChange,
-  label,
+  Label,
   minValue,
   maxValue,
   classes,
@@ -33,7 +33,7 @@ export const PriceInput = ({
 
   return (
     <div className={classes?.root}>
-      <p className="hm-body-sm mb-1">{label}</p>
+      <p className="hm-body-sm mb-1">{Label}</p>
       <div className={clsx('border border-wool flex', isErroneous && 'border-flamingo')}>
         <div className="px-2 py-2 hm-body-semi border-r border-wool bg-wool">{currencySymbol}</div>
         <input

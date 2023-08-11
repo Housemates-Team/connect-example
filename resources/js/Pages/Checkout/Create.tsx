@@ -2,33 +2,34 @@ import React from 'react';
 import { Head, router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { PrimaryButton } from '@/Components/PrimaryButton';
 import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
+import { Label } from '@/components/ui/label';
 
 const gradeLevelOptions = [
-  { label: 'Foundation', value: 'Foundation' },
-  { label: 'Undergraduate - First year', value: 'Undergraduate - First year' },
+  { Label: 'Foundation', value: 'Foundation' },
+  { Label: 'Undergraduate - First year', value: 'Undergraduate - First year' },
   {
-    label: 'Undergraduate - Second year',
+    Label: 'Undergraduate - Second year',
     value: 'Undergraduate - Second year',
   },
-  { label: 'Undergraduate - Third year', value: 'Undergraduate - Third year' },
+  { Label: 'Undergraduate - Third year', value: 'Undergraduate - Third year' },
   {
-    label: 'Undergraduate - Placement year',
+    Label: 'Undergraduate - Placement year',
     value: 'Undergraduate - Placement year',
   },
   {
-    label: 'Postgraduate - Masters',
+    Label: 'Postgraduate - Masters',
     value: 'Postgraduate - Masters',
   },
   {
-    label: 'Postgraduate - PhD',
+    Label: 'Postgraduate - PhD',
     value: 'Postgraduate - PhD',
   },
   {
-    label: 'Other',
+    Label: 'Other',
     value: 'Other',
   },
 ];
@@ -116,14 +117,14 @@ const Create = () => {
                 <div className="px-4 py-6 sm:p-8">
                   <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         First name
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="first-name"
                           id="first-name"
@@ -144,14 +145,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="last-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Last name
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="last-name"
                           id="last-name"
@@ -172,41 +173,34 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Email address
-                      </label>
-                      <div className="mt-2">
-                        <TextInput
-                          id="email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          className="block w-full rounded-md"
-                          value={formData.resident_details.email}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              resident_details: {
-                                ...formData.resident_details,
-                                email: e.target.value,
-                              },
-                            });
-                          }}
-                        />
-                      </div>
+                      <Label htmlFor="email">Email address</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        className="block w-full rounded-md"
+                        value={formData.resident_details.email}
+                        onChange={(e) => {
+                          setFormData({
+                            ...formData,
+                            resident_details: {
+                              ...formData.resident_details,
+                              email: e.target.value,
+                            },
+                          });
+                        }}
+                      />
                     </div>
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="contact_number"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Contact Number
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="contact_number"
                           name="contact_number"
                           type="text"
@@ -226,14 +220,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="date_of_birth"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Date of birth
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="contact_number"
                           name="contact_number"
                           type="text"
@@ -254,12 +248,12 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="nationality"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Nationality
-                      </label>
+                      </Label>
                       <div className="mt-2">
                         <select
                           id="nationality"
@@ -285,12 +279,12 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="gender"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Gender
-                      </label>
+                      </Label>
                       <div className="mt-2">
                         <select
                           id="gender"
@@ -316,12 +310,12 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="country"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Country of residence
-                      </label>
+                      </Label>
                       <div className="mt-2">
                         <select
                           id="country"
@@ -347,14 +341,14 @@ const Create = () => {
                     </div>
 
                     <div className="col-span-full">
-                      <label
+                      <Label
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Street address
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="street-address"
                           id="street-address"
@@ -375,14 +369,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2 sm:col-start-1">
-                      <label
+                      <Label
                         htmlFor="city"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         City
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="city"
                           id="city"
@@ -403,14 +397,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label
+                      <Label
                         htmlFor="region"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         State / Region
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="region"
                           id="region"
@@ -431,14 +425,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label
+                      <Label
                         htmlFor="postal-code"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         ZIP / Postal code
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="postal-code"
                           id="postal-code"
@@ -477,14 +471,14 @@ const Create = () => {
                 <div className="px-4 py-6 sm:p-8">
                   <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         First name
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="first-name"
                           id="first-name"
@@ -505,14 +499,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="last-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Last name
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="last-name"
                           id="last-name"
@@ -533,14 +527,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="email"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Email address
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="email"
                           name="email"
                           type="email"
@@ -560,14 +554,14 @@ const Create = () => {
                       </div>
                     </div>
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="contact_number"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Contact Number
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="contact_number"
                           name="contact_number"
                           type="text"
@@ -587,14 +581,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="date_of_birth"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Date of birth
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="contact_number"
                           name="contact_number"
                           type="text"
@@ -615,14 +609,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="nationality"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Relationship
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           id="contact_number"
                           name="contact_number"
                           type="text"
@@ -643,12 +637,12 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-4">
-                      <label
+                      <Label
                         htmlFor="country"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Country
-                      </label>
+                      </Label>
                       <div className="mt-2">
                         <select
                           id="country"
@@ -674,14 +668,14 @@ const Create = () => {
                     </div>
 
                     <div className="col-span-full">
-                      <label
+                      <Label
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Street address
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="street-address"
                           id="street-address"
@@ -702,14 +696,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2 sm:col-start-1">
-                      <label
+                      <Label
                         htmlFor="city"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         City
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="city"
                           id="city"
@@ -730,14 +724,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label
+                      <Label
                         htmlFor="region"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         State / Region
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="region"
                           id="region"
@@ -758,14 +752,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-2">
-                      <label
+                      <Label
                         htmlFor="postal-code"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         ZIP / Postal code
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="postal-code"
                           id="postal-code"
@@ -803,14 +797,14 @@ const Create = () => {
                 <div className="px-4 py-6 sm:p-8">
                   <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="university"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         University
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="university"
                           id="university"
@@ -830,14 +824,14 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label
+                      <Label
                         htmlFor="course_title"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Course Title
-                      </label>
+                      </Label>
                       <div className="mt-2">
-                        <TextInput
+                        <Input
                           type="text"
                           name="course_title"
                           id="course_title"
@@ -857,12 +851,12 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-4">
-                      <label
+                      <Label
                         htmlFor="year_of_study"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Year of study
-                      </label>
+                      </Label>
                       <div className="mt-2">
                         <select
                           id="year_of_study"
@@ -881,7 +875,7 @@ const Create = () => {
                         >
                           {gradeLevelOptions.map((option) => (
                             <option key={option.value} value={option.value}>
-                              {option.label}
+                              {option.Label}
                             </option>
                           ))}
                         </select>

@@ -110,7 +110,7 @@ export type Links = {
 
 export type PageLink = {
   url: string | null;
-  label: string;
+  Label: string;
   active: boolean;
 };
 
@@ -191,7 +191,7 @@ export type Room = {
 
 export type Amenity = {
   name: string;
-  label: string;
+  Label: string;
   status: boolean;
 };
 

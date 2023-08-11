@@ -10,16 +10,16 @@ export const HeaderNavigation = () => (
       </div>
       <nav className="flex items-center gap-6 text-sm font-medium pt-1">
         {[
-          { label: 'Documentation', href: '#' },
-          { label: 'Cities', href: '#' },
-          { label: 'About us', href: '#' },
-        ].map(({ label, href }) => (
+          { Label: 'Documentation', href: '#' },
+          { Label: 'Cities', href: '#' },
+          { Label: 'About us', href: '#' },
+        ].map(({ Label, href }) => (
           <a
-            key={label}
+            key={Label}
             className="transition-colors hover:text-gray-700 text-gray-500"
             href={href}
           >
-            {label}
+            {Label}
           </a>
         ))}
       </nav>

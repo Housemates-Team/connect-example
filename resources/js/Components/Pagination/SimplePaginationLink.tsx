@@ -2,12 +2,12 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 type Props = {
-  label: string;
+  Label: string;
   disabled: boolean;
   onClick: () => void;
 };
 
-const SimplePaginationLink = ({ label, disabled, onClick }: Props) => (
+const SimplePaginationLink = ({ Label, disabled, onClick }: Props) => (
   <button
     type="button"
     onClick={onClick}
@@ -18,7 +18,7 @@ const SimplePaginationLink = ({ label, disabled, onClick }: Props) => (
         : 'bg-gray-200 text-gray-500 cursor-not-allowed',
     )}
   >
-    {label}
+    {Label}
   </button>
 );
 

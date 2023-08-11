@@ -1,18 +1,18 @@
 import { Link, useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Checkbox } from '@/Components/Checkbox';
-import { InputLabel } from '@/Components/InputLabel';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
+import { Label } from '@/components/ui/label';
 
 type Props = {
   canResetPassword: boolean;
   status: string;
-}
+};
 
 function Login({ canResetPassword, status }: Props) {
   const route = useRoute();
@@ -37,8 +37,8 @@ function Login({ canResetPassword, status }: Props) {
 
       <form onSubmit={onSubmit}>
         <div>
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <TextInput
+          <Label htmlFor="email">Email</Label>
+          <Input
             id="email"
             type="email"
             className="mt-1 block w-full"
@@ -51,8 +51,8 @@ function Login({ canResetPassword, status }: Props) {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password">Password</Label>
+          <Input
             id="password"
             type="password"
             className="mt-1 block w-full"
@@ -65,14 +65,14 @@ function Login({ canResetPassword, status }: Props) {
         </div>
 
         <div className="mt-4">
-          <label className="flex items-center">
+          <Label className="flex items-center">
             <Checkbox
               name="remember"
               checked={form.data.remember === 'on'}
               onChange={(e) => form.setData('remember', e.currentTarget.checked ? 'on' : '')}
             />
             <span className="ml-2 text-sm text-gray-600">Remember me</span>
-          </label>
+          </Label>
         </div>
 
         <div className="flex flex-col space-y-2 md:flex-row md:items-center md:justify-between md:space-y-0 mt-4">

@@ -1,12 +1,12 @@
 import { useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { InputError } from '@/Components/InputError';
-import { InputLabel } from '@/Components/InputLabel';
+import { Label } from '@/components/ui/label';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 
 function ConfirmPassword() {
   const route = useRoute();
@@ -31,8 +31,8 @@ function ConfirmPassword() {
 
       <form onSubmit={onSubmit}>
         <div>
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password">Password</Label>
+          <Input
             id="password"
             type="password"
             className="mt-1 block w-full"

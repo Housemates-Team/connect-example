@@ -36,19 +36,19 @@ const Listing = () => {
               </p>
             </div>
             <div className="mt-10">
-              <h4 className="text-2xl font-extrabold uppercase">About the room</h4>
+              <h4 className="text-2xl font-extrabold">About the room</h4>
               <div
                 dangerouslySetInnerHTML={{ __html: data.item.rich_description }}
                 className="pt-5 max-w-[45rem]"
               />
             </div>
             <div className="mt-10">
-              <h4 className="text-2xl font-extrabold uppercase">Amenities</h4>
+              <h4 className="text-2xl font-extrabold">Amenities</h4>
               <div className="grid grid-cols-5 gap-4 pt-5">
                 {amenities.length > 0 &&
                   amenities.map(
                     (amenity) =>
-                      amenity.status && <Amenity amenity={amenity} key={amenity.label} />,
+                      amenity.status && <Amenity amenity={amenity} key={amenity.Label} />,
                   )}
               </div>
             </div>

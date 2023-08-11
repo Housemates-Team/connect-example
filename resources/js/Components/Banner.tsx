@@ -82,7 +82,7 @@ export function Banner() {
                       'hover:bg-red-600 focus:bg-red-600': style == 'danger',
                     },
                   )}
-                  aria-label="Dismiss"
+                  aria-Label="Dismiss"
                   onClick={(e) => {
                     e.preventDefault();
                     setShow(false);

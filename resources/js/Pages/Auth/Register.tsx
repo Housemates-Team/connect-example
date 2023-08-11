@@ -1,13 +1,13 @@
 import { Link, useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Checkbox } from '@/Components/Checkbox';
-import { InputLabel } from '@/Components/InputLabel';
+import { Label } from '@/components/ui/label';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
 function Register() {
@@ -34,8 +34,8 @@ function Register() {
 
       <form onSubmit={onSubmit}>
         <div>
-          <InputLabel htmlFor="name">Name</InputLabel>
-          <TextInput
+          <Label htmlFor="name">Name</Label>
+          <Input
             id="name"
             type="text"
             className="mt-1 block w-full"
@@ -49,8 +49,8 @@ function Register() {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <TextInput
+          <Label htmlFor="email">Email</Label>
+          <Input
             id="email"
             type="email"
             className="mt-1 block w-full"
@@ -62,8 +62,8 @@ function Register() {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password">Password</Label>
+          <Input
             id="password"
             type="password"
             className="mt-1 block w-full"
@@ -76,8 +76,8 @@ function Register() {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password_confirmation">Confirm Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password_confirmation">Confirm Password</Label>
+          <Input
             id="password_confirmation"
             type="password"
             className="mt-1 block w-full"
@@ -91,7 +91,7 @@ function Register() {
 
         {page.props.jetstream.hasTermsAndPrivacyPolicyFeature && (
           <div className="mt-4">
-            <InputLabel htmlFor="terms">
+            <Label htmlFor="terms">
               <div className="flex items-center">
                 <Checkbox
                   name="terms"
@@ -123,7 +123,7 @@ function Register() {
                 </div>
               </div>
               <InputError className="mt-2" message={form.errors.terms} />
-            </InputLabel>
+            </Label>
           </div>
         )}
 

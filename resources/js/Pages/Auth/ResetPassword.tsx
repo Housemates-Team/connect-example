@@ -1,17 +1,17 @@
 import { useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { InputLabel } from '@/Components/InputLabel';
+import { Label } from '@/components/ui/label';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
 type Props = {
   token: string;
   email: string;
-}
+};
 
 function ResetPassword({ token, email }: Props) {
   const route = useRoute();
@@ -35,8 +35,8 @@ function ResetPassword({ token, email }: Props) {
 
       <form onSubmit={onSubmit}>
         <div>
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <TextInput
+          <Label htmlFor="email">Email</Label>
+          <Input
             id="email"
             type="email"
             className="mt-1 block w-full"
@@ -49,8 +49,8 @@ function ResetPassword({ token, email }: Props) {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password">Password</Label>
+          <Input
             id="password"
             type="password"
             className="mt-1 block w-full"
@@ -63,8 +63,8 @@ function ResetPassword({ token, email }: Props) {
         </div>
 
         <div className="mt-4">
-          <InputLabel htmlFor="password_confirmation">Confirm Password</InputLabel>
-          <TextInput
+          <Label htmlFor="password_confirmation">Confirm Password</Label>
+          <Input
             id="password_confirmation"
             type="password"
             className="mt-1 block w-full"

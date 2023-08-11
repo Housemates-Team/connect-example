@@ -15,12 +15,12 @@ export const Paginate = ({ meta, onPageChange }: Props) => (
     <div className="flex flex-1 justify-between sm:hidden">
       <SimplePaginationLink
         onClick={() => onPageChange(meta.current_page - 1)}
-        label="Previous"
+        Label="Previous"
         disabled={meta.current_page === 1}
       />
       <SimplePaginationLink
         onClick={() => onPageChange(meta.current_page + 1)}
-        label="Next"
+        Label="Next"
         disabled={meta.current_page === meta.total_pages}
       />
     </div>
@@ -36,7 +36,7 @@ export const Paginate = ({ meta, onPageChange }: Props) => (
       <div>
         <nav
           className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-          aria-label="Pagination"
+          aria-Label="Pagination"
         >
           <PaginationLink
             className="rounded-l-md"

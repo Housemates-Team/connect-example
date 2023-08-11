@@ -9,23 +9,23 @@ type AmenitiesPickerProps = {
 
 const amenities = [
   {
-    label: 'PAR',
+    Label: 'PAR',
     name: 'Parking',
   },
   {
-    label: 'GYM',
+    Label: 'GYM',
     name: 'Gym',
   },
   {
-    label: 'SA',
+    Label: 'SA',
     name: 'Study Area',
   },
   {
-    label: 'BKE',
+    Label: 'BKE',
     name: 'Bike Storage',
   },
   {
-    label: 'WSH',
+    Label: 'WSH',
     name: 'Washing Machine',
   },
 ];
@@ -44,16 +44,16 @@ const AmenitiesPicker = ({ defaultValue, onValueChange }: AmenitiesPickerProps) 
     onValueChange(filteredValues?.length ? filteredValues : null);
   };
 
-  const toggle = (label: string) => () => {
-    updateNewValues({ ...picked, [label]: !picked[label] });
-    setPicked((all) => ({ ...all, [label]: !all[label] }));
+  const toggle = (Label: string) => () => {
+    updateNewValues({ ...picked, [Label]: !picked[Label] });
+    setPicked((all) => ({ ...all, [Label]: !all[Label] }));
   };
 
   return (
     <div className="flex flex-wrap gap-x-2 gap-y-2">
-      {amenities.map(({ label, name }) => (
-        <Button className="px-8 relative" variant="secondary" key={name} onClick={toggle(label)}>
-          {!!picked[label] && <CheckIcon className="absolute left-4" />}
+      {amenities.map(({ Label, name }) => (
+        <Button className="px-8 relative" variant="secondary" key={name} onClick={toggle(Label)}>
+          {!!picked[Label] && <CheckIcon className="absolute left-4" />}
           {name}
         </Button>
       ))}

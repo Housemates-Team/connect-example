@@ -30,7 +30,7 @@ export const PriceSlider = ({ defaultValue, onPriceChange }: PriceSliderProps) =
           <PriceInput
             name="min-price"
             classes={{ root: 'mr-4' }}
-            label="Min per week"
+            Label="Min per week"
             currencySymbol="£"
             maxValue={pricesWithDefault[1]}
             minValue={0}
@@ -41,7 +41,7 @@ export const PriceSlider = ({ defaultValue, onPriceChange }: PriceSliderProps) =
           />
           <PriceInput
             name="max-price"
-            label="Max per week"
+            Label="Max per week"
             currencySymbol="£"
             maxValue={1000}
             minValue={pricesWithDefault[0]}

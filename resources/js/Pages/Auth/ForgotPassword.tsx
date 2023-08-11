@@ -1,11 +1,11 @@
 import { useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { InputLabel } from '@/Components/InputLabel';
+import { Label } from '@/components/ui/label';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
 type ForgotPasswordProps = {
@@ -36,8 +36,8 @@ function ForgotPassword({ status }: ForgotPasswordProps) {
 
       <form onSubmit={onSubmit}>
         <div>
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <TextInput
+          <Label htmlFor="email">Email</Label>
+          <Input
             id="email"
             type="email"
             className="mt-1 block w-full"

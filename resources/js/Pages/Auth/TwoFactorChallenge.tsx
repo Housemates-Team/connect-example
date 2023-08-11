@@ -1,11 +1,11 @@
 import { useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React, { useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { InputLabel } from '@/Components/InputLabel';
+import { Label } from '@/components/ui/label';
 import { PrimaryButton } from '@/Components/PrimaryButton';
-import { TextInput } from '@/Components/TextInput';
+import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
 function TwoFactorChallenge() {
@@ -52,8 +52,8 @@ function TwoFactorChallenge() {
       <form onSubmit={onSubmit}>
         {recovery ? (
           <div>
-            <InputLabel htmlFor="recovery_code">Recovery Code</InputLabel>
-            <TextInput
+            <Label htmlFor="recovery_code">Recovery Code</Label>
+            <Input
               id="recovery_code"
               type="text"
               className="mt-1 block w-full"
@@ -66,8 +66,8 @@ function TwoFactorChallenge() {
           </div>
         ) : (
           <div>
-            <InputLabel htmlFor="code">Code</InputLabel>
-            <TextInput
+            <Label htmlFor="code">Code</Label>
+            <Input
               id="code"
               type="text"
               inputMode="numeric"

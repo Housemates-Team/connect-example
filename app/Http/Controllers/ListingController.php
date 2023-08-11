@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Housemates\ConnectApi\ApiClient;
-use OpenAPI\Client\ApiException;
 
 class ListingController extends Controller
 {
@@ -20,7 +19,7 @@ class ListingController extends Controller
             return inertia('Listing/index', [
                 'room' => $responseArray,
             ]);
-        }catch (ApiException | Exception $e) {
+        } catch (Exception $e) {
             return redirect()->route('/');
         }
     }
