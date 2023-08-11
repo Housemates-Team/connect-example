@@ -3,21 +3,21 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-const MonthYearPicker = () => {
-  const renderMonthContent = (_month: number, shortMonth: string, longMonth: string) => {
-    const tooltipText = `Tooltip for quarter: ${longMonth}`;
-    return <span title={tooltipText}>{shortMonth}</span>;
-  };
-  return (
-    <DatePicker
-      selected={new Date()}
-      renderMonthContent={renderMonthContent}
-      showQuarterYearPicker
-      showMonthYearPicker
-      dateFormat="MM/yyyy"
-      onChange={(date: any) => console.log(date)}
-    />
-  );
+type MonthYearPickerProps = {
+  onValueChange: (date: Date | null) => void;
 };
+
+const MonthYearPicker = ({ onValueChange }: MonthYearPickerProps) => (
+  <DatePicker
+    selected={new Date()}
+    renderMonthContent={(_, shortMonth, longMonth) => (
+      <span title={`Tooltip for quarter: ${longMonth}`}>{shortMonth}</span>
+    )}
+    showQuarterYearPicker
+    showMonthYearPicker
+    dateFormat="MM/yyyy"
+    onChange={(date) => onValueChange(date)}
+  />
+);
 
 export { MonthYearPicker };

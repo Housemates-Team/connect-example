@@ -42,7 +42,6 @@ class ResultsController extends Controller
             $responseJson = $response->jsonSerialize();
             $responseArray = json_decode(json_encode($responseJson), true);
 
-
             return inertia('Results/index', [
                 'rooms' => $responseArray,
                 'location' => [
@@ -52,6 +51,7 @@ class ResultsController extends Controller
                 ],
             ]);
         }catch (ApiException | Exception $e) {
+            dd($e);
             if ($e instanceof ApiException) {
                 dd($e->getResponseBody());
             } else {
