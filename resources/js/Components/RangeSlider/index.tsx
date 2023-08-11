@@ -8,10 +8,10 @@ const sliderStyle = {
 };
 
 type RangeSliderProps = {
-  onChange: (values: [number, number]) => void;
-  onUpdate: (values: [number, number]) => void;
-  domain: [number, number];
-  values: [number, number];
+  onChange: (values: readonly [number, number]) => void;
+  onUpdate: (values: readonly [number, number]) => void;
+  domain: readonly [number, number];
+  values: readonly [number, number];
 };
 
 export const RangeSlider = ({ onChange, onUpdate, domain, values }: RangeSliderProps) => (
@@ -33,7 +33,7 @@ export const RangeSlider = ({ onChange, onUpdate, domain, values }: RangeSliderP
               <Handle
                 key={handle.id}
                 handle={handle}
-                domain={domain}
+                domain={[...domain]}
                 getHandleProps={getHandleProps}
               />
             ))}

@@ -3,6 +3,7 @@ import { CheckIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/ui/button';
 
 type AmenitiesPickerProps = {
+  defaultValue: string[] | null;
   onValueChange: (value: string[] | null) => void;
 };
 
@@ -29,11 +30,14 @@ const amenities = [
   },
 ];
 
-const AmenitiesPicker = ({ onValueChange }: AmenitiesPickerProps) => {
-  const [picked, setPicked] = useState<Record<string, boolean>>({});
+const AmenitiesPicker = ({ defaultValue, onValueChange }: AmenitiesPickerProps) => {
+  const [picked, setPicked] = useState<Record<string, boolean>>(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    () => defaultValue?.reduce((acc, v) => ({ ...acc, [v]: true }), {} as any) ?? {},
+  );
 
-  const updateNewValues = () => {
-    const filteredValues = Object.entries(picked)
+  const updateNewValues = (newValues: Record<string, boolean>) => {
+    const filteredValues = Object.entries(newValues)
       .filter(([_, v]) => v)
       .map(([k]) => k);
 
@@ -41,8 +45,8 @@ const AmenitiesPicker = ({ onValueChange }: AmenitiesPickerProps) => {
   };
 
   const toggle = (label: string) => () => {
+    updateNewValues({ ...picked, [label]: !picked[label] });
     setPicked((all) => ({ ...all, [label]: !all[label] }));
-    updateNewValues();
   };
 
   return (

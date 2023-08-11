@@ -2,6 +2,7 @@ import React from 'react';
 import { RoomCard } from '@/Components/RoomCard';
 import { Meta, Room } from '@/types';
 import { Paginate } from '@/Components/Paginate';
+import { updateQueryParam } from '@/lib/navigation';
 
 type SearchResultProps = {
   rooms: Room[];
@@ -20,16 +21,7 @@ export const SearchResult = ({ rooms, meta }: SearchResultProps) => (
     <Paginate
       meta={meta}
       onPageChange={(newPage: number) => {
-        const queryParams = new URLSearchParams(window.location.search);
-        queryParams.set('page', String(newPage));
-
-        // Construct the new URL with the updated page parameter
-        const newUrl = [
-          window.location.origin,
-          window.location.pathname,
-          `?${queryParams.toString()}`,
-        ].join('');
-
+        const newUrl = updateQueryParam(window.location, { page: String(newPage) });
         window.location.href = newUrl;
       }}
     />

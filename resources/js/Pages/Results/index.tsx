@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Head } from '@inertiajs/react';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { SearchLocation } from '@/Components/CitySearchDropdown';
 import { Footer } from '@/Layouts/Footer';
+import { updateQueryParam } from '@/lib/navigation';
 import { Hero } from './Hero';
 import { Filters } from './Filters';
 import { SearchResult } from './SearchResult';
@@ -13,6 +14,54 @@ const Results = () => {
   const page = useTypedPage();
   const { rooms } = page.props;
   const location = page.props.location as SearchLocation;
+
+  console.info(page.props.filters);
+
+  // Compute the filters props from the url parameters
+  const defaultFilters = useMemo(() => {
+    const url = new URL(window.location.href);
+    const searchParams = url.searchParams;
+
+    // Get individual query parameters
+    const minPrice = Number(searchParams.get('min_price') ?? undefined);
+    const maxPrice = Number(searchParams.get('max_price') ?? undefined);
+    let date: Date | undefined = undefined;
+    let amenities: string[] | undefined = undefined;
+
+    try {
+      const dateParam = searchParams.get('date')!.split('-');
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const month = Number(dateParam[0]);
+      const year = Number(dateParam[1]);
+
+      if (isNaN(year) || year < currentYear) {
+        throw new Error('Invalid year');
+      }
+      if (isNaN(month) || month <= 0 || month > 12) {
+        throw new Error('Invalid month');
+      }
+
+      date = new Date(`${year}-${month}`);
+    } catch {
+      /* empty */
+    }
+
+    try {
+      const amenityParam = searchParams.get('amenities');
+      if (amenityParam !== null) {
+        amenities = JSON.parse(amenityParam);
+      }
+    } catch (e) {
+      /* empty */
+    }
+
+    return {
+      prices: !isNaN(minPrice) && !isNaN(maxPrice) ? ([minPrice, maxPrice] as const) : undefined,
+      amenities,
+      date,
+    };
+  }, []);
 
   return (
     <>
@@ -23,7 +72,22 @@ const Results = () => {
         <Hero locationName={location.name} />
         <div className="bg-gray-50 border-t py-16">
           <div className="container flex">
-            <Filters />
+            <Filters
+              defaultFilters={defaultFilters}
+              onFilterChange={({ prices, amenities, date }) => {
+                const newUrl = updateQueryParam(window.location, {
+                  min_price: prices ? String(prices[0]) : undefined,
+                  max_price: prices ? String(prices[1]) : undefined,
+                  amenities: amenities ? JSON.stringify(amenities) : undefined,
+                  date: date
+                    ? String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getFullYear()
+                    : undefined,
+                  page: '1',
+                });
+                console.info('p', date);
+                window.location.href = newUrl;
+              }}
+            />
             {
               // TODO: remove no_rooms props
               !page.props.no_rooms && (

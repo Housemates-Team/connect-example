@@ -17,6 +17,14 @@ class ResultsController extends Controller
         /** @var ApiClient $apiClient */
         $apiClient = app('apiClient');
 
+        $data = $request->validate([
+            'min_price' => 'integer|min:0|max:1000',
+            'max_price' => 'integer|min:0|max:1000',
+            'amenities.*' => 'string',
+            'date' => 'string',
+            'page' => 'integer'
+        ]);
+
         $locationRaw = null;
         try {
             // Get location infos
@@ -35,7 +43,27 @@ class ResultsController extends Controller
             // Get search results
             $roomFilter = new RoomFilter();
             $roomFilter->setPerPageFilter(10);
-            $roomFilter->setPageFilter($request->get('page', 1));
+            $roomFilter->setPageFilter($data['page'] ?? 1);
+
+            if (isset($data['min_price']) && isset($data['max_price'])) {
+                $priceFilter = '[min='.$data['min_price'].',max='.$data['max_price'].']';
+                $roomFilter->setPriceRangeFilter($priceFilter);
+            }
+
+
+            if (isset($data['amenities'])) {
+                $joinedArray = implode('.', array_map(function($x) {
+                    return $x . '=true';
+                }, $data['amenities']));
+
+                $amenityFilter = '[' . $joinedArray . ']';
+                $roomFilter->setAmenitiesFilter($amenityFilter);
+            }
+
+            if (isset($data['date'])) {
+                $roomFilter->setMoveInDateFilter($data['date']);
+            }
+
             $roomFilter->setGeoFenceFilter('[lat='.$lat.',long='.$lng.']');
 
             $response = $apiClient->getRooms($roomFilter);

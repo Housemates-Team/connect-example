@@ -3,16 +3,12 @@ import { RangeSlider } from '../RangeSlider';
 import { PriceInput } from './PriceInput';
 
 type PriceSliderProps = {
+  defaultValue?: readonly [number, number];
   onPriceChange: (min: number, max: number) => void;
 };
 
-export const PriceSlider = ({ onPriceChange }: PriceSliderProps) => {
-  const [prices, setPrices] = useState<[number, number] | null>(null);
-
-  useEffect(() => {
-    if (prices === null) return;
-    onPriceChange(prices[0], prices[1]);
-  }, [prices]);
+export const PriceSlider = ({ defaultValue, onPriceChange }: PriceSliderProps) => {
+  const [prices, setPrices] = useState<readonly [number, number] | null>(defaultValue ?? null);
 
   const pricesWithDefault = prices ?? [0, 1000];
   return (
@@ -20,10 +16,12 @@ export const PriceSlider = ({ onPriceChange }: PriceSliderProps) => {
       <RangeSlider
         domain={[0, 1000]}
         values={pricesWithDefault}
-        onUpdate={(values: [number, number]) => {
+        onUpdate={(values: readonly [number, number]) => {
+          onPriceChange(values[0], values[1]);
           setPrices([values[0], values[1]]);
         }}
-        onChange={(values: [number, number]) => {
+        onChange={(values: readonly [number, number]) => {
+          onPriceChange(values[0], values[1]);
           setPrices([values[0], values[1]]);
         }}
       />
