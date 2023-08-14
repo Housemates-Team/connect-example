@@ -1,11 +1,8 @@
 import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-//import { Link } from '@inertiajs/react';
-//import { PageLink } from '@/types';
 
 export type PaginationLinkProps = {
   children: ReactNode;
-  // Disable the pagintion button
   status?: 'active' | 'current' | 'disabled';
   onClick: () => void;
   className?: string;
