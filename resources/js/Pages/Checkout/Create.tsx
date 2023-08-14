@@ -7,13 +7,7 @@ import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Label } from '@/Common/label';
 import { Button } from '@/Common/button';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/Common/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Common/select';
 import { Footer } from '@/Layouts/Footer';
 
 const gradeLevelOptions = [

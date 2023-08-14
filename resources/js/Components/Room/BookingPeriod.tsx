@@ -5,7 +5,6 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { router } from '@inertiajs/core';
 import { useRoute } from '@/Hooks/useRoute';
 import { BookingPeriod as BookingPeriodType } from '@/types';
-import { Button } from '@/Common/button';
 
 dayjs.extend(customParseFormat);
 

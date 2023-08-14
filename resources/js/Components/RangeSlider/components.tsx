@@ -48,7 +48,7 @@ SliderRail.propTypes = {
 export function Handle({
   domain: [min, max],
   handle: { id, value, percent },
-  disabled,
+  disabled: _,
   getHandleProps,
 }: any) {
   return (

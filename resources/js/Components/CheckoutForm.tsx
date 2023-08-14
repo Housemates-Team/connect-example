@@ -13,7 +13,6 @@ type Props = {
   room_id: string;
 };
 
-// TODO: what to to with message
 export function CheckoutForm({ submitData, room_id }: Props) {
   const stripe = useStripe();
   const elements = useElements();

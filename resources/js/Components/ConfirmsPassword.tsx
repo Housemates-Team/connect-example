@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import axios from 'axios';
 import React, { PropsWithChildren, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';

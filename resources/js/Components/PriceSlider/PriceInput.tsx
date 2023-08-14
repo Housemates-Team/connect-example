@@ -38,7 +38,7 @@ export const PriceInput = ({
         <div className="px-2 py-2 hm-body-semi border-r border-wool bg-wool">{currencySymbol}</div>
         <input
           onChange={(e) => {
-            e.persist(); // TODO: verify impact of persist
+            e.persist();
             const newValue = Number(e.target.value);
             if (Number.isNaN(newValue)) return;
             onChange(newValue > UPPER_BOUNDARY ? UPPER_BOUNDARY : newValue);
