@@ -8,7 +8,7 @@ use Housemates\ConnectApi\Filters\RoomFilter;
 use Housemates\ConnectApi\Filters\LocationFilter;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Http\Request;
-use OpenAPI\Client\ApiException;
+use Housemates\ConnectApi\Exceptions\ApiException;
 
 class ResultsController extends Controller
 {
@@ -79,9 +79,8 @@ class ResultsController extends Controller
                 ],
             ]);
         }catch (ApiException | Exception $e) {
-            dd($e);
             if ($e instanceof ApiException) {
-                dd($e->getResponseBody());
+                dd($e->getMessage());
             } else {
                 // TODO: ApiException don't work the way I expect, this is a temporary solution
                 return inertia('Results/index', [

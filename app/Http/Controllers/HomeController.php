@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use Housemates\ConnectApi\ApiClient;
 use Housemates\ConnectApi\Filters\LocationFilter;
-use OpenAPI\Client\ApiException;
+use Housemates\ConnectApi\Exceptions\ApiException;
 
 class HomeController extends Controller
 {

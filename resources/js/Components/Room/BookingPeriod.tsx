@@ -4,8 +4,8 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { router } from '@inertiajs/core';
 import { useRoute } from '@/Hooks/useRoute';
-import { PrimaryButton } from '@/Components/PrimaryButton';
 import { BookingPeriod as BookingPeriodType } from '@/types';
+import { Button } from '@/components/ui/button';
 
 dayjs.extend(customParseFormat);
 
@@ -59,9 +59,7 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
         </p>
         <p className="font-bold mt-2">{period.price_per_week}</p>
       </div>
-      <div>
-        <PrimaryButton>Book Now</PrimaryButton>
-      </div>
+      <Button>Book Now</Button>
     </button>
   );
 };

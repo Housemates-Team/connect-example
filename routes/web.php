@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ResultsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ Route::get('/', HomeController::class)->name('home.index');
 Route::get('/city/{city_slug}', [ResultsController::class, 'city'])->name('results.city');
 Route::get('/university/{university_slug}', [ResultsController::class, 'university'])->name('results.university');
 Route::get('/room/{room_id}', ListingController::class)->name('listing');
+Route::post('/enquire', EnquiryController::class)->name('enquiry');
 Route::post('/rooms/{room_id}/checkout/init', function (Request $request, $room_id) {
     $request->session()->put('checkout.room_id', $room_id);
     $request->session()->put('checkout.booking_period_id', $request->booking_period_id);

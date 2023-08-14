@@ -3,10 +3,10 @@ import { Head, router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { Input } from '@/components/ui/input';
-import { PrimaryButton } from '@/Components/PrimaryButton';
 import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
 
 const gradeLevelOptions = [
   { Label: 'Foundation', value: 'Foundation' },
@@ -887,9 +887,9 @@ const Create = () => {
             </div>
 
             <div className={'flex justify-end pt-10'}>
-              <PrimaryButton type="submit" className={'py-3 px-8'}>
+              <Button type="submit" className={'py-3 px-8'}>
                 Make a payment
-              </PrimaryButton>
+              </Button>
             </div>
           </form>
         </div>

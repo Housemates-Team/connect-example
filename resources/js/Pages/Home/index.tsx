@@ -11,8 +11,6 @@ import { CityGrid } from './CityGrid';
 const Welcome = () => {
   const page = useTypedPage();
 
-  console.info(page.props.locations);
-
   return (
     <>
       <Head title="Rooms" />

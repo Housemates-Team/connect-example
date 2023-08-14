@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Housemates\ConnectApi\ApiClient;
 use Housemates\ConnectApi\Requests\CheckoutStartRequest;
 use Illuminate\Http\Request;
-use OpenAPI\Client\ApiException;
+use Housemates\ConnectApi\Exceptions\ApiException;
 
 class CheckoutStartController extends Controller
 {
@@ -32,7 +32,7 @@ class CheckoutStartController extends Controller
                 'room_id' => $room_id,
             ]);
 
-        }catch (ApiException|\Exception $e){
+        }catch (ApiException | \Exception $e){
             dd($e);
             return redirect()->back()->with('error', $e->getMessage());
         }

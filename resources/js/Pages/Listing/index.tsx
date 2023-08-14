@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { Head } from '@inertiajs/react';
@@ -9,6 +9,8 @@ import { BookingPeriod } from '@/Components/Room/BookingPeriod';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
 import { Footer } from '@/Layouts/Footer';
+import { Button } from '@/components/ui/button';
+import { EnquiryModal } from './EnquiryModal';
 
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
@@ -17,6 +19,7 @@ const Listing = () => {
   const page = useTypedPage();
   const { room } = page.props;
   const { data } = room;
+  const [enquiryModal, setEnquiryModal] = useState(false);
   const amenities = data.item.amenities.general;
 
   return (
@@ -69,11 +72,19 @@ const Listing = () => {
                   room_id={data.item.id}
                 />
               ))}
+              <Button onClick={() => setEnquiryModal(true)}> Enquire now </Button>
             </div>
           </div>
         </div>
       </div>
       <Footer />
+      <EnquiryModal
+        isOpen={enquiryModal}
+        onClose={() => setEnquiryModal(false)}
+        roomId={data.item.id}
+        operatorId={data.item.operator_id}
+        propertyId={data.item.property.id}
+      />
     </>
   );
 };

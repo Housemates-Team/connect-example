@@ -1,13 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { createPortal } from 'react-dom';
-import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, Fragment } from 'react';
+import { cn } from '@/lib/utils';
 
 export type ModalProps = {
   isOpen: boolean;
   onClose(): void;
   maxWidth?: string;
-}
+};
 
 export function Modal({
   isOpen,
