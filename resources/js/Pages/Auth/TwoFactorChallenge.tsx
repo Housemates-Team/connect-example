@@ -3,9 +3,9 @@ import React, { useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Label } from '@/Common/label';
+import { Button } from '@/Common/button';
+import { Input } from '@/Common/input';
 import { InputError } from '@/Components/InputError';
 
 function TwoFactorChallenge() {

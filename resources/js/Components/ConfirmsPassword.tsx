@@ -4,8 +4,8 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { DialogModal } from '@/Components/DialogModal';
 import { InputError } from '@/Components/InputError';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '@/Common/button';
+import { Input } from '@/Common/input';
 import { SecondaryButton } from '@/Components/SecondaryButton';
 
 type Props = {

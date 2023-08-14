@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import route from 'ziggy-js';
 import { Room } from '@/types';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 
 type Props = {
   room: Room;

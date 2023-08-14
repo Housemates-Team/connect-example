@@ -4,10 +4,10 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Checkbox } from '@/Components/Checkbox';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '@/Common/button';
+import { Input } from '@/Common/input';
 import { InputError } from '@/Components/InputError';
-import { Label } from '@/components/ui/label';
+import { Label } from '@/Common/label';
 
 type Props = {
   canResetPassword: boolean;

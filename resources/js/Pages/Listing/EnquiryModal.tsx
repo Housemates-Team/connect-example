@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import { useForm } from '@inertiajs/react';
 import route from 'ziggy-js';
 import { Modal } from '@/Components/Modal';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import { Label } from '@/Common/label';
+import { Input } from '@/Common/input';
 import { InputError } from '@/Components/InputError';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+import { Textarea } from '@/Common/textarea';
+import { Button } from '@/Common/button';
+import { useToast } from '@/Common/use-toast';
 
 type EnquiryModalProps = {
   roomId: string;

@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 
 type Props = {
   status: string;

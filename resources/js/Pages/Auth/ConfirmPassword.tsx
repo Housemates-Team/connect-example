@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { InputError } from '@/Components/InputError';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Label } from '@/Common/label';
+import { Button } from '@/Common/button';
+import { Input } from '@/Common/input';
 
 function ConfirmPassword() {
   const route = useRoute();

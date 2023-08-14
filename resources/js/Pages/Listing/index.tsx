@@ -10,7 +10,7 @@ import { BookingPeriod } from '@/Components/Room/BookingPeriod';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
 import { Footer } from '@/Layouts/Footer';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 import { EnquiryModal } from './EnquiryModal';
 
 // eslint-disable-next-line import/no-named-as-default-member

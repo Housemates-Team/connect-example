@@ -2,18 +2,18 @@ import React from 'react';
 import { Head, router, useForm } from '@inertiajs/react';
 import { useLocalStorage } from 'usehooks-ts';
 import { useTypedPage } from '@/Hooks/useTypedPage';
-import { Input } from '@/components/ui/input';
+import { Input } from '@/Common/input';
 import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
-import { Label } from '@/components/ui/label';
-import { Button } from '@/components/ui/button';
+import { Label } from '@/Common/label';
+import { Button } from '@/Common/button';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/Common/select';
 import { Footer } from '@/Layouts/Footer';
 
 const gradeLevelOptions = [

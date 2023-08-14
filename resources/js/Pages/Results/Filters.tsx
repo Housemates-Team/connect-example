@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PriceSlider } from '@/Components/PriceSlider';
 import { MonthYearPicker } from '@/Components/DatePicker';
 import { AmenitiesPicker } from '@/Components/AmenitiesPicker';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 
 type Filter = {
   prices?: readonly [number, number];

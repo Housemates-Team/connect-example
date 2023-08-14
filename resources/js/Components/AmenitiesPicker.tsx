@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckIcon } from '@radix-ui/react-icons';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 
 type AmenitiesPickerProps = {
   defaultValue: string[] | null;

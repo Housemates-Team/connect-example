@@ -5,7 +5,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/Common/button';
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

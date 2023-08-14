@@ -5,7 +5,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/Common/toaster';
 import { RouteContext } from '@/Hooks/useRoute';
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';

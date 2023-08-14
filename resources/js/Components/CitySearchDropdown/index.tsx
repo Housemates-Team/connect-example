@@ -7,7 +7,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/components/ui/command';
+} from '@/Common/command';
 
 export type SearchLocation = { type: 'university' | 'city'; name: string; slug: string };
 
