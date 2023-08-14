@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Checkbox } from '@/Components/Checkbox';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 import { Label } from '@/components/ui/label';
@@ -95,12 +95,12 @@ function Login({ canResetPassword, status }: Props) {
               Need an account?
             </Link>
 
-            <PrimaryButton
+            <Button
               className={cn('ml-4', { 'opacity-25': form.processing })}
               disabled={form.processing}
             >
               Log in
-            </PrimaryButton>
+            </Button>
           </div>
         </div>
       </form>

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Label } from '@/components/ui/label';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
@@ -91,12 +91,12 @@ function TwoFactorChallenge() {
             {recovery ? 'Use an authentication code' : 'Use a recovery code'}
           </button>
 
-          <PrimaryButton
+          <Button
             className={cn('ml-4', { 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Log in
-          </PrimaryButton>
+          </Button>
         </div>
       </form>
     </AuthenticationCard>

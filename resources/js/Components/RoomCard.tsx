@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@inertiajs/react';
 import route from 'ziggy-js';
 import { Room } from '@/types';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   room: Room;
@@ -44,7 +44,7 @@ const RoomCard = ({ room }: Props) => {
               <span className="text-xl font-bold px-1">{room.price_range.min}</span>
               <span>/week</span>
             </p>
-            <PrimaryButton className="px-5 py-4">View this room</PrimaryButton>
+            <Button className="px-5 py-4">View this room</Button>
           </div>
         </div>
       </div>

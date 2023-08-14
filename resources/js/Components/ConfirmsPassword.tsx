@@ -4,7 +4,7 @@ import React, { PropsWithChildren, useRef, useState } from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { DialogModal } from '@/Components/DialogModal';
 import { InputError } from '@/Components/InputError';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { SecondaryButton } from '@/Components/SecondaryButton';
 
@@ -93,13 +93,13 @@ export function ConfirmsPassword({
         <DialogModal.Footer>
           <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
 
-          <PrimaryButton
+          <Button
             className={cn('ml-2', { 'opacity-25': form.processing })}
             onClick={confirmPassword}
             disabled={form.processing}
           >
             {button}
-          </PrimaryButton>
+          </Button>
         </DialogModal.Footer>
       </DialogModal>
     </span>

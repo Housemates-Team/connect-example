@@ -5,7 +5,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -102,7 +102,7 @@ export function CheckoutForm({ submitData, room_id }: Props) {
       />
       <PaymentElement id="payment-element" options={paymentElementOptions} className={'mt-5'} />
       <div className="flex justify-end mt-5">
-        <PrimaryButton
+        <Button
           disabled={isLoading || !stripe || !elements}
           id="submit"
           className={`mt-5 inline-flex px-5 py-3 items-center ${
@@ -136,7 +136,7 @@ export function CheckoutForm({ submitData, room_id }: Props) {
           ) : (
             'Pay now'
           )}
-        </PrimaryButton>
+        </Button>
       </div>
     </form>
   );

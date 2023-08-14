@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 
 type Props = {
   status: string;
@@ -37,12 +37,12 @@ function VerifyEmail({ status }: Props) {
 
       <form onSubmit={onSubmit}>
         <div className="mt-4 flex items-center justify-between">
-          <PrimaryButton
+          <Button
             className={cn({ 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Resend Verification Email
-          </PrimaryButton>
+          </Button>
 
           <div>
             <Link

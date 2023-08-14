@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Label } from '@/components/ui/label';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
@@ -77,12 +77,12 @@ function ResetPassword({ token, email }: Props) {
         </div>
 
         <div className="flex items-center justify-end mt-4">
-          <PrimaryButton
+          <Button
             className={cn({ 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Reset Password
-          </PrimaryButton>
+          </Button>
         </div>
       </form>
     </AuthenticationCard>

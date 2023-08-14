@@ -6,7 +6,7 @@ import { useTypedPage } from '@/Hooks/useTypedPage';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Checkbox } from '@/Components/Checkbox';
 import { Label } from '@/components/ui/label';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/Components/InputError';
 
@@ -135,12 +135,12 @@ function Register() {
             Already registered?
           </Link>
 
-          <PrimaryButton
+          <Button
             className={cn('ml-4', { 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Register
-          </PrimaryButton>
+          </Button>
         </div>
       </form>
     </AuthenticationCard>

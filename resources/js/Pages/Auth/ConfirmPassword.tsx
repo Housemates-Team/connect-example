@@ -5,7 +5,7 @@ import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { InputError } from '@/Components/InputError';
 import { Label } from '@/components/ui/label';
-import { PrimaryButton } from '@/Components/PrimaryButton';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
 function ConfirmPassword() {
@@ -46,12 +46,12 @@ function ConfirmPassword() {
         </div>
 
         <div className="flex justify-end mt-4">
-          <PrimaryButton
+          <Button
             className={cn('ml-4', { 'opacity-25': form.processing })}
             disabled={form.processing}
           >
             Confirm
-          </PrimaryButton>
+          </Button>
         </div>
       </form>
     </AuthenticationCard>
