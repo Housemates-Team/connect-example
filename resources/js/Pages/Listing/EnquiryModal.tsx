@@ -131,9 +131,12 @@ export const EnquiryModal = ({
             />
             <InputError className="mt-2" message={form.errors['message']} />
           </div>
-          <Button size="lg" className="self-end">
-            Send
-          </Button>
+          <div className="self-end flex gap-2">
+            <Button variant="outline" size="lg" onClick={onClose}>
+              Cancel
+            </Button>
+            <Button size="lg">Send</Button>
+          </div>
           {formError && <p className="text-sm text-red-600">{formError}</p>}
         </form>
       </div>

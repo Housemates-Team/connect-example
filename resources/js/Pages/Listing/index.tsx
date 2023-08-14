@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { Head } from '@inertiajs/react';
+import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/20/solid';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { BannerImages } from '@/Components/Room/BannerImages';
 import { Amenity } from '@/Components/Room/Amenity';
@@ -72,7 +73,10 @@ const Listing = () => {
                   room_id={data.item.id}
                 />
               ))}
-              <Button onClick={() => setEnquiryModal(true)}> Enquire now </Button>
+              <Button variant="outline" onClick={() => setEnquiryModal(true)}>
+                <img alt="chat" src="/icons/ChatBubble.svg" />
+                <span>Enquire now</span>
+              </Button>
             </div>
           </div>
         </div>

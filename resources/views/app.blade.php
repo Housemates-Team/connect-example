@@ -9,6 +9,15 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <!-- Styles -->
+    <style type="text/css">
+     body {
+        min-height: 100svh;
+        min-height: 100vh;
+        position: relative;
+     }
+    </style>
+
     <!-- Scripts -->
     @routes
     @viteReactRefresh

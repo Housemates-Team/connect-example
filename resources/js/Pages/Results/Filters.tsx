@@ -44,13 +44,7 @@ export const Filters = ({ defaultFilters, onFilterChange }: FiltersProps) => {
       <div className="flex flex-col gap-6 mt-8">
         <div>
           <p className="mb-6 font-semibold text-sm"> Select price </p>
-          <PriceSlider
-            defaultValue={prices}
-            onPriceChange={(min, max) => {
-              console.info(123);
-              setPrices([min, max]);
-            }}
-          />
+          <PriceSlider defaultValue={prices} onPriceChange={(min, max) => setPrices([min, max])} />
         </div>
         <div>
           <p className="mb-4 font-semibold text-sm"> Select move in date </p>

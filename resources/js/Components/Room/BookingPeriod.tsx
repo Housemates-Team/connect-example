@@ -31,7 +31,7 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
       replace: true,
       onSuccess: () => router.visit(route('checkout.start', { room_id })),
       onError: (e) => {
-        console.log(e);
+        console.error(e);
       },
     });
   };
@@ -44,22 +44,19 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
   return (
     <button
       type="button"
-      className="mt-5 py-3 px-5 rounded gap-4 bg-gray-100 hover:bg-gray-50 cursor-pointer relative flex items-center justify-between"
+      className="mt-5 py-3 px-5 rounded gap-4 bg-gray-100 hover:bg-gray-50 cursor-pointer relative w-full text-left"
       onClick={() => handleBookingPeriodClick()}
       key={period.id}
     >
-      <div className="text-left">
-        <p className="font-bold text-gray-600">
-          {bookingPeriodDuration(period.start_date, period.end_date)} Weeks
-        </p>
-        <p className="font-medium text-sm text-gray-600">
-          <span className="">
-            {convertToDate(period.start_date)} -{convertToDate(period.end_date)}
-          </span>
-        </p>
-        <p className="font-bold mt-2">{period.price_per_week}</p>
-      </div>
-      <Button>Book Now</Button>
+      <p className="font-bold text-gray-600">
+        {bookingPeriodDuration(period.start_date, period.end_date)} Weeks
+      </p>
+      <p className="font-medium text-sm text-gray-600">
+        <span className="">
+          {convertToDate(period.start_date)} -{convertToDate(period.end_date)}
+        </span>
+      </p>
+      <p className="font-bold mt-2">{period.price_per_week}</p>
     </button>
   );
 };

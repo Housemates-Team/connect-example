@@ -4,67 +4,71 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Housemates\ConnectApi\ApiClient;
-use Housemates\ConnectApi\Filters\RoomFilter;
 use Housemates\ConnectApi\Filters\LocationFilter;
+use Illuminate\Support\Facades\Log;
+use App\Http\Requests\RoomResultsInput;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Illuminate\Http\Request;
 use Housemates\ConnectApi\Exceptions\ApiException;
 
 class ResultsController extends Controller
 {
-    public function city(Request $request, $city_slug)
+    public function city(RoomResultsInput $results, $city_slug)
     {
         /** @var ApiClient $apiClient */
         $apiClient = app('apiClient');
 
-        $data = $request->validate([
-            'min_price' => 'integer|min:0|max:1000',
-            'max_price' => 'integer|min:0|max:1000',
-            'amenities.*' => 'string',
-            'date' => 'string',
-            'page' => 'integer'
+        // Get location infos
+        $filter = (new LocationFilter())->setCityFilter($city_slug);
+        $response = $apiClient->getCities($filter)->jsonSerialize();
+        $responseArrayFilters = json_decode(json_encode($response), true);
+        $locationRaw = $responseArrayFilters['data']['items'][0] ?? null;
+
+        if ($locationRaw == null) {
+            throw new NotFoundHttpException('Invalid location');
+        }
+
+        return $this->getSearchResponse($results, [
+            'name' => $locationRaw['name'],
+            'slug' => $locationRaw['slug'],
+            'lat' => $locationRaw['coordinates']['lat'],
+            'lng' => $locationRaw['coordinates']['long'],
+            'type' => 'city',
         ]);
+    }
 
-        $locationRaw = null;
+    public function university(RoomResultsInput $results, $university_slug)
+    {
+        /** @var ApiClient $apiClient */
+        $apiClient = app('apiClient');
+
+        // Get location infos
+        $filter = (new LocationFilter())->setUniversityFilter($university_slug);
+        $response = $apiClient->getUniversities($filter)->jsonSerialize();
+        $responseArrayFilters = json_decode(json_encode($response), true);
+        $locationRaw = $responseArrayFilters['data']['items'][0] ?? null;
+
+        if ($locationRaw == null) {
+            throw new NotFoundHttpException('Invalid location');
+        }
+
+        return $this->getSearchResponse($results, [
+            'name' => $locationRaw['name'],
+            'slug' => $locationRaw['slug'],
+            'lat' => $locationRaw['coordinates']['lat'],
+            'lng' => $locationRaw['coordinates']['long'],
+            'type' => 'city',
+        ]);
+    }
+
+    private function getSearchResponse(RoomResultsInput $results, $location) {
+        /** @var ApiClient $apiClient */
+        $apiClient = app('apiClient');
+
         try {
-            // Get location infos
-            $filter = (new LocationFilter())->setCityFilter($city_slug);
-            $response = $apiClient->getCities($filter)->jsonSerialize();
-            $responseArrayFilters = json_decode(json_encode($response), true);
-            $locationRaw = $responseArrayFilters['data']['items'][0] ?? null;
-
-            $lat = $locationRaw['coordinates']['lat'];
-            $lng = $locationRaw['coordinates']['long'];
-
-            if ($locationRaw == null) {
-                throw new NotFoundHttpException('Invalid location');
-            }
-
             // Get search results
-            $roomFilter = new RoomFilter();
+            $roomFilter = $results->toRoomFilter();
             $roomFilter->setPerPageFilter(10);
-            $roomFilter->setPageFilter($data['page'] ?? 1);
-
-            if (isset($data['min_price']) && isset($data['max_price'])) {
-                $priceFilter = '[min='.$data['min_price'].',max='.$data['max_price'].']';
-                $roomFilter->setPriceRangeFilter($priceFilter);
-            }
-
-
-            if (isset($data['amenities'])) {
-                $joinedArray = implode('.', array_map(function($x) {
-                    return $x . '=true';
-                }, $data['amenities']));
-
-                $amenityFilter = '[' . $joinedArray . ']';
-                $roomFilter->setAmenitiesFilter($amenityFilter);
-            }
-
-            if (isset($data['date'])) {
-                $roomFilter->setMoveInDateFilter($data['date']);
-            }
-
-            $roomFilter->setGeoFenceFilter('[lat='.$lat.',long='.$lng.']');
+            $roomFilter->setGeoFenceFilter(sprintf('[lat=%s,long=%s]', $location['lat'], $location['lng']));
 
             $response = $apiClient->getRooms($roomFilter);
             $responseJson = $response->jsonSerialize();
@@ -72,33 +76,18 @@ class ResultsController extends Controller
 
             return inertia('Results/index', [
                 'rooms' => $responseArray,
-                'location' => [
-                    'name' => $locationRaw['name'],
-                    'slug' => $locationRaw['slug'],
-                    'type' => 'city',
-                ],
+                'location' => $location,
             ]);
-        }catch (ApiException | Exception $e) {
-            if ($e instanceof ApiException) {
-                dd($e->getMessage());
-            } else {
-                // TODO: ApiException don't work the way I expect, this is a temporary solution
+        } catch (ApiException | Exception $e) {
+            if ($e instanceof ApiException && str_contains($e->getMessage(), "api.room_type_not_found")) {
                 return inertia('Results/index', [
                     'no_rooms' => true,
-                    'location' => $locationRaw ? [
-                        'name' => $locationRaw['name'],
-                        'slug' => $locationRaw['slug'],
-                        'type' => 'city',
-                    ] : null,
+                    'location' => $location,
                 ]);
             }
 
-            return redirect()->route('/');
+            Log::error($e);
+            throw $e;
         }
-    }
-
-    public function university(Request $request, $university_slug)
-    {
-        return $this->city($request, $university_slug);
     }
 }

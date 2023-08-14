@@ -20,7 +20,7 @@ class ListingController extends Controller
                 'room' => $responseArray,
             ]);
         } catch (Exception $e) {
-            return redirect()->route('/');
+            return redirect()->route('home.index');
         }
     }
 }

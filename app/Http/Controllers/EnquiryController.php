@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Http\Requests\CreateEnquiryInput;
 use Housemates\ConnectApi\Requests\EnquiryRequest;
-use Illuminate\Support\Facades\Redirect;
 use Housemates\ConnectApi\ApiClient;
 use Housemates\ConnectApi\Exceptions\ApiException;
 use Illuminate\Validation\ValidationException;

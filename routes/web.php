@@ -3,6 +3,8 @@
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\ResultsController;
+use App\Http\Controllers\CheckoutStartController;
+use App\Http\Controllers\CheckoutConfirmController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,9 +22,9 @@ Route::post('/rooms/{room_id}/checkout/init', function (Request $request, $room_
     return redirect()->back()->with('success', 'Room booking session initialized.');
 })->name('checkout.init');
 
-Route::get('/rooms/{room_id}/checkout', \App\Http\Controllers\CheckoutStartController::class)->name('checkout.start');
-Route::get('/rooms/{room_id}/checkout/payment', [\App\Http\Controllers\CheckoutConfirmController::class,'create'])->name('checkout.payment');
-Route::post('/rooms/{room_id}/checkout/confirm', [\App\Http\Controllers\CheckoutConfirmController::class,'store'])->name('checkout.confirm');
+Route::get('/rooms/{room_id}/checkout', CheckoutStartController::class)->name('checkout.start');
+Route::get('/rooms/{room_id}/checkout/payment', [CheckoutConfirmController::class,'create'])->name('checkout.payment');
+Route::post('/rooms/{room_id}/checkout/confirm', [CheckoutConfirmController::class,'store'])->name('checkout.confirm');
 Route::get('/rooms/{room_id}/checkout/success', function (Request $request, $room_id) {
     /** @var \Housemates\ConnectApi\ApiClient $apiClient */
     $apiClient = app('apiClient');

@@ -7,29 +7,37 @@ import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import { Footer } from '@/Layouts/Footer';
 
 const gradeLevelOptions = [
-  { Label: 'Foundation', value: 'Foundation' },
-  { Label: 'Undergraduate - First year', value: 'Undergraduate - First year' },
+  { label: 'Foundation', value: 'Foundation' },
+  { label: 'Undergraduate - First year', value: 'Undergraduate - First year' },
   {
-    Label: 'Undergraduate - Second year',
+    label: 'Undergraduate - Second year',
     value: 'Undergraduate - Second year',
   },
-  { Label: 'Undergraduate - Third year', value: 'Undergraduate - Third year' },
+  { label: 'Undergraduate - Third year', value: 'Undergraduate - Third year' },
   {
-    Label: 'Undergraduate - Placement year',
+    label: 'Undergraduate - Placement year',
     value: 'Undergraduate - Placement year',
   },
   {
-    Label: 'Postgraduate - Masters',
+    label: 'Postgraduate - Masters',
     value: 'Postgraduate - Masters',
   },
   {
-    Label: 'Postgraduate - PhD',
+    label: 'Postgraduate - PhD',
     value: 'Postgraduate - PhD',
   },
   {
-    Label: 'Other',
+    label: 'Other',
     value: 'Other',
   },
 ];
@@ -101,6 +109,13 @@ const Create = () => {
       <Banner />
       <HeaderNavigation />
       <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div className="mt-8 mb-24">
+          <h1 className="text-3xl font-bold">Fill in your details</h1>
+          <p className="text-gray-600 text-lg max-w-2xl mt-4">
+            We require your information to proceed with the room reservation, fill in the form below
+            to proceed with your booking.
+          </p>
+        </div>
         <div className="space-y-5 mt-10">
           <form className="space-y-10 divide-y divide-gray-900/10" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-3">
@@ -248,65 +263,61 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <Label
-                        htmlFor="nationality"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
+                      <Label className="block text-sm font-medium leading-6 text-gray-900">
                         Nationality
                       </Label>
-                      <div className="mt-2">
-                        <select
-                          id="nationality"
-                          name="nationality"
-                          autoComplete="nationality"
-                          className="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                          defaultValue={formData.resident_details.nationality}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              resident_details: {
-                                ...formData.resident_details,
-                                nationality: e.target.value,
-                              },
-                            });
-                          }}
-                        >
-                          <option value="gb">British</option>
-                          <option value="ca">Canadian</option>
-                          <option value="au">Australian</option>
-                        </select>
-                      </div>
+                      <Select
+                        name="nationality"
+                        defaultValue={formData.resident_details.nationality}
+                        onValueChange={(value) =>
+                          setFormData((current) => ({
+                            ...current,
+                            resident_details: {
+                              ...current.resident_details,
+                              nationality: value,
+                            },
+                          }))
+                        }
+                        autoComplete="nationality"
+                      >
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="gb">British</SelectItem>
+                          <SelectItem value="ca">Canadian</SelectItem>
+                          <SelectItem value="au">Australian</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="sm:col-span-3">
-                      <Label
-                        htmlFor="gender"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
+                      <Label className="block text-sm font-medium leading-6 text-gray-900">
                         Gender
                       </Label>
-                      <div className="mt-2">
-                        <select
-                          id="gender"
-                          name="gender"
-                          autoComplete="gender"
-                          className="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                          defaultValue={formData.resident_details.gender}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              resident_details: {
-                                ...formData.resident_details,
-                                gender: e.target.value,
-                              },
-                            });
-                          }}
-                        >
-                          <option value="male">Male</option>
-                          <option value="female">Female</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
+                      <Select
+                        name="gender"
+                        defaultValue={formData.resident_details.gender}
+                        onValueChange={(value) =>
+                          setFormData((current) => ({
+                            ...current,
+                            resident_details: {
+                              ...formData.resident_details,
+                              gender: value,
+                            },
+                          }))
+                        }
+                        autoComplete="gender"
+                      >
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="male">Male</SelectItem>
+                          <SelectItem value="female">Female</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="sm:col-span-3">
@@ -316,28 +327,29 @@ const Create = () => {
                       >
                         Country of residence
                       </Label>
-                      <div className="mt-2">
-                        <select
-                          id="country"
-                          name="country"
-                          autoComplete="country-name"
-                          className="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                          defaultValue={formData.resident_details.country}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              resident_details: {
-                                ...formData.resident_details,
-                                country: e.target.value,
-                              },
-                            });
-                          }}
-                        >
-                          <option value="gb">United Kingdom</option>
-                          <option value="au">Australia</option>
-                          <option value="ca">Canada</option>
-                        </select>
-                      </div>
+                      <Select
+                        name="country"
+                        autoComplete="country-name"
+                        defaultValue={formData.resident_details.country}
+                        onValueChange={(value) =>
+                          setFormData((current) => ({
+                            ...current,
+                            resident_details: {
+                              ...formData.resident_details,
+                              country: value,
+                            },
+                          }))
+                        }
+                      >
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="gb">United Kingdom</SelectItem>
+                          <SelectItem value="au">Australia</SelectItem>
+                          <SelectItem value="ca">Canada</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="col-span-full">
@@ -643,28 +655,29 @@ const Create = () => {
                       >
                         Country
                       </Label>
-                      <div className="mt-2">
-                        <select
-                          id="country"
-                          name="country"
-                          autoComplete="country-name"
-                          className="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                          defaultValue={formData.supporting_contact_details.country}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
-                              supporting_contact_details: {
-                                ...formData.supporting_contact_details,
-                                country: e.target.value,
-                              },
-                            });
-                          }}
-                        >
-                          <option value="gb">United Kingdom</option>
-                          <option value="au">Australia</option>
-                          <option value="ca">Canada</option>
-                        </select>
-                      </div>
+                      <Select
+                        name="country-contact"
+                        autoComplete="country-name"
+                        defaultValue={formData.supporting_contact_details.country}
+                        onValueChange={(value) =>
+                          setFormData((current) => ({
+                            ...current,
+                            supporting_contact_details: {
+                              ...formData.supporting_contact_details,
+                              country: value,
+                            },
+                          }))
+                        }
+                      >
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="gb">United Kingdom</SelectItem>
+                          <SelectItem value="au">Australia</SelectItem>
+                          <SelectItem value="ca">Canada</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div className="col-span-full">
@@ -858,27 +871,30 @@ const Create = () => {
                         Year of study
                       </Label>
                       <div className="mt-2">
-                        <select
-                          id="year_of_study"
+                        <Select
                           name="year_of_study"
-                          className="block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                           defaultValue={formData.course_details.year_of_study}
-                          onChange={(e) => {
-                            setFormData({
-                              ...formData,
+                          onValueChange={(value) =>
+                            setFormData((current) => ({
+                              ...current,
                               course_details: {
-                                ...formData.course_details,
-                                year_of_study: e.target.value,
+                                ...current.course_details,
+                                year_of_study: value,
                               },
-                            });
-                          }}
+                            }))
+                          }
                         >
-                          {gradeLevelOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.Label}
-                            </option>
-                          ))}
-                        </select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Foundation" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {gradeLevelOptions.map((option) => (
+                              <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </div>
                     </div>
                   </div>
@@ -886,14 +902,15 @@ const Create = () => {
               </div>
             </div>
 
-            <div className={'flex justify-end pt-10'}>
-              <Button type="submit" className={'py-3 px-8'}>
+            <div className="flex justify-end pt-10">
+              <Button size="lg" type="submit" className="py-3 px-8">
                 Make a payment
               </Button>
             </div>
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

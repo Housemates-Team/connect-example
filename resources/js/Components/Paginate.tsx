@@ -34,10 +34,7 @@ export const Paginate = ({ meta, onPageChange }: Props) => (
         </p>
       </div>
       <div>
-        <nav
-          className="isolate inline-flex -space-x-px rounded-md shadow-sm"
-          aria-Label="Pagination"
-        >
+        <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm">
           <PaginationLink
             className="rounded-l-md"
             onClick={() => onPageChange(meta.current_page - 1)}

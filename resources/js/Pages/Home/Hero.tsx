@@ -22,7 +22,6 @@ export const Hero = ({ locations }: HeroProps) => (
         locations={locations}
         defaultLocations={getDefaultLocations()}
         onSelect={(location) => {
-          console.info(location);
           window.location.href = `/${location.type}/${location.slug}`;
         }}
       />

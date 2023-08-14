@@ -5,6 +5,7 @@ import { useTypedPage } from '@/Hooks/useTypedPage';
 import { Stripe } from '@/Components/Stripe';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
+import { Footer } from '@/Layouts/Footer';
 
 const Payment = () => {
   const page = useTypedPage();
@@ -25,7 +26,14 @@ const Payment = () => {
       <Head title="Confirm payment" />
       <Banner />
       <HeaderNavigation />
-      <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div className="mt-8 mb-24">
+          <h1 className="text-3xl font-bold">Payment</h1>
+          <p className="text-gray-600 text-lg max-w-2xl mt-4">
+            Your room awaits! one last step to confirm your reservation, fill-in your bank details
+            and pay for the room
+          </p>
+        </div>
         <div className="space-y-5 mt-10">
           <div className="grid grid-cols-1 gap-x-8 gap-y-8 pt-10 md:grid-cols-3">
             <div className="px-4 sm:px-0">
@@ -44,7 +52,8 @@ const Payment = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </>
   );
 };

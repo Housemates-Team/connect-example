@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Head } from '@inertiajs/react';
+import route from 'ziggy-js';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { Banner } from '@/Components/Banner';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
@@ -14,8 +15,6 @@ const Results = () => {
   const page = useTypedPage();
   const { rooms } = page.props;
   const location = page.props.location as SearchLocation;
-
-  console.info(page.props.filters);
 
   // Compute the filters props from the url parameters
   const defaultFilters = useMemo(() => {
@@ -72,28 +71,41 @@ const Results = () => {
         <Hero locationName={location.name} />
         <div className="bg-gray-50 border-t py-16">
           <div className="container flex">
-            <Filters
-              defaultFilters={defaultFilters}
-              onFilterChange={({ prices, amenities, date }) => {
-                const newUrl = updateQueryParam(window.location, {
-                  min_price: prices ? String(prices[0]) : undefined,
-                  max_price: prices ? String(prices[1]) : undefined,
-                  amenities: amenities ? JSON.stringify(amenities) : undefined,
-                  date: date
-                    ? String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getFullYear()
-                    : undefined,
-                  page: '1',
-                });
-                console.info('p', date);
-                window.location.href = newUrl;
-              }}
-            />
-            {
-              // TODO: remove no_rooms props
-              !page.props.no_rooms && (
+            <>
+              <Filters
+                defaultFilters={defaultFilters}
+                onFilterChange={({ prices, amenities, date }) => {
+                  const newUrl = updateQueryParam(window.location, {
+                    min_price: prices ? String(prices[0]) : undefined,
+                    max_price: prices ? String(prices[1]) : undefined,
+                    amenities: amenities ? JSON.stringify(amenities) : undefined,
+                    date: date
+                      ? String(date.getMonth() + 1).padStart(2, '0') + '-' + date.getFullYear()
+                      : undefined,
+                    page: '1',
+                  });
+                  window.location.href = newUrl;
+                }}
+              />
+              {!page.props.no_rooms && (
                 <SearchResult rooms={rooms.data.items} meta={rooms.data.meta} />
-              )
-            }
+              )}
+              {page.props.no_rooms && (
+                <div className="h-min bg-white border w-full ml-8 p-10">
+                  <h1 className="text-2xl font-bold">No results found</h1>
+                  <p className="max-w-xl mt-2 text-gray-600">
+                    Sorry! No rooms were found for the current search. Please try again with
+                    different filters or browse our{' '}
+                    <a
+                      className="text-semibold underline hover:text-black"
+                      href={route('home.index')}
+                    >
+                      others locations
+                    </a>
+                  </p>
+                </div>
+              )}
+            </>
           </div>
         </div>
       </main>

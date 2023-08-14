@@ -1,5 +1,4 @@
 <?php
-// app/Http/Requests/EnquiryInput.php
 
 namespace App\Http\Requests;
 
