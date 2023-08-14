@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import React, { useState } from 'react';
-import { router, useForm } from '@inertiajs/react';
+import { useForm } from '@inertiajs/react';
 import route from 'ziggy-js';
 import { Modal } from '@/Components/Modal';
 import { Label } from '@/components/ui/label';

@@ -4,7 +4,7 @@ import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
 type Props = {
   policy: string;
-}
+};
 
 function PrivacyPolicy({ policy }: Props) {
   return (

@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import React, { PropsWithChildren } from 'react';
+import { cn } from '@/lib/utils';
 import { SectionTitle } from '@/Components/SectionTitle';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   description: string;
   renderActions?(): JSX.Element;
   onSubmit(): void;
-}
+};
 
 export function FormSection({
   onSubmit,

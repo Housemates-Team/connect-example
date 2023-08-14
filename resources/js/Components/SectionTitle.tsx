@@ -3,7 +3,7 @@ import React from 'react';
 type Props = {
   title: string;
   description: string;
-}
+};
 
 export function SectionTitle({ title, description }: Props) {
   return (

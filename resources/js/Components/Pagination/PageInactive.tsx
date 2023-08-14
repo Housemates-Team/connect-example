@@ -1,6 +1,6 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import { cn } from '@/lib/utils';
 import { PageLink as PageLinkProps } from '@/types';
 
 const PageInactive = ({ Label }: Pick<PageLinkProps, 'Label'>) => {

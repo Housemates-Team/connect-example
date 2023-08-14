@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from 'react';
 type Props = {
   href: string;
   active?: boolean;
-}
+};
 
 export function NavLink({ active, href, children }: PropsWithChildren<Props>) {
   const classes = active

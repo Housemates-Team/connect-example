@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from 'react';
 type Props = {
   on: boolean;
   className?: string;
-}
+};
 
 export function ActionMessage({ on, className, children }: PropsWithChildren<Props>) {
   return (

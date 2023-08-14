@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from 'react';
 type Props = {
   as?: string;
   href?: string;
-}
+};
 
 export function DropdownLink({ as, href, children }: PropsWithChildren<Props>) {
   return (

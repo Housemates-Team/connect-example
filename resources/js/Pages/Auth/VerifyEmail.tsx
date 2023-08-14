@@ -1,13 +1,13 @@
 import { Link, useForm, Head } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { AuthenticationCard } from '@/Components/AuthenticationCard';
 import { Button } from '@/components/ui/button';
 
 type Props = {
   status: string;
-}
+};
 
 function VerifyEmail({ status }: Props) {
   const route = useRoute();
@@ -37,10 +37,7 @@ function VerifyEmail({ status }: Props) {
 
       <form onSubmit={onSubmit}>
         <div className="mt-4 flex items-center justify-between">
-          <Button
-            className={cn({ 'opacity-25': form.processing })}
-            disabled={form.processing}
-          >
+          <Button className={cn({ 'opacity-25': form.processing })} disabled={form.processing}>
             Resend Verification Email
           </Button>
 

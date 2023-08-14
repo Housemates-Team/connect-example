@@ -77,10 +77,7 @@ function ResetPassword({ token, email }: Props) {
         </div>
 
         <div className="flex items-center justify-end mt-4">
-          <Button
-            className={cn({ 'opacity-25': form.processing })}
-            disabled={form.processing}
-          >
+          <Button className={cn({ 'opacity-25': form.processing })} disabled={form.processing}>
             Reset Password
           </Button>
         </div>

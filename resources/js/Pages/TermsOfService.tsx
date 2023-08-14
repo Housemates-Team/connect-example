@@ -4,7 +4,7 @@ import { AuthenticationCardLogo } from '@/Components/AuthenticationCardLogo';
 
 type Props = {
   terms: string;
-}
+};
 
 export function TermsOfService({ terms }: Props) {
   return (

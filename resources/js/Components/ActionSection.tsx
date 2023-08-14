@@ -4,7 +4,7 @@ import { SectionTitle } from '@/Components/SectionTitle';
 type Props = {
   title: string;
   description: string;
-}
+};
 
 export function ActionSection({ title, description, children }: PropsWithChildren<Props>) {
   return (

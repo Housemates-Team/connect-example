@@ -16,7 +16,7 @@ type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;
   room_id: string;
-}
+};
 export function Stripe({ data, submitData, room_id }: Props) {
   useEffect(() => {
     if (null === stripePromise) {

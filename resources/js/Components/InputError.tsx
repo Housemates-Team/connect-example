@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from 'react';
 type Props = {
   message?: string;
   className?: string;
-}
+};
 
 export function InputError({ message, className, children }: PropsWithChildren<Props>) {
   if (!message && !children) {

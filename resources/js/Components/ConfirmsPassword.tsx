@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, useRef, useState } from 'react';
+import { cn } from '@/lib/utils';
 import { useRoute } from '@/Hooks/useRoute';
 import { DialogModal } from '@/Components/DialogModal';
 import { InputError } from '@/Components/InputError';
@@ -13,7 +13,7 @@ type Props = {
   content?: string;
   button?: string;
   onConfirm(): void;
-}
+};
 
 export function ConfirmsPassword({
   title = 'Confirm Password',

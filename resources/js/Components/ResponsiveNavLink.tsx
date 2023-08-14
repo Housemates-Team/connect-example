@@ -1,6 +1,6 @@
 import { Link } from '@inertiajs/react';
-import { cn } from '@/lib/utils';
 import React, { PropsWithChildren } from 'react';
+import { cn } from '@/lib/utils';
 
 type Props =
   | {

@@ -1,13 +1,13 @@
 import { Transition } from '@headlessui/react';
-import { cn } from '@/lib/utils';
 import React, { PropsWithChildren, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 type Props = {
   align?: string;
   width?: string | number;
   contentClasses?: string;
   renderTrigger(): JSX.Element;
-}
+};
 
 export function Dropdown({
   align = 'right',
@@ -61,9 +61,7 @@ export function Dropdown({
           className={cn('absolute mt-2 rounded-md shadow-lg', widthClass, alignmentClasses)}
           onClick={() => setOpen(false)}
         >
-          <div
-            className={cn('rounded-md ring-1 ring-black ring-opacity-5', contentClasses)}
-          >
+          <div className={cn('rounded-md ring-1 ring-black ring-opacity-5', contentClasses)}>
             {children}
           </div>
         </button>
