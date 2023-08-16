@@ -26,6 +26,6 @@ export const Hero = ({ locations }: HeroProps) => (
         }}
       />
     </div>
-    <div className="w-[429px] h-[330px] bg-gray-100" />
+    <img className="w-[429px] h-[330px]" src="/images/home-hero.png" alt="hero" />
   </div>
 );

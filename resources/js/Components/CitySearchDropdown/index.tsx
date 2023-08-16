@@ -9,15 +9,19 @@ import {
   CommandSeparator,
 } from '@/Common/command';
 
-export type SearchLocation = { type: 'university' | 'city'; name: string; slug: string };
+export type SearchLocation =
+  | { type: 'city'; name: string; slug: string }
+  | { type: 'university'; name: string; slug: string; city: { name: string; slug: string } };
+
+type TrimmedSearchLocation = Pick<SearchLocation, 'type' | 'slug' | 'name'>;
 
 type CitySearchDropdownProps = {
   // when undefined show the default view
-  locations: SearchLocation[];
+  locations: TrimmedSearchLocation[];
   // The dropdown is open by default with the given locations
-  defaultLocations: SearchLocation[];
+  defaultLocations: TrimmedSearchLocation[];
 
-  onSelect: (location: SearchLocation) => void;
+  onSelect: (location: TrimmedSearchLocation) => void;
 };
 
 export const CitySearchDropdown = ({
@@ -37,7 +41,7 @@ export const CitySearchDropdown = ({
     [shownLocations],
   );
 
-  const select = (location: SearchLocation) => () => onSelect(location);
+  const select = (location: TrimmedSearchLocation) => () => onSelect(location);
 
   return (
     <div className="mt-4 h-[170px] w-full relative">

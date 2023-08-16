@@ -56,7 +56,8 @@ class ResultsController extends Controller
             'slug' => $locationRaw['slug'],
             'lat' => $locationRaw['coordinates']['lat'],
             'lng' => $locationRaw['coordinates']['long'],
-            'type' => 'city',
+            'city' => $locationRaw['city'],
+            'type' => 'university',
         ]);
     }
 

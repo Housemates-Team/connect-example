@@ -62,13 +62,18 @@ const Results = () => {
     };
   }, []);
 
+  console.info(location);
+
   return (
     <>
       <Head title="Rooms" />
       <Banner />
       <HeaderNavigation />
       <main>
-        <Hero locationSlug={location.slug} locationName={location.name} />
+        <Hero
+          citySlug={location.type === 'city' ? location.slug : location.city.slug}
+          locationName={location.name}
+        />
         <div className="bg-gray-50 border-t py-16">
           <div className="container flex">
             <>

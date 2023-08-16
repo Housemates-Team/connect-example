@@ -2,11 +2,11 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 type HeroProps = {
-  locationSlug: string;
+  citySlug: string;
   locationName: string;
 };
 
-export const Hero = ({ locationSlug, locationName }: HeroProps) => (
+export const Hero = ({ citySlug, locationName }: HeroProps) => (
   <div className="container flex py-12 gap-8 justify-evenly items-center">
     <div>
       <h1 className="text-4xl font-bold max-w-[500px]">
@@ -21,7 +21,7 @@ export const Hero = ({ locationSlug, locationName }: HeroProps) => (
       <img
         alt="city"
         className="object-cover w-full h-full rounded-lg"
-        src={`/images/locations/thumbnails/${locationSlug}.webp`}
+        src={`/images/locations/thumbnails/${citySlug}.webp`}
       />
     </div>
   </div>

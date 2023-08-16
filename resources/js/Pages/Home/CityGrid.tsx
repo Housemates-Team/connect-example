@@ -19,9 +19,20 @@ export const CityGrid = () => (
             <a
               key={cityName}
               href={`/city/${cityName.toLowerCase()}`}
-              className="relative h-[140px] bg-gray-700 text-white "
+              className="relative h-[140px] text-white "
             >
-              <p className="absolute left-4 bottom-4">{cityName}</p>
+              <div
+                style={{
+                  background: 'linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0))',
+                }}
+                className="w-full rounded-md h-[40%] bottom-0 absolute"
+              />
+              <img
+                className="object-cover rounded-md w-full h-full"
+                alt={cityName}
+                src={`/images/locations/small/${cityName.toLowerCase()}.webp`}
+              />
+              <p className="absolute left-4 bottom-2 shadow font-semibold">{cityName}</p>
             </a>
           )),
         )}

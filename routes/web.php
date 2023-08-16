@@ -18,8 +18,8 @@ Route::post('/enquire', EnquiryController::class)->name('enquiry');
 Route::post('/room/{room_id}/checkout/init', CheckoutInitController::class)->name('checkout.init');
 
 Route::get('/room/{room_id}/checkout', CheckoutStartController::class)->name('checkout.start');
-Route::get('/room/{room_id}/checkout/payment', [CheckoutConfirmController::class,'create'])->name('checkout.payment');
-Route::post('/room/{room_id}/checkout/confirm', [CheckoutConfirmController::class,'store'])->name('checkout.confirm');
+Route::get('/room/{room_id}/checkout/payment', [CheckoutConfirmController::class, 'create'])->name('checkout.payment');
+Route::post('/room/{room_id}/checkout/confirm', [CheckoutConfirmController::class, 'store'])->name('checkout.confirm');
 Route::get('/room/{room_id}/checkout/success', function (Request $request, $room_id) {
     /** @var \Housemates\ConnectApi\ApiClient $apiClient */
     $apiClient = app('apiClient');
