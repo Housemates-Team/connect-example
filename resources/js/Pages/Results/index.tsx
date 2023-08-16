@@ -68,7 +68,7 @@ const Results = () => {
       <Banner />
       <HeaderNavigation />
       <main>
-        <Hero locationName={location.name} />
+        <Hero locationSlug={location.slug} locationName={location.name} />
         <div className="bg-gray-50 border-t py-16">
           <div className="container flex">
             <>
