@@ -27,7 +27,7 @@ class RoomResultsInput extends FormRequest
             $filter->setPriceRangeFilter($priceFilter);
         }
 
-        $amenities = $this->input('amenities', []);
+        $amenities = json_decode($this->input('amenities', '[]'));
         if (!empty($amenities)) {
             $amenityFilter = '[' . implode('.', array_map(fn($x) => $x . '=true', $amenities)) . ']';
             $filter->setAmenitiesFilter($amenityFilter);

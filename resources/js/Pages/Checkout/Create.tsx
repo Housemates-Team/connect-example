@@ -138,7 +138,7 @@ const Create = () => {
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        First name
+                        First name <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -166,7 +166,7 @@ const Create = () => {
                         htmlFor="last-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Last name
+                        Last name <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -190,7 +190,9 @@ const Create = () => {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <Label htmlFor="email">Email address</Label>
+                      <Label htmlFor="email">
+                        Email address <span className="text-sm mb-1 text-gray-400">*</span>
+                      </Label>
                       <Input
                         id="email"
                         name="email"
@@ -214,7 +216,7 @@ const Create = () => {
                         htmlFor="contact_number"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Contact Number
+                        Contact Number <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -241,7 +243,7 @@ const Create = () => {
                         htmlFor="date_of_birth"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Date of birth
+                        Date of birth <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -266,7 +268,7 @@ const Create = () => {
 
                     <div className="sm:col-span-3">
                       <Label className="block text-sm font-medium leading-6 text-gray-900">
-                        Nationality
+                        Nationality <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <Select
                         name="nationality"
@@ -295,7 +297,7 @@ const Create = () => {
 
                     <div className="sm:col-span-3">
                       <Label className="block text-sm font-medium leading-6 text-gray-900">
-                        Gender
+                        Gender <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <Select
                         name="gender"
@@ -327,7 +329,7 @@ const Create = () => {
                         htmlFor="country"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Country of residence
+                        Country of residence <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <Select
                         name="country"
@@ -359,7 +361,7 @@ const Create = () => {
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Street address
+                        Street address <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -387,7 +389,7 @@ const Create = () => {
                         htmlFor="city"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        City
+                        City <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -415,7 +417,7 @@ const Create = () => {
                         htmlFor="region"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        State / Region
+                        State / Region <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -443,7 +445,7 @@ const Create = () => {
                         htmlFor="postal-code"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        ZIP / Postal code
+                        ZIP / Postal code <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -489,7 +491,7 @@ const Create = () => {
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        First name
+                        First name <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -517,7 +519,7 @@ const Create = () => {
                         htmlFor="last-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Last name
+                        Last name <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -545,7 +547,7 @@ const Create = () => {
                         htmlFor="email"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Email address
+                        Email address <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -572,7 +574,7 @@ const Create = () => {
                         htmlFor="contact_number"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Contact Number
+                        Contact Number <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -599,7 +601,7 @@ const Create = () => {
                         htmlFor="date_of_birth"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Date of birth
+                        Date of birth <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -627,7 +629,7 @@ const Create = () => {
                         htmlFor="nationality"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Relationship
+                        Relationship <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -655,7 +657,7 @@ const Create = () => {
                         htmlFor="country"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Country
+                        Country <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <Select
                         name="country-contact"
@@ -687,7 +689,7 @@ const Create = () => {
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Street address
+                        Street address <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -715,7 +717,7 @@ const Create = () => {
                         htmlFor="city"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        City
+                        City <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -743,7 +745,7 @@ const Create = () => {
                         htmlFor="region"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        State / Region
+                        State / Region <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -771,7 +773,7 @@ const Create = () => {
                         htmlFor="postal-code"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        ZIP / Postal code
+                        ZIP / Postal code <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -816,7 +818,7 @@ const Create = () => {
                         htmlFor="university"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        University
+                        University <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -843,7 +845,7 @@ const Create = () => {
                         htmlFor="course_title"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Course Title
+                        Course Title <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Input
@@ -870,7 +872,7 @@ const Create = () => {
                         htmlFor="year_of_study"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Year of study
+                        Year of study <span className="text-sm mb-1 text-gray-400">*</span>
                       </Label>
                       <div className="mt-2">
                         <Select

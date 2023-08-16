@@ -41,7 +41,7 @@ export const Filters = ({ defaultFilters, onFilterChange }: FiltersProps) => {
           <Button onClick={applyFilters}>Apply</Button>
         </div>
       </div>
-      <div className="flex flex-col gap-6 mt-8">
+      <div className="flex flex-col gap-3 mt-8">
         <div>
           <p className="mb-6 font-semibold text-sm"> Select price </p>
           <PriceSlider defaultValue={prices} onPriceChange={(min, max) => setPrices([min, max])} />
@@ -54,7 +54,7 @@ export const Filters = ({ defaultFilters, onFilterChange }: FiltersProps) => {
           />
         </div>
         <div>
-          <p className="mb-4 font-semibold text-sm"> Select features </p>
+          <p className="mb-4 font-semibold mt-5 text-sm"> Select features </p>
           <AmenitiesPicker
             defaultValue={amenities ?? null}
             onValueChange={(values) => setAmenities(values ?? undefined)}
