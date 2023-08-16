@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 
 class CheckoutConfirmController extends Controller
 {
-    public function create($room_id)
+    public function create(Request $request, $room_id)
     {
+        $checkoutParams = $request->session()->get('checkout');
+
+        // Redirect the user if he has another checkout session active
+        if ($checkoutParams == null || $checkoutParams['room']['id'] !== $room_id) {
+            return redirect()->route('listing', [ 'room_id' => $room_id ]);
+        }
+
         return inertia('Checkout/Payment', [
-            'room_id' => $room_id,
+            'room' => $checkoutParams['room'],
+            'booking_period' => $checkoutParams['booking_period'],
         ]);
     }
 

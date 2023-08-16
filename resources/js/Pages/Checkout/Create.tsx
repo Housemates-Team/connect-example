@@ -9,6 +9,7 @@ import { Label } from '@/Common/label';
 import { Button } from '@/Common/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/Common/select';
 import { Footer } from '@/Layouts/Footer';
+import { CheckoutHeader } from './CheckoutHeader';
 
 const gradeLevelOptions = [
   { label: 'Foundation', value: 'Foundation' },
@@ -39,7 +40,7 @@ const gradeLevelOptions = [
 const Create = () => {
   const page = useTypedPage();
   const { data } = page.props.checkout;
-  const { room_id } = page.props;
+  const { room, booking_period } = page.props as any;
   const { data: formData, setData: setFormData } = useForm({
     session_token: data.session_token,
     paying_in_instalments: true,
@@ -80,6 +81,7 @@ const Create = () => {
     },
   });
 
+  console.info(booking_period);
   const [checkoutData, setCheckoutData] = useLocalStorage('checkoutData', {
     formData: formData,
     data: data,
@@ -94,7 +96,7 @@ const Create = () => {
       data: data,
     });
 
-    router.visit(`/rooms/${room_id}/checkout/payment`);
+    router.visit(`/room/${room.id}/checkout/payment`);
   };
 
   return (
@@ -102,7 +104,13 @@ const Create = () => {
       <Head title="Confirm payment" />
       <Banner />
       <HeaderNavigation />
-      <div className="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+      <CheckoutHeader
+        roomId={room.id}
+        roomName={room.name}
+        propertyName={room.property.name}
+        bookingPeriod={booking_period}
+      />
+      <div className="container py-10 px-32">
         <div className="mt-8 mb-24">
           <h1 className="text-3xl font-bold">Fill in your details</h1>
           <p className="text-gray-600 text-lg max-w-2xl mt-4">

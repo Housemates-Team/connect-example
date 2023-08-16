@@ -66,8 +66,8 @@ export function CheckoutForm({ submitData, room_id }: Props) {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
-        return_url: `http://localhost/rooms/${room_id}/checkout/payment`,
+        // TODO: Make sure to change this to your payment completion page
+        return_url: `http://localhost/room/${room_id}/checkout/payment`,
       },
     });
 

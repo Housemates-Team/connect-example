@@ -14,11 +14,18 @@ class CheckoutStartController extends Controller
     {
         /** @var ApiClient $apiClient */
         $apiClient = app('apiClient');
+
         $checkoutStartRequest = new CheckoutStartRequest;
         $checkoutParams = $request->session()->get('checkout');
+
+        // Redirect the user if he has another checkout session active
+        if ($checkoutParams == null || $checkoutParams['room']['id'] !== $room_id) {
+            return redirect()->route('listing', [ 'room_id' => $room_id ]);
+        }
+
         $checkoutStartRequest
             ->setRoomId($room_id)
-            ->setBookingPeriodId($checkoutParams['booking_period_id'])
+            ->setBookingPeriodId($checkoutParams['booking_period']['id'])
             ->setOperatorId($checkoutParams['operator_id']);
 
         try{
@@ -28,8 +35,9 @@ class CheckoutStartController extends Controller
             ), true);
 
             return inertia('Checkout/Create', [
+                'room' => $checkoutParams['room'],
+                'booking_period' => $checkoutParams['booking_period'],
                 'checkout' => $checkoutStartArray,
-                'room_id' => $room_id,
             ]);
 
         }catch (ApiException | \Exception $e){

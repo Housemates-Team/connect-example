@@ -55,7 +55,7 @@ const BookingPeriod = ({ room_id, period, operator_id }: Props) => {
           {convertToDate(period.start_date)} -{convertToDate(period.end_date)}
         </span>
       </p>
-      <p className="font-bold mt-2">{period.price_per_week}</p>
+      <p className="font-bold mt-2">{period.price_per_week} / week</p>
     </button>
   );
 };

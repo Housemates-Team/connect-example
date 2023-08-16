@@ -72,7 +72,11 @@ const Listing = () => {
                   room_id={data.item.id}
                 />
               ))}
-              <Button variant="outline" onClick={() => setEnquiryModal(true)}>
+              <Button
+                className="w-full h-12 flex gap-2 mt-6"
+                variant="outline"
+                onClick={() => setEnquiryModal(true)}
+              >
                 <img alt="chat" src="/icons/ChatBubble.svg" />
                 <span>Enquire now</span>
               </Button>
