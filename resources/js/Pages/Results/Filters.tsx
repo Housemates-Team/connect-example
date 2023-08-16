@@ -48,7 +48,10 @@ export const Filters = ({ defaultFilters, onFilterChange }: FiltersProps) => {
         </div>
         <div>
           <p className="mb-4 font-semibold text-sm"> Select move in date </p>
-          <MonthYearPicker onValueChange={(date) => setDate(date ?? undefined)} />
+          <MonthYearPicker
+            value={date ?? null}
+            onValueChange={(date) => setDate(date ?? undefined)}
+          />
         </div>
         <div>
           <p className="mb-4 font-semibold text-sm"> Select features </p>
