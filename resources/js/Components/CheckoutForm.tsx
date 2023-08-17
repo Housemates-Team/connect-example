@@ -12,9 +12,10 @@ type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;
   room_id: string;
+  url: string;
 };
 
-export function CheckoutForm({ submitData, room_id }: Props) {
+export function CheckoutForm({ submitData, room_id, url }: Props) {
   const stripe = useStripe();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const elements = useElements();
@@ -62,7 +63,7 @@ export function CheckoutForm({ submitData, room_id }: Props) {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `http://localhost/room/${room_id}/checkout/payment`,
+        return_url: `${url}/room/${room_id}/checkout/payment`,
       },
     });
 

@@ -16,8 +16,9 @@ type Props = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   submitData: (data: any) => void;
   room_id: string;
+  url: string;
 };
-export function Stripe({ data, submitData, room_id }: Props) {
+export function Stripe({ data, submitData, room_id, url }: Props) {
   useEffect(() => {
     if (null === stripePromise) {
       stripePromise = loadStripe(data.stripe.public_key);
@@ -31,7 +32,7 @@ export function Stripe({ data, submitData, room_id }: Props) {
     <div className="App">
       {clientSecret && (
         <Elements options={{ clientSecret, appearance }} stripe={stripePromise}>
-          <CheckoutForm submitData={submitData} room_id={room_id} />
+          <CheckoutForm submitData={submitData} room_id={room_id} url={url} />
         </Elements>
       )}
     </div>

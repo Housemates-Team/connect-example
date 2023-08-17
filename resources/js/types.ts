@@ -51,6 +51,7 @@ export type InertiaSharedProps<T = Record<string, unknown>> = T & {
   rooms: RoomApiResponse;
   room: ShowRoomApiResponse;
   checkout: CheckoutApiResponse;
+  application_url: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errorBags: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

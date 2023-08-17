@@ -13,9 +13,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('apiClient', function () {
             $configuration = new \Housemates\ConnectApi\Configuration();
-            $configuration->setHost('https://api.dev-housemates.io')
-                ->setAccessToken('8|RBvxp9x4yQ2HYT3VVVgANfRF8TipkNlNYCpZmLsz')
-                ->setApiPartnerId('01H6NWTD68Z9N3M5N71S1Y92YP');
+            $configuration->setHost(config('connect.host_url'))
+                ->setAccessToken(config('connect.access_token'))
+                ->setApiPartnerId(config('connect.api_partner_id'));
 
             return new \Housemates\ConnectApi\ApiClient($configuration);
         });

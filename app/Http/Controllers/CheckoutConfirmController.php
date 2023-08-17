@@ -22,6 +22,7 @@ class CheckoutConfirmController extends Controller
         return inertia('Checkout/Payment', [
             'room' => $checkoutParams['room'],
             'booking_period' => $checkoutParams['booking_period'],
+            'application_url' => config('app.url'),
         ]);
     }
 

@@ -13,7 +13,8 @@ const Payment = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkoutData: any = useReadLocalStorage('checkoutData');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { room, booking_period } = page.props as any;
+  const { room, booking_period, application_url } = page.props as any;
+
   const { formData, data } = checkoutData;
   const { post } = useForm({ ...formData, room_id: room.id });
 
@@ -54,7 +55,7 @@ const Payment = () => {
 
             <div className="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
               <div className="px-4 py-6 sm:p-8">
-                <Stripe data={data} submitData={handleSubmit} room_id={room.id} />
+                <Stripe data={data} submitData={handleSubmit} room_id={room.id} url={application_url} />
               </div>
             </div>
           </div>

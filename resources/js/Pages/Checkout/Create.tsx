@@ -81,7 +81,6 @@ const Create = () => {
     },
   });
 
-  console.info(booking_period);
   const [checkoutData, setCheckoutData] = useLocalStorage('checkoutData', {
     formData: formData,
     data: data,
