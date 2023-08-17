@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Housemates\ConnectApi\ApiClient;
+use Illuminate\Validation\ValidationException;
 use Housemates\ConnectApi\Exceptions\ApiException;
 use Housemates\ConnectApi\Requests\CheckoutCompleteRequest;
 use Illuminate\Http\Request;
@@ -44,8 +45,12 @@ class CheckoutConfirmController extends Controller
             return redirect()->route('checkout.success', [
                 'room_id' => $request->input('room_id'),
             ]);
-        }catch (ApiException|\Exception $e){
-            dd($e);
+        } catch (ApiException | \Exception $e){
+            if ($e instanceof ApiException && str_contains($e->getMessage(), "api.booking_already_completed")) {
+                return redirect()->route('checkout.success', [
+                    'room_id' => $request->input('room_id'),
+                ]);
+            }
             return redirect()->back()->with('error', $e->getMessage());
         }
     }

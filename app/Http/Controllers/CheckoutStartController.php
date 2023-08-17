@@ -40,8 +40,7 @@ class CheckoutStartController extends Controller
                 'checkout' => $checkoutStartArray,
             ]);
 
-        }catch (ApiException | \Exception $e){
-            dd($e);
+        } catch (ApiException | \Exception $e){
             return redirect()->back()->with('error', $e->getMessage());
         }
     }

@@ -5,6 +5,7 @@ import {
   useElements,
   useStripe,
 } from '@stripe/react-stripe-js';
+import { InputError } from '@/Components/InputError';
 import { Button } from '@/Common/button';
 
 type Props = {
@@ -15,37 +16,32 @@ type Props = {
 
 export function CheckoutForm({ submitData, room_id }: Props) {
   const stripe = useStripe();
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
   const elements = useElements();
-
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (!stripe) {
-      return;
-    }
+    if (!stripe) return;
 
     const clientSecret = new URLSearchParams(window.location.search).get(
       'payment_intent_client_secret',
     );
 
-    if (!clientSecret) {
-      return;
-    }
+    if (!clientSecret) return;
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent?.status as string) {
         case 'succeeded':
-          //setMessage('Payment succeeded!');
           submitData(paymentIntent);
           break;
         case 'processing':
-          //setMessage('Your payment is processing.');
+          setIsLoading(true);
           break;
         case 'requires_payment_method':
-          //setMessage('Your payment was not successful, please try again.');
+          setErrorMessage('Your payment was not successful, please try again.');
           break;
         default:
-          //setMessage('Something went wrong.');
+          setErrorMessage('An unknown error occured during payment.');
           break;
       }
     });
@@ -75,10 +71,8 @@ export function CheckoutForm({ submitData, room_id }: Props) {
     // your `return_url`. For some payment methods like iDEAL, your customer will
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
-    if (error.type === 'card_error' || error.type === 'validation_error') {
-      //setMessage(error?.message as string);
-    } else {
-      //setMessage('An unexpected error occurred.');
+    if (error) {
+      setErrorMessage(error.message);
     }
 
     setIsLoading(false);
@@ -90,14 +84,7 @@ export function CheckoutForm({ submitData, room_id }: Props) {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <LinkAuthenticationElement
-        id="link-authentication-element"
-        onChange={() => {
-          //if (e?.target) {
-          //setEmail(e.target.value);
-          //}
-        }}
-      />
+      <LinkAuthenticationElement id="link-authentication-element" />
       <PaymentElement id="payment-element" options={paymentElementOptions} className={'mt-5'} />
       <div className="flex justify-end mt-5">
         <Button
@@ -136,6 +123,7 @@ export function CheckoutForm({ submitData, room_id }: Props) {
           )}
         </Button>
       </div>
+      {errorMessage && <InputError className="mt-2" message={errorMessage} />}
     </form>
   );
 }
