@@ -17,7 +17,7 @@ Housemates Connect is an innovative platform that offers a range of capabilities
 ```bash
 git clone https://github.com/yourusername/housemates-connect-test-project.git
 ```
-** Copy & set the right environment variables:**
+**Copy & set the right environment variables:**
 ```bash
 cp .env.example .env
 ```
