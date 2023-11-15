@@ -5,12 +5,14 @@ import { Head } from '@inertiajs/react';
 import { useTypedPage } from '@/Hooks/useTypedPage';
 import { BannerImages } from '@/Components/Room/BannerImages';
 import { Amenity } from '@/Components/Room/Amenity';
-import { BookingPeriod } from '@/Components/Room/BookingPeriod';
+import { ApiCheckoutForm } from '@/Components/Room/ApiCheckoutForm';
 import { HeaderNavigation } from '@/Layouts/HeaderNavigation';
 import { Banner } from '@/Components/Banner';
 import { Footer } from '@/Layouts/Footer';
 import { Button } from '@/Common/button';
+import HostedCheckoutForm from '@/Components/Room/HostedCheckoutForm';
 import { EnquiryModal } from './EnquiryModal';
+import BookingPeriodDescription from '@/Components/Room/BookingPeriodDescription';
 
 // eslint-disable-next-line import/no-named-as-default-member
 dayjs.extend(customParseFormat);
@@ -50,8 +52,8 @@ const Listing = () => {
               <div className="grid grid-cols-5 gap-4 pt-5">
                 {amenities.length > 0 &&
                   amenities.map(
-                    (amenity) =>
-                      amenity.status && <Amenity amenity={amenity} key={amenity.Label} />,
+                    (amenity, idx) =>
+                      amenity.status && <Amenity amenity={amenity} key={`${amenity.Label}-${idx}`} />,
                   )}
               </div>
             </div>
@@ -65,12 +67,26 @@ const Listing = () => {
                 Available booking periods
               </h4>
               {data.item.booking_periods.map((period) => (
-                <BookingPeriod
-                  key={period.id}
-                  period={period}
-                  operator_id={data.item.operator_id}
-                  room_id={data.item.id}
-                />
+                <div>
+                    <BookingPeriodDescription
+                        key={period.id}
+                        period={period}
+                        operator_id={data.item.operator_id}
+                        room_id={data.item.id}
+                    />
+                  {/*<BookingPeriod*/}
+                  {/*  key={period.id}*/}
+                  {/*  period={period}*/}
+                  {/*  operator_id={data.item.operator_id}*/}
+                  {/*  room_id={data.item.id}*/}
+                  {/*/>*/}
+                  {/*<HostedCheckout*/}
+                  {/*  key={`${period.id}-${data.item.id}`}*/}
+                  {/*  room_id={data.item.id}*/}
+                  {/*  operator_id={data.item.operator_id}*/}
+                  {/*  booking_period_id={period.id}*/}
+                  {/*/>*/}
+                </div>
               ))}
               <Button
                 className="w-full h-12 flex gap-2 mt-6"
