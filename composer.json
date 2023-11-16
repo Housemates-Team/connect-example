@@ -7,7 +7,7 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
-        "housemates/connect-api": "dev-development",
+        "housemates/connect-api": "^0.4",
         "inertiajs/inertia-laravel": "^0.6.8",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^3.2",
@@ -57,12 +57,6 @@
             "dont-discover": []
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "~/Packages/connect-php-sdk"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
