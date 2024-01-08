@@ -4,9 +4,10 @@ import { cn } from '@/lib/utils';
 type HeroProps = {
   citySlug: string;
   locationName: string;
+  handleGeneralEnquiryClick: () => void;
 };
 
-export const Hero = ({ citySlug, locationName }: HeroProps) => (
+export const Hero = ({ citySlug, locationName, handleGeneralEnquiryClick }: HeroProps) => (
   <div className="container flex py-12 gap-8 justify-evenly items-center">
     <div>
       <h1 className="text-4xl font-bold max-w-[500px]">
@@ -16,6 +17,13 @@ export const Hero = ({ citySlug, locationName }: HeroProps) => (
           {locationName}
         </span>
       </h1>
+        <div className="mt-5">
+            <button
+                onClick={handleGeneralEnquiryClick}
+                className="bg-black text-white px-6 py-3 rounded-md font-semibold text-lg">
+                Enquire now
+            </button>
+        </div>
     </div>
     <div className="w-[530px] h-[216px] relative bg-gray-100">
       <img
