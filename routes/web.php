@@ -32,7 +32,10 @@ Route::get('/room/{room_id}/checkout/success', CheckoutSuccessController::class)
 
 
 Route::post('/webhooks', function (Request $request) {
-    Log::info($request->all());
+    Log::info('webhook received', [
+        'headers' => $request->headers->all(),
+        'content' => $request->all()
+    ]);
     // dd('yes');
     return response()->json([
         'success' => true
