@@ -31,12 +31,8 @@ class HostedCheckoutController extends Controller
 
             $checkoutData = $checkoutStartArray['data'];
             $checkoutUrl = data_get($checkoutData, 'checkout_url');
-            $http_query = http_build_query([
-                'token' => data_get($checkoutData, 'session_token'),
-            ]);
-            $redirectUrl = $checkoutUrl.'?'.$http_query;
 
-           return inertia()->location($redirectUrl);
+            return inertia()->location($checkoutUrl);
 
         }catch (ApiException | Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
