@@ -1,4 +1,4 @@
-# Unihome
+# Connect Example
 ### Welcome to the Housemates Connect API Test Project! 🎉
 
 This repository is a practical demonstration of how one can leverage the Housemates Connect API using the official Connect API SDK. If you've been looking to understand the ins and outs of integrating with the Housemates Connect API, you're in the right place!
@@ -15,7 +15,7 @@ Housemates Connect is an innovative platform that offers a range of capabilities
 
 **Clone the Repository:**
 ```bash
-git clone https://github.com/yourusername/housemates-connect-test-project.git
+git clone https://github.com/Housemates-Team/connect-example.git
 ```
 **Copy & set the right environment variables:**
 ```bash
